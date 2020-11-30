@@ -55,9 +55,11 @@ sudo -i
 sudo kompose convert -f docker-compose.yaml -o localregistry.yaml
 
 
-### Create deployment
+### Dry run. Print the corresponding API objects without creating them.
 ```bash
 kubectl create deployment drytry --image=nginx --dry-run=client -o yaml
+
+k create deployment drytry -o yaml --image=nginx --dry-run=client > job1.yaml
 
 sudo docker tag ubuntu:latest 10.110.186.162:5000/tagtest
 sudo docker pull 10.110.186.162:5000/tagtest
@@ -67,6 +69,24 @@ kubectl scale deployment try1 --replicas=6
 
 ```
 
+### Deleting | Stopping 
+```bash
+kubectl delete --all pods --namespace=foo
+kubectl delete --all deployments --namespace=foo
+kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all
+
+```
+
+kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
+
+
+
 ### Kubernetes Liveness and Readiness Probes
+
+03 ways to implement Liveness and Readiness:
+
+01. Running a command inside a container
+02. Making an HTTP request against a container
+03. pening a TCP socket against a container.
 
 
