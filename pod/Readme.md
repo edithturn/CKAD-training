@@ -3,8 +3,8 @@
 ## Example 01 - 01-pod-definition.yml
 
 ```bash
+# Creating the pod
 kubectl create -f 01-pod-definition.yml
-kubectl get pod
 ```
 
 ```console
