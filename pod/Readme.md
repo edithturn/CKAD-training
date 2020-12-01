@@ -2,12 +2,12 @@
 
 ## Example 01 - 01-pod-definition.yml
 
-```bash
+```kubectl
 kubectl create -f 01-pod-definition.yml
 kubectl get pod
 ```
 
-```bash
+```bash-color
 edith@master:~$ kubectl get pods
 NAME        READY   STATUS    RESTARTS   AGE
 myapp-pod   1/1     Running   1          33m
