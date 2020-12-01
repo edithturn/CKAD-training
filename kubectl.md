@@ -1,6 +1,48 @@
 # Kubectl
 
 
+## Getting Starting
+```bash
+kubectl run hello-minikube
+kubectl cluster-info
+kubectl get nodes
+```
+
+## Pods
+```bash
+kubectl run nginx --image nginx
+kubectl get pods
+
+```
+## Yaml
+
+### Requiered fields:
+* apiVersion
+* kind
+* metadata
+* spec
+
+pod-definition.yml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels: 
+  	app: my-frontend-app
+  	type: front-end
+spec:
+ containers:
+    - name: nginx-container
+      image: nginx
+
+```
+```bash
+kubectl get pod
+kubectl describe pod myapp-pod
+```
+
+
 ### Basic commands
 ```bash
 * kubectl api-resources
@@ -18,6 +60,8 @@
 * kubectl get deployment, pod
 * kubectl get namespaces
 * kubectl get pod -n kube-system
+
+
 * kubectl get pod -n default
 
 # View resources in all namespaces at once. 
