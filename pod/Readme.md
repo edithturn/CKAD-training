@@ -8,7 +8,7 @@ kubectl create -f 01-pod-definition.yml
 ```
 
 ```console
-edith@master:~$ kubectl get pods
+kubectl get pods
 NAME        READY   STATUS    RESTARTS   AGE
 myapp-pod   1/1     Running   1          33m
 ```
