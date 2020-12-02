@@ -7,25 +7,53 @@ kubectl run hello-minikube
 kubectl cluster-info
 kubectl get nodes
 ```
-## Pods
-
+## Namespaces
 ```bash
 kubectl get namespaces
 kubectl get pods --all-namespaces
-kubectl get pods -o wide
 ```
+## Yaml
+
+### Requiered fields:
+* apiVersion
+* kind
+* metadata
+* spec
+
+**pod-definition.yml**
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels: 
+  	app: my-frontend-app
+  	type: front-end
+spec:
+ containers:
+    - name: nginx-container
+      image: nginx
+```
+## Pods
 ```bash
 kubectl run nginx --image nginx
 kubectl get pods
+
+# More details about pods
+kubectl get pods -o wide
+kubectl  describe pod basicpod
 ```
 ```bash
+# Creating pods based in yml files
 kubectl create -f my-app.yaml
 kubectl apply -f my-app.yaml
 ```
-## Replication Controller | Replica Set (new recommended way)
+## Replication Controller | Replica Set 
+
 The major difference between replication controller and replica set. 
 is **selector**
 "Selector" is requeired in replica set.
+*ReplicaSet is the new recommended way fro scaling*
 
 ```bash
 # Replication Controller
@@ -39,50 +67,23 @@ kuebectl get pods
 kubectl create -f rc-definition.yaml
 kubectl get replicationcontroller
 kuebectl get pods
+
 # Also delete all the pods into this replicaset
 kubectl delete replicaset myapp-replicaset
 kubectl replace -f replicaset-definitionyml
 kubectl scale -replicas=6 -f replicaset-definition.yml
 ```
-## Yaml
 
-### Requiered fields:
-* apiVersion
-* kind
-* metadata
-* spec
-
-pod-definition.yml
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: myapp-pod
-  labels: 
-  	app: my-frontend-app
-  	type: front-end
-spec:
- containers:
-    - name: nginx-container
-      image: nginx
-
-```
+## Basic Commands
 ```bash
+kubectl api-resources
+kubectl create -f basic.yaml
 kubectl get pod
-kubectl describe pod myapp-pod
+kubectl  describe pod basicpod
+
 ```
 
-
-### Basic commands
-```bash
-* kubectl api-resources
-* kubectl create -f basic.yaml
-* kubectl get pod
-* kubectl  describe pod basicpod
-* kubectl get pod -o wide
-```
-
-### Expose the port to the clister
+### Expose the port to the cluster
 ```bash
 # Adding type NodePort in the service
 * kubectl delete basicpod ; kubectl create -f basic.yaml
@@ -90,8 +91,6 @@ kubectl describe pod myapp-pod
 * kubectl get deployment, pod
 * kubectl get namespaces
 * kubectl get pod -n kube-system
-
-
 * kubectl get pod -n default
 
 # View resources in all namespaces at once. 
@@ -119,7 +118,7 @@ kubectl delete deployment firstpod
 sudo -i
 ```
 
-### Creating volumes
+## Volumes
 ```bash
 * kubectl create -f vol2.yaml
 * kubectl get pv
@@ -155,9 +154,9 @@ kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
 
 
 
-### Kubernetes Liveness and Readiness Probes
+## Liveness and Readiness Probes
 
-03 ways to implement Liveness and Readiness:
+There are three ways to implement Liveness and Readiness:
 
 01. Running a command inside a container
 02. Making an HTTP request against a container

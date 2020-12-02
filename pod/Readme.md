@@ -1,9 +1,9 @@
-# k8s-for-developers
+# Pods
 
 ## Example 01 - 01-pod-definition.yml
 
 ```bash
-# Creating the pod
+# Creating pod
 kubectl create -f 01-pod-definition.yml
 ```
 
@@ -15,11 +15,9 @@ myapp-pod   1/1     Running   1          33m
 ## Editing an existing POD
 ```bash
 vim 01-pod-definition.yml
-# If you don't have the tml you could extrac th definition to a file:
+
+# If you don't have the yml filem, you could extract the definition to a file:
 kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
 
 kubectl edit pod myapp-pod 
 ```
-
-
-

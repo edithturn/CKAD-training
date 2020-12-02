@@ -1,5 +1,6 @@
 # Troubleshooting
 
+## GPC error connecting to the server 
 If you are working in GPC with Docker, you could have this error message when you restart the cluster
 ```bash
 kubectl get pods

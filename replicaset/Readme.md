@@ -1,6 +1,6 @@
-# k8s-for-developers
+# ReplicaSet
 
-## Example 01 | 01-replicaset-definition.yml
+## 01 example | 01-replicaset-definition.yml
 There are 03 sections more in the yml file:
 * templates
 * replicas
@@ -8,27 +8,29 @@ There are 03 sections more in the yml file:
 
 ```bash
 # Replica Set
-kubectl create -f 01-replicaset-definition.ymlyml
+kubectl create -f 01-replicaset-definition.yml
 kubectl get replicaset
 kuebectl get pods
 ```
 
-## Example 02 | 02-replicaset-definition.yml
-Scaling the number of pods
-* Updating the number of replicas from 03 to 06
+## 02 example | 02-replicaset-definition.yml
+Scaling the number of pods, updating the number of replicas from 03 to 06 pods
 ```yml
+# Before
 replicas: 3
 ```
 ```yml
+# After
 replicas: 6
 ```
-After change the file, apply the change:
+Then apply the change:
 ```bash
 kubectl replace -f 02-replicaset-definition.yml
 ```
-* Scaling
+* Other ways to scaling
 ```bash
 kubectl scale --replicas=6 -f replicaset-definition.yml
 
+# TYPE: replicaset and NAME: myapp-replicaset
 kubectl scale --replicas=6 replicaset myapp-replicaset
 ```

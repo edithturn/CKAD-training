@@ -1,4 +1,6 @@
-## Example 01 | rc-definition.yml
+# Replication Controller
+
+## 01 example 01 | rc-definition.yml
 
 ```bash
 # Replication Controller
