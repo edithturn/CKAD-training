@@ -12,6 +12,7 @@ spec:
             labels:
                app: myapp
                type: front-end
+               tier: front-end
       spec:
         containers:
             - name: nginx-container
@@ -19,4 +20,4 @@ spec:
 replicas: 3
 selector: 
   matchLabels:
-       type: front-end
+       tier: front-end
