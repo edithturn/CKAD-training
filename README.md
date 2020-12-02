@@ -2,17 +2,29 @@
 
 ## Kubectl
 
-
 ```bash
 kubectl run hello-minikube
 kubectl cluster-info
 kubectl get nodes
 ```
-
 ## Pods
+
+```bash
+kubectl get namespaces
+kubectl get pods --all-namespaces
+kubectl get pods -o wide
+```
 ```bash
 kubectl run nginx --image nginx
 kubectl get pods
+```
+```bash
+kubectl create -f my-app.yaml
+kubectl apply -f my-app.yaml
+```
+## Replication Controller
+
+```bash
 
 ```
 ## Yaml
