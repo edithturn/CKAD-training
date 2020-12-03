@@ -11,6 +11,7 @@ kubectl get nodes
 ```bash
 kubectl get namespaces
 kubectl get pods --all-namespaces
+kubectl get pods --namespace=kube-system
 ```
 ## Yaml
 
@@ -163,3 +164,15 @@ There are three ways to implement Liveness and Readiness:
 03. pening a TCP socket against a container.
 
 
+
+
+```bash
+kubectl [command] [TYPE] [NAME] -o <output_format>
+kubectl create --dry-run=client -o yaml
+kubectl create namespace test-123 --dry-run -o yml
+<output_format>
+* -o json
+* -o name
+* -o wide
+* -o yaml
+```
