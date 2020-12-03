@@ -165,7 +165,7 @@ There are three ways to implement Liveness and Readiness:
 
 
 
-
+## --dry-run
 ```bash
 kubectl [command] [TYPE] [NAME] -o <output_format>
 kubectl create --dry-run=client -o yaml
