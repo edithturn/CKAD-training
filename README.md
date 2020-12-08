@@ -35,6 +35,13 @@ spec:
     - name: nginx-container
       image: nginx
 ```
+
+## Creating YAMLS
+
+```bash
+kubectl create deployment nginx --image=nginx --dry-run=client -o ymal > nginx-deployment.yaml
+```
+
 ## Pods
 ```bash
 kubectl run nginx --image nginx
@@ -75,6 +82,27 @@ kubectl replace -f replicaset-definitionyml
 kubectl scale -replicas=6 -f replicaset-definition.yml
 ```
 
+## Deployments
+
+```bash
+# Generate Deployment Yaml file (-o yaml). Don't create it (--dry-run)
+kubectl create deployment --image=nginx  nginx --dry-run -o yaml
+
+# Generating deployment with 03 Replicas
+kubectl create deployment nginx --image=nginx --replicas=3
+
+# Scaling a deployment 
+kubectl scale deployment nginx --replicas=4
+```
+
+## Services
+```bash
+kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
+
+kubectl create service clusterip redis --tcp=6379:6379 --dry-run=client -o yaml
+
+kubectl create service nodeport nginx --tcp=80:80 --node-port=30087 --dry-run=client -o yaml
+```
 ## Basic Commands
 ```bash
 kubectl api-resources
@@ -88,7 +116,7 @@ kubectl  describe pod basicpod
 ```bash
 # Adding type NodePort in the service
 * kubectl delete basicpod ; kubectl create -f basic.yaml
-* kubectl create deployment firstpod --imagee=nginx
+* kubectl create deployment firstpod --image=nginx
 * kubectl get deployment, pod
 * kubectl get namespaces
 * kubectl get pod -n kube-system
@@ -101,15 +129,6 @@ kubectl  describe pod basicpod
 # Delete the top-level controller
 kubectl delete deployment firstpod
 ```
-
-### Build using a local Docker Registry
-
-```bash
-* kubectl create deployment <Deploy-Name> --image=<repo>/<app-name>:<version>
-* kubectl create deployment time-date --image=10.110.186.162:5000/simpleapp:v2.2
-
-# Iteractive shell:
-* kubectl exec -i​t <Pod-Name> -- /bin/bash
 
 # Logs
 * kubectl logs test1
@@ -128,20 +147,6 @@ sudo -i
 ### Converting a docke-compose file into yaml
 sudo kompose convert -f docker-compose.yaml -o localregistry.yaml
 
-
-### Dry run. Print the corresponding API objects without creating them.
-```bash
-kubectl create deployment drytry --image=nginx --dry-run=client -o yaml
-
-k create deployment drytry -o yaml --image=nginx --dry-run=client > job1.yaml
-
-sudo docker tag ubuntu:latest 10.110.186.162:5000/tagtest
-sudo docker pull 10.110.186.162:5000/tagtest
-
-kubectl create deployment try1 --image=10.110.186.162:5000/simpleapp
-kubectl scale deployment try1 --replicas=6
-
-```
 
 ### Deleting | Stopping 
 ```bash
@@ -172,3 +177,31 @@ kubectl create namespace test-123 --dry-run -o yml
 * -o wide
 * -o yaml
 ```
+
+```bash
+# Create a Pod | Generate Pod manifest Yaml. don't create it.
+* kubectl run nginx --image=nginx
+* kubectl run nginx --image=nginx --dry-run=client -o yaml
+
+# Create a Deployment | Generate Deployment manifest Yaml. don't create it.
+* kubectl create deployment --image=nginx nginx
+* kubectl create deployment --image=nginx --dry-run=client -o yaml
+```
+
+## Imperative mode
+```bash
+kubectl run nginx-pod --image:nginx:alpine
+kubectl run redis --image redis:alpine -l tier=db
+kubectl expose pod redis --port=6379 --name redis-service
+
+# Creating a deploymenty and scaling
+kubectl create deployment webapp --image=nginx:alpine 
+kubectl scale deployment/webapp --replicas=3
+
+# Exposing a pod
+kubect run custom-nginx --image=nginx port=8080
+
+# Create a pod and a service to expose the pod
+kubectl run http --image=httpd:alpine --port=80 --expose
+```
+## 
