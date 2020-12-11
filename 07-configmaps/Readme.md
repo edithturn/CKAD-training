@@ -52,7 +52,7 @@ spec:
 	ports:
 	- containerPort: 808
 	envFrom:
-		- configMapref:
+		- configMapRef:
 			name: app-config
 ```
 
