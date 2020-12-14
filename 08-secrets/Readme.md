@@ -113,3 +113,9 @@ spec:
 	  envFrom:
 			- secretRef:
 					name: app-secret
+```
+
+###  TODO
+* Secrets kubernetes
+- Helm Secrets
+- HashiCorp Vault

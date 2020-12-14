@@ -154,6 +154,19 @@ sudo kompose convert -f docker-compose.yaml -o localregistry.yaml
 > kubectl delete --all deployments --namespace=foo
 > kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all
 ```
+
+
+## Secrets
+```bash
+* kubectl get secrets
+* kubectl describe secret my-secret
+* kubectl create secret generic db-secret --from-literal=DB_Host=sql1
+--from-literal=DB_User=root
+--from-literal=DB_Password=password123
+
+```
+
+
 ## Liveness and Readiness Probes
 
 There are three ways to implement Liveness and Readiness:

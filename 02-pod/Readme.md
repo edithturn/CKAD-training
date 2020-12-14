@@ -21,3 +21,8 @@ kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
 
 kubectl edit pod myapp-pod 
 ```
+## More examples
+
+```bash
+kubectl apply -f /var/examples/webapp.yaml
+```
