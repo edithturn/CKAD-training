@@ -1,12 +1,40 @@
-# k8s-for-developers
+# Kubernetes For Developers
+
+![Kubernetes](img/k8s.png) 
+
+## Key Kubernetes Features
+* Service Discoverry/Load Balancing
+* Storage Orchestration
+* Automate Rollouts/Rollbacks
+* Self-healing
+* Secret and Configuration Management
+* Horizontal Scaling
+
+## Key Container Benefits
+* Accelerate Developer Onboarding
+* Eliminate App Conficts
+* Environment Consistency
+* Ship Software Faster
+
+[Add : Source]
+
+## Why we need kubernetes as a developers?
+
 
 ## Kubectl
 
 ```bash
-kubectl run hello-minikube
+kubectl version
 kubectl cluster-info
+kubectl --help
+kubectl get all
+kubectl run [container-name] --image=[image-name]
+kubectl port-forward [pod] [ports]
+kubectl create [resource]
+kubectl apply [resource]
 kubectl get nodes
 ```
+
 ## Namespaces
 ```bash
 kubectl get namespaces
