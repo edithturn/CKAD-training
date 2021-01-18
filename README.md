@@ -245,4 +245,19 @@ kubect run custom-nginx --image=nginx port=8080
 # Create a pod and a service to expose the pod
 kubectl run http --image=httpd:alpine --port=80 --expose
 ```
-## 
+
+
+
+## Note:
+This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
+The courses that I took were:
+
+* Udemy, Mumshad Mannambeth (highly recommended)
+https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview
+
+* Pluranshit: Dan Wahlin
+https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents
+
+
+* 42 Silicon Vallel
+ft_services
