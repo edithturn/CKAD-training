@@ -1,7 +1,5 @@
 # Pods
-Pods are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
-
-## ![Pods](../img/pod/pod.png){:height="50%" width="50%"}
+**Pods** are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
 
 <img src="../img/pod/pod.png" width="50%" height="50%">
 
