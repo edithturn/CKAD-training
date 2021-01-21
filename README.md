@@ -111,6 +111,8 @@ kubectl create deployment nginx --image=nginx --replicas=3
 kubectl scale deployment nginx --replicas=4
 ```
 
+* [Services](11-Servicespod/Readme.md)
+
 ## Services
 ```bash
 kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
