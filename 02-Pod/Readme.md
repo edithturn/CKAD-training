@@ -1,7 +1,9 @@
 # Pods
 Pods are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
 
-![Pods](../img/pod/pod.png){:height="50%" width="50%"}
+## ![Pods](../img/pod/pod.png){:height="50%" width="50%"}
+
+<img src="../img/pod/pod.png" width="100" height="100">
 
 ## Example 01 - 01-basic-pod-definition
 
