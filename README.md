@@ -70,7 +70,7 @@ spec:
 kubectl create deployment nginx --image=nginx --dry-run=client -o ymal > nginx-deployment.yaml
 ```
 
-* [Pods](02-pod/Readme.md)
+* [Pods](02-Pod/Readme.md)
 
 ## Replication Controller | Replica Set 
 
@@ -111,16 +111,9 @@ kubectl create deployment nginx --image=nginx --replicas=3
 kubectl scale deployment nginx --replicas=4
 ```
 
-* [Services](11-Servicespod/Readme.md)
+* [Services](11-Services/Readme.md)
 
-## Services
-```bash
-kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
 
-kubectl create service clusterip redis --tcp=6379:6379 --dry-run=client -o yaml
-
-kubectl create service nodeport nginx --tcp=80:80 --node-port=30087 --dry-run=client -o yaml
-```
 ## Basic Commands
 ```bash
 kubectl api-resources
