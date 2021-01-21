@@ -34,6 +34,14 @@ vim 01-pod-definition.yml
 kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
 kubectl edit pod myapp-pod 
 ```
+
+## Deleting Pods
+```bash
+# Delete a pod, it will be created again by the deployment
+kubectl delete pod [name-of-pod]
+# Delete Deployment that manages the Pod, this will delete the Pod definitelly
+kubectl delete deployment [name-of-deployment]
+```
 ## More examples
 ```bash
 kubectl apply -f /var/examples/webapp.yaml
