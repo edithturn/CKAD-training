@@ -70,20 +70,8 @@ spec:
 kubectl create deployment nginx --image=nginx --dry-run=client -o ymal > nginx-deployment.yaml
 ```
 
-## Pods
-```bash
-kubectl run nginx --image nginx
-kubectl get pods
+* [Pods](02-pod/Readme.md)
 
-# More details about pods
-kubectl get pods -o wide
-kubectl  describe pod basicpod
-```
-```bash
-# Creating pods based in yml files
-kubectl create -f my-app.yaml
-kubectl apply -f my-app.yaml
-```
 ## Replication Controller | Replica Set 
 
 The major difference between replication controller and replica set. 
