@@ -3,7 +3,7 @@
 
 <img src="../img/pod/pod.png" width="50%" height="50%">
 
-## Example 01 - 01-basic-pod-definition
+### Example 01 - 01-basic-pod-definition
 
 ```bash
 # Listing pods
@@ -29,7 +29,7 @@ kubectl create -f my-app.yaml
 kubectl apply -f my-app.yaml
 ```
 
-## Editing an existing POD
+### Editing an existing Pod
 ```bash
 vim 01-pod-definition.yml
 # If you don't have the yml file, you could extract the definition to a file from a created Pod:
@@ -37,14 +37,14 @@ kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
 kubectl edit pod myapp-pod 
 ```
 
-## Deleting Pods
+### Deleting a Pod
 ```bash
 # Delete a pod, it will be created again by the deployment
 kubectl delete pod [name-of-pod]
 # Delete Deployment that manages the Pod, this will delete the Pod definitelly
 kubectl delete deployment [name-of-deployment]
 ```
-## More examples
+### More examples
 ```bash
 kubectl apply -f /var/examples/webapp.yaml
 ```
