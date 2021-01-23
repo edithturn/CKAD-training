@@ -35,12 +35,6 @@ kubectl apply [resource]
 kubectl get nodes
 ```
 
-## Namespaces
-```yaml
-kubectl get namespaces
-kubectl get pods --all-namespaces
-kubectl get pods --namespace=kube-system
-```
 ## Yaml
 
 ### Requiered fields:
@@ -72,47 +66,11 @@ kubectl create deployment nginx --image=nginx --dry-run=client -o ymal > nginx-d
 
 * [Pods](02-Pod/Readme.md)
 
-## Replication Controller | Replica Set 
+* [Replication Controller](04-Replication-controller/Readme.md)
 
-The major difference between replication controller and replica set. 
-is **selector**
-"Selector" is requeired in replica set.
-*ReplicaSet is the new recommended way fro scaling*
-
-```bash
-# Replication Controller
-kubectl create -f rc-definition.yaml
-kubectl get replicationcontroller
-kuebectl get pods
-```
-
-```bash
-# Replica Set
-kubectl create -f rc-definition.yaml
-kubectl get replicationcontroller
-kuebectl get pods
-
-# Also delete all the pods into this replicaset
-kubectl delete replicaset myapp-replicaset
-kubectl replace -f replicaset-definitionyml
-kubectl scale -replicas=6 -f replicaset-definition.yml
-```
-
-## Deployments
-
-```bash
-# Generate Deployment Yaml file (-o yaml). Don't create it (--dry-run)
-kubectl create deployment --image=nginx  nginx --dry-run -o yaml
-
-# Generating deployment with 03 Replicas
-kubectl create deployment nginx --image=nginx --replicas=3
-
-# Scaling a deployment 
-kubectl scale deployment nginx --replicas=4
-```
+* [Deployments](03-Deployment/Readme.md)
 
 * [Services](11-Services/Readme.md)
-
 
 ## Basic Commands
 ```bash

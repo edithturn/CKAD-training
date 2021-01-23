@@ -1,5 +1,16 @@
 # Deployments
 
+```bash
+# Generate Deployment Yaml file (-o yaml). Don't create it (--dry-run)
+kubectl create deployment --image=nginx  nginx --dry-run -o yaml
+
+# Generating deployment with 03 Replicas
+kubectl create deployment nginx --image=nginx --replicas=3
+
+# Scaling a deployment 
+kubectl scale deployment nginx --replicas=4
+```
+
 ## 01 example | deployment-definition.yml
 ```bash
 kubectlcreate -f deployment-definition.yml
