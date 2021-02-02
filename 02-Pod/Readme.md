@@ -8,8 +8,9 @@
 ```bash
 # Listing pods
 kubectl get pods
-# More details about pods
+# More details about all the Pods
 kubectl get pods -o wide
+# More details about a single Pod
 kubectl  describe pod basicpod
 ```
 
@@ -23,6 +24,7 @@ myapp-pod   1/1     Running   1          33m
 # Creating a pod from the kuberentes repository 
 kubectl run nginx --image nginx
 kubectl run nginx --image=nginx:alpine
+kubectl run name --image=nginx
 # Creating pods based in yml files
 kubectl create -f 01-pod-definition.yml
 kubectl create -f my-app.yaml
