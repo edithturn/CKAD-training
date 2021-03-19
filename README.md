@@ -2,6 +2,11 @@
 
 ![Kubernetes](img/k8s.png) 
 
+## Definition
+
+## Architecture
+  A node is a machine physical or virtual, and node is a worker machine and that is where containers will be launched by Kubernetes.
+
 ## Key Kubernetes Features
 * Service Discoverry/Load Balancing
 * Storage Orchestration
@@ -187,11 +192,18 @@ kubect run custom-nginx --image=nginx port=8080
 kubectl run http --image=httpd:alpine --port=80 --expose
 ```
 
+### Kubetail
+```bash
+sudo apt-get install kubetail
+```
 
 
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
 The courses that I took were:
+
+* Kuberenetes documentation
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 * Udemy, Mumshad Mannambeth (highly recommended)
 https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview
