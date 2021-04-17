@@ -1,8 +1,12 @@
 # Kubernetes For Developers
 
-![Kubernetes](img/k8s.png) 
 
-## Definition
+
+
+<p align="center">
+  <img width="500" height="350" src="img/k8s.png">
+</p>
+
 
 ## Architecture
   A node is a machine physical or virtual, and node is a worker machine and that is where containers will be launched by Kubernetes.
