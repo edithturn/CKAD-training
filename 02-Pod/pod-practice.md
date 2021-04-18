@@ -1,8 +1,4 @@
 # Pods
-**Pods** are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
-
-<img src="../img/pod/pod.png" width="50%" height="50%">
-
 ### Example 01 - 01-basic-pod-definition
 
 ```bash
@@ -25,6 +21,7 @@ myapp-pod   1/1     Running   1          33m
 kubectl run nginx --image nginx
 kubectl run nginx --image=nginx:alpine
 kubectl run name --image=nginx
+kubectl run redis --image redis123
 # Creating pods based in yml files
 kubectl create -f 01-pod-definition.yml
 kubectl create -f my-app.yaml
@@ -36,7 +33,8 @@ kubectl apply -f my-app.yaml
 vim 01-pod-definition.yml
 # If you don't have the yml file, you could extract the definition to a file from a created Pod:
 kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
-kubectl edit pod myapp-pod 
+kubectl edit pod myapp-pod
+kubectl edit pod redis
 ```
 
 ### Deleting a Pod
