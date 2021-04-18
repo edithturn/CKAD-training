@@ -9,6 +9,8 @@ There are 03 sections more in the yml file:
 ```bash
 # Replica Set
 kubectl create -f 01-replicaset-definition.yml
+# or use a file in specific directory
+kubectl create -f /root/replicaset-definition.yaml
 kubectl get replicaset
 kuebectl get pods
 # Show the destails about a replicaset
@@ -40,4 +42,6 @@ kubectl scale --replicas=6 replicaset myapp-replicaset
 ## 03 Example deliting replicaset 
 ```bash
 kubectl delete replicaset myapp-replicaset
+# or use delete for more than one replicasets
+kubectl delete replicaset replicaset01 replicaset02
 ```

@@ -206,11 +206,12 @@ sudo apt-get install kubetail
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
 The courses that I took were:
 
+* Udemy, Mumshad Mannambeth (highly recommended)
+https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview
+
 * Kuberenetes documentation
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
-* Udemy, Mumshad Mannambeth (highly recommended)
-https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview
 
 * Pluranshit: Dan Wahlin
 https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents
