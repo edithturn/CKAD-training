@@ -5,7 +5,9 @@
 The major difference between replication controller and replica set. 
 is **selector**
 "Selector" is requeired in replica set.
-*ReplicaSet is the new recommended way fro scaling*
+*ReplicaSet is the new recommended way for scaling*
+
+* Replication controller is possible just with a node, is possible to depele the previous pod and create a new one
 
 ```bash
 # Replication Controller

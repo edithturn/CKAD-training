@@ -11,6 +11,8 @@ There are 03 sections more in the yml file:
 kubectl create -f 01-replicaset-definition.yml
 kubectl get replicaset
 kuebectl get pods
+# Show the destails about a replicaset
+kubectl describe replicaset
 ```
 
 ## 02 example | 02-replicaset-definition.yml
@@ -23,7 +25,7 @@ replicas: 3
 # After
 replicas: 6
 ```
-Then apply the change:
+Then apply the changes:
 ```bash
 kubectl replace -f 02-replicaset-definition.yml
 ```
@@ -33,4 +35,9 @@ kubectl scale --replicas=6 -f replicaset-definition.yml
 
 # TYPE: replicaset and NAME: myapp-replicaset
 kubectl scale --replicas=6 replicaset myapp-replicaset
+```
+
+## 03 Example deliting replicaset 
+```bash
+kubectl delete replicaset myapp-replicaset
 ```
