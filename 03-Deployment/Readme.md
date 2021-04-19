@@ -36,4 +36,7 @@ kubectl rollout status deployment/myapp-deployment
 kubectl rollout history deployment/myapp-deployment
 # The deployment will destroy the pods and create the other ones
 kubectl rollout undo deployment/myapp-deployment
+
+# Record in the revision history
+kubectl edit deployment myapp-deployment --record
 ```
