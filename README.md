@@ -217,5 +217,5 @@ https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents
 
 
-* 42 Silicon Vallel
+* 42 Silicon Valley Bootcamp School
 ft_services

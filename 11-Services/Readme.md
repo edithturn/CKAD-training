@@ -1,5 +1,5 @@
 # Service
-The Service is like a server inside the node
+The Service is like a server inside the node. It can expose a port for users or for other applications.
 
 
 # Kind of Services
@@ -48,6 +48,8 @@ kubectl apply -f 00-service-definition.yml
 # Inspect the Service
 kubectl get services
 kubectl get svc
+# Another way to list more than one element
+kubectl get pods, svc
 kubectl describe service kubernetes
 ```
 Note:
