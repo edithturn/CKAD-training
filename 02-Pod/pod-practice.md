@@ -33,6 +33,10 @@ kubectl apply -f my-app.yaml
 vim 01-pod-definition.yml
 # If you don't have the yml file, you could extract the definition to a file from a created Pod:
 kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
+
+# Check it
+kubectl run nginx --image=nginx  --dry-run=client -o yaml
+
 kubectl edit pod myapp-pod
 kubectl edit pod redis
 ```
