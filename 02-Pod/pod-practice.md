@@ -50,6 +50,9 @@ kubectl edit pod redis
 kubectl delete pod [name-of-pod]
 # Delete Deployment that manages the Pod, this will delete the Pod definitelly
 kubectl delete deployment [name-of-deployment]
+
+# Deliting all pods in a namespace
+kubectl delete --all pods --namespace=foo
 ```
 ### More examples
 ```bash
