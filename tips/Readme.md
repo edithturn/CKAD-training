@@ -20,3 +20,14 @@ minikube service voting-service --url h
 # Result
 http://192.168.49.2:30004
 ```
+
+### Alias
+```bash
+
+alias kdp='kubectl delete pod --force --grace--period=0'
+```
+
+### Use the correct context to set us in a cluster
+```bash
+kubectl config use-contex CONTEXTNAME
+```
