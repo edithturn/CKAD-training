@@ -2,10 +2,14 @@
 ### Example 01 - 01-basic-pod-definition
 
 ```bash
-# Listing pods
+# Listing pods in the default namespace
 kubectl get pods
+# Listing pods in a different namespace
+kubectl get pods --namespace=dev
+
 # More details about all the Pods
 kubectl get pods -o wide
+
 # More details about a single Pod
 kubectl  describe pod basicpod
 ```
@@ -22,10 +26,30 @@ kubectl run nginx --image nginx
 kubectl run nginx --image=nginx:alpine
 kubectl run name --image=nginx
 kubectl run redis --image redis123
+
 # Creating pods based in yml files
 kubectl create -f 01-pod-definition.yml
 kubectl create -f my-app.yaml
 kubectl apply -f my-app.yaml
+
+# Creating pods in a different namespace
+kubectl create -f 01-pod-definition.yml --namespace=dev
+```
+
+**If we want to create a pod in diferent namespace defined in the yml file**
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+  namespace: dev
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
 ```
 
 ### Editing an existing Pod
