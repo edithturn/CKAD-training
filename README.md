@@ -5,7 +5,7 @@
 </p>
 
 
-# `` THIS REPO IS IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
+# `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
 ## Componentes
 - API Server
