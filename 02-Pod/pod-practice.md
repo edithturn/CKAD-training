@@ -32,8 +32,9 @@ kubectl create -f 01-pod-definition.yml
 kubectl create -f my-app.yaml
 kubectl apply -f my-app.yaml
 
-# Creating pods in a different namespace
+# Creating pods in a specific namespace
 kubectl create -f 01-pod-definition.yml --namespace=dev
+kubectl run redis --image=redis --namespace=finance
 ```
 
 **If we want to create a pod in diferent namespace defined in the yml file**
@@ -60,9 +61,21 @@ kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
 
 # Create a dry run of the Pod, It will not create the pod, but we can use the yaml to redirect the yamls definition into a file called pod.yaml
 kubectl run redis --image=redis123  --dry-run=client -o yaml > pod.yaml
+# Editing the file, and save the changes.
+vim pod.yaml
 # Apply to create the pod
-kubectl apply -f pod.ymal
+kubectl apply -f pod.yaml
+kubectl get pod -n dev
+```
+**Example how to dry-run and edit the pod file**
 
+```bash
+kubectl run redis --image=redis --dry-run=client -o yaml > pod.yaml
+# Editing the file, and save the changes, add namespace=dev
+vi pod.yaml
+kubectl apply -f pod.yaml
+```
+```bash
 # Other ways to edit a file, edit will automatically apply the changes
 kubectl edit pod myapp-pod
 kubectl edit pod redis
