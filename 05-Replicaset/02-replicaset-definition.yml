@@ -9,14 +9,14 @@ spec:
     template:
       metadata:
            name: myapp-pod
-            labels:
-               app: myapp
-               type: front-end
-               tier: front-end
+           labels:
+              app: myapp
+              type: front-end
+              tier: front-end
       spec:
         containers:
-            - name: nginx-container
-              image: nginx
+          - name: nginx-container
+            image: nginx
 replicas: 6
 selector: 
   matchLabels:

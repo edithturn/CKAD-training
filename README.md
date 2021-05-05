@@ -223,3 +223,6 @@ https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/
 
 * 42 Silicon Valley Bootcamp School
 ft_services
+
+* Curriculum for CKAD
+https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_V1.20.pdf
