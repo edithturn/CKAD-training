@@ -4,6 +4,9 @@
   <img width="500" height="350" src="img/k8s.png">
 </p>
 
+
+# ``` THIS REPO IS IN PROGRESS ... ```  :carousel_horse: raising_hand:  :tractor:
+
 ## Componentes
 - API Server
 - etcd
