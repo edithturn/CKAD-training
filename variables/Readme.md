@@ -1,3 +1,9 @@
+## Variables in Kuberentes
+
+
+docker run -e APP_COLOR=pink  simple-webapp-color
+
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -11,3 +17,5 @@ spec:
   env:
     - name: APP_COLOR
       value: pink
+```
+
