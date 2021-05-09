@@ -20,3 +20,12 @@ app-config --from-literal=APP_COLOR=blue \
 kubectl create configmap app-config --from-fil=app_config.properties
 
 ```
+
+```bash
+kubectl get configmaps
+kubectl get cm
+
+# Describe a configmap
+k describe configmap my-config-map
+
+```
