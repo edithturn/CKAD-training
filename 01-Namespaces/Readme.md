@@ -2,10 +2,23 @@
 
 ## Basic Commands
 ```bash
+# Listing all namespaces
 kubectl get namespaces
+
+# coutint how many namespaces exists
+kubectl get ns --no-headers | wc -l
+
+# Check the current namespace
+kubectl config view | grep namespace
+
+# Listing all pod in all the namespaces
 kubectl get pods --all-namespaces
+
+# Listing all pod in a specific namespace
 kubectl get pods --namespace=kube-system
+kubectl -n dev get pods
 ```
+
 ```bash
 # Create the pod in the default namespace
 kubectl create -f pod-definition

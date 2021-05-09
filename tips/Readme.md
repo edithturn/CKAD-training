@@ -23,11 +23,23 @@ http://192.168.49.2:30004
 
 ### Alias
 ```bash
-
-alias kdp='kubectl delete pod --force --grace--period=0'
+alias kdp='kubectl delete pod --force --grace-period=0'
 ```
 
 ### Use the correct context to set us in a cluster
+
 ```bash
+# Every time before to start the question
 kubectl config use-contex CONTEXTNAME
 ```
+
+### Generate a preview without a file
+```bash
+kubectl create namespace test-123 --dry-run=client -o json
+kubectl create namespace test-123 --dry-run=client -o yaml
+
+```
+
+
+### Source:
+* https://kubernetes.io/docs/reference/kubectl/cheatsheet/

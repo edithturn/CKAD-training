@@ -45,9 +45,15 @@ kubectl create -f 00-service-definition.yml
 kubectl expose deployment simple-webapp-deployment --name=webapp-service --target-port=8080 --type=NodePort --port=8080 --dry-run=client -o yaml > svc.yaml
 # Apply changes
 kubectl apply -f 00-service-definition.yml
-# Inspect the Service
+
+# Listing Services
 kubectl get services
 kubectl get svc
+
+# Listing Services in a specific namespaces
+kubectl -n dev get svc
+kubectl -n dev get services
+
 # Another way to list more than one element
 kubectl get pods, svc
 kubectl describe service kubernetes
@@ -100,6 +106,8 @@ spec:
 # Examples
 ```bash
 kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
+
+kubectl expose pod httpd --port=80 --name httpd --dry-run=client -o yaml > yy.yaml
 
 kubectl create service clusterip redis --tcp=6379:6379 --dry-run=client -o yaml
 

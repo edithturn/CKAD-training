@@ -84,12 +84,19 @@ kubectl edit pod redis
 ### Deleting a Pod
 ```bash
 # Delete a pod, it will be created again by the deployment
-kubectl delete pod [name-of-pod]
+kubectl delete pod my-pod-name
+
 # Delete Deployment that manages the Pod, this will delete the Pod definitelly
-kubectl delete deployment [name-of-deployment]
+kubectl delete deployment my-pod-name
 
 # Deliting all pods in a namespace
 kubectl delete --all pods --namespace=foo
+
+# Deleting pod inmediate
+kubectl delete pods ubuntu-sleeper-pod --grace-period=0 --force
+
+# Delete a Pod with minimal delay
+k delete pod ubuntu-sleeper-pod now
 ```
 ### More examples
 ```bash
