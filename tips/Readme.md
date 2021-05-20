@@ -41,5 +41,36 @@ kubectl create namespace test-123 --dry-run=client -o yaml
 ```
 
 
+## Be faster
+
+
+```bash
+# Check all the deployments in all the namespaces
+k get get deploy --all-namespaces
+
+# 
+k run yellow --image=busibox --restart=never --dry-run -o yaml  > pod.yml
+vi pod.yaml
+kubectl apply -f pod.yml
+kubectl describe pod yellow
+
+# check namespace just creates, take the one that was reciently created
+kubectl get ns
+kubectl -n elastic-stack get pod, svc
+
+
+```
+
+```bash
+kubectl -n elastic-stack get pod-svc
+
+```
+
+```bash
+kubectl -n elastic-stack get pod app -o yaml > app.yaml
+kbuectl delete pod app -n elastic-stack
+vi app.yaml
+```
+   
 ### Source:
 * https://kubernetes.io/docs/reference/kubectl/cheatsheet/
