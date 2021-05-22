@@ -74,3 +74,24 @@ vi app.yaml
    
 ### Source:
 * https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+
+
+### Logs
+
+```bash
+
+kubectl logs webapp-1 | grep USER5
+# to select the containers
+kubectl logs webapp-2 -c
+kubectl logs webapp-2 -c simple-webapp
+
+```
+
+### Monitoring
+```bash
+kubectl top node
+kubectl top pod
+```
+
+watch "kubectl top node"
