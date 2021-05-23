@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata: 
+  random-error-job
+spec:
+  completions: 3
+  template:
+    spec:
+      containers:
+        - name: random-error
+          image:  kodecloud/random-error
+
+        restartPolicy: Never
