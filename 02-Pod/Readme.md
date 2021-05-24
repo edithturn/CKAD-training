@@ -155,6 +155,16 @@ kubectl logs busibox -p
 # Create a pod with a command
 kubectl run busibox --image=busibox restart=Never -- /bin/sh -c "sleep 3600"
 
-# Create a busobox image pod and echo message "Hello! How are you?"
+# Create a busibox image pod and echo message "Hello! How are you?"
 kubectl run busibox --image=nginx --restart=Never -it -- echo "Hello! How are you?"
+
+# Create a pod busibox, show a message and then delete
+kubectl run busybox --image=nginx --restart=Never -it --rm -- echo "Hello, How are you?"
+
+# Create a nginx pod and list the pod with different levels of verbosity
+kubectl run nginx --image=nginx --restart=Never --port=80
+
+kubectl get po nginx --v=7
+kubectl get po nginx --v=8
+kubectl get po nginx --v=9
 ```
