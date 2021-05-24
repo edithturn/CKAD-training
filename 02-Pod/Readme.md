@@ -20,7 +20,7 @@ kubectl get po --all-namespaces
 kubectl get pods --namespace=dev
 kubectl get po -n dev
 
-# More details about all the Pods
+# More details about all the Pods | Get the Ip address of the pod
 kubectl get pods -o wide
 kubectl get po nginx -o wide
 
@@ -145,6 +145,16 @@ kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
 kubectl run nginx --image=nginx --restart=Never
 kubectl exer -it nginx /bin/sh
 
-# Get the Ip address of the pod you just created
+# Create a busybox pod and run commands ls while creating it and check the logs
+kubectl run busibox --image=busibox --restart=Never -- ls
+kubectl logs busybox
 
+# If pod ccrashed check the previous logs of the pod
+kubectl logs busibox -p
+
+# Create a pod with a command
+kubectl run busibox --image=busibox restart=Never -- /bin/sh -c "sleep 3600"
+
+# Create a busobox image pod and echo message "Hello! How are you?"
+kubectl run busibox --image=nginx --restart=Never -it -- echo "Hello! How are you?"
 ```
