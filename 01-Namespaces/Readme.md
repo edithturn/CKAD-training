@@ -2,10 +2,11 @@
 
 ## Basic Commands
 ```bash
-# Listing all namespaces
+# List all namespaces
 kubectl get namespaces
+kubectl get ns
 
-# coutint how many namespaces exists
+# Count how many namespaces exists
 kubectl get ns --no-headers | wc -l
 
 # Check the current namespace

@@ -41,14 +41,19 @@ Kubernetes use the random algorithm to bakance the load across the three  differ
 ```bash
 # Create the Service
 kubectl create -f 00-service-definition.yml
+
 # Create a service with expose
 kubectl expose deployment simple-webapp-deployment --name=webapp-service --target-port=8080 --type=NodePort --port=8080 --dry-run=client -o yaml > svc.yaml
+
 # Apply changes
 kubectl apply -f 00-service-definition.yml
 
-# Listing Services
+# List Services
 kubectl get services
 kubectl get svc
+
+# List all the services in the particular namespace
+kubectl get svc -n dev
 
 # Listing Services in a specific namespaces
 kubectl -n dev get svc

@@ -7,4 +7,4 @@ spec:
   - name: math-add
     image: ubuntu
     command: ['expr', '3', '+', '2']
-  restartPolicy: Never
+  restartPolicy: Always

@@ -2,6 +2,7 @@
 ```bash
 kubectl create serviceaccount dashboard-sa
 
+kubectl create sa ingress-serviceaccount -n ingress-space
 kubectl get serviceaccount
 
 kubectl describe serviceaccount dashboard-sa

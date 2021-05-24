@@ -226,8 +226,17 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
 
 # then add labels tier=db
 
-
 ```
+
+## About the CKAD  (Certified Kubernetes Application Developer)
+
+- Core Concepts (13%)
+- Multi-Container Pods (10%)
+- Pod Design (20%)
+- State Persistence (8%)
+- Configuration (18%)
+- Observability (18%)
+- Services and Networking (13%)
 
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
@@ -249,3 +258,7 @@ ft_services
 
 * Curriculum for CKAD
 https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_V1.20.pdf
+
+
+# Articles
+https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552

@@ -17,6 +17,8 @@ kubectl create configmap app-config  app-config --from-literal=APP_VERSION=1.0 -
 kubectl create configmap my-config-map --from-file=<path-to-file>
 
 kubectl create configmap app-config --from-file=app_config.properties
+
+kubectl create cm nginx-configuration -n ingress-space
 ```
 
 my-config-file.yaml
