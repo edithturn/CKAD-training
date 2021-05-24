@@ -1,17 +1,35 @@
 # Pods
+
+**Pods** are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
+
+<img src="../img/pod/pod.png" width="50%" height="50%">
+
+Single instance of an application.
+
+
 ### Example 01 - 01-basic-pod-definition
 
 ```bash
-# Listing pods in the default namespace
+# List pods in the default namespace
 kubectl get pods
-# Listing pods in a different namespace
+
+# List all the pods in al namespaces
+kubectl get po --all-namespaces
+
+# List pods in a particular namespace
 kubectl get pods --namespace=dev
+kubectl get po -n dev
 
 # More details about all the Pods
 kubectl get pods -o wide
+kubectl get po nginx -o wide
 
 # More details about a single Pod
-kubectl  describe pod basicpod
+kubectl describe pod basicpod
+
+
+# List all pods showing name and namespace with a joson path expresion | TODO
+kubectl get pods -o=jsonpath="{.item[*]}['metadata.name', 'metadata.namespace']"
 ```
 
 ```console
@@ -23,14 +41,19 @@ myapp-pod   1/1     Running   1          33m
 ```bash
 # Creating a pod from the kuberentes repository 
 kubectl run nginx --image nginx
+
+# Restart Never
+kubectl run nginx --image nginx --restart=Never
+
+# Specify the version of the image
 kubectl run nginx --image=nginx:alpine
-kubectl run name --image=nginx
+
 kubectl run redis --image redis123
 
-# Creating pods based in yml files
-kubectl create -f 01-pod-definition.yml
-kubectl create -f my-app.yaml
-kubectl apply -f my-app.yaml
+# Creating pods based in yaml files
+kubectl create -f my_pod.yml
+kubectl apply -f /var/examples/my-pod.yaml
+kubectl apply -f my-pod.yaml
 
 # Creating pods in a specific namespace
 kubectl create -f 01-pod-definition.yml --namespace=dev
@@ -55,9 +78,14 @@ spec:
 
 ### Editing an existing Pod
 ```bash
+# Edit a pod yml
 vim 01-pod-definition.yml
-# If you don't have the yml file, you could extract the definition to a file from a created Pod:
-kubectl get pod myapp-pod -o yaml > 01-pod-definition.yml
+
+# Get the yml file of the pod we just created
+kubectl get pod nginx -o yml
+
+# Extract the definition to a file from a created Pod:
+kubectl get pod nginx -o yaml > other-pod.yml
 
 # Create a dry run of the Pod, It will not create the pod, but we can use the yaml to redirect the yamls definition into a file called pod.yaml
 kubectl run redis --image=redis123  --dry-run=client -o yaml > pod.yaml
@@ -84,21 +112,39 @@ kubectl edit pod redis
 ### Deleting a Pod
 ```bash
 # Delete a pod, it will be created again by the deployment
-kubectl delete pod my-pod-name
+kubectl delete pod pod-name
+
+# Delete with the name of the file
+kubectl delete -f nginx-pod.yml
 
 # Delete Deployment that manages the Pod, this will delete the Pod definitelly
-kubectl delete deployment my-pod-name
+kubectl delete deployment pod-name
 
 # Deliting all pods in a namespace
 kubectl delete --all pods --namespace=foo
 
-# Deleting pod inmediate
-kubectl delete pods ubuntu-sleeper-pod --grace-period=0 --force
+# Delete the pod without any delay
+kubectl delete pods nginx --grace-period=0 --force
 
 # Delete a Pod with minimal delay
-k delete pod ubuntu-sleeper-pod now
+#k delete pod my-pod now
 ```
 ### More examples
 ```bash
-kubectl apply -f /var/examples/webapp.yaml
+# Create the nginx pod with version 1.17.4 and expose it on port 80
+kubectl run nginx --image=nginx:1.17.4 --restart=Never --port=80
+
+# Change the image version of the pod
+kubectl set image pod/nginx nginx=nginx:1.15-alpine
+kubectl set image pod/nginx nginx=nginx:1.17.1
+
+#  Check the image version without the describe command
+kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
+
+# Create the nginx pod and execute the simple shell on the pod
+kubectl run nginx --image=nginx --restart=Never
+kubectl exer -it nginx /bin/sh
+
+# Get the Ip address of the pod you just created
+
 ```
