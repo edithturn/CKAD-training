@@ -167,4 +167,14 @@ kubectl run nginx --image=nginx --restart=Never --port=80
 kubectl get po nginx --v=7
 kubectl get po nginx --v=8
 kubectl get po nginx --v=9
+
+
+# List the pod with custom columns POD_NAME and POD_STATUS
+kubectl get po -o=custom-columns="POD_NAME:.metadata.name, POD_STATUS:.status.containerStatuses[].state"
+
+# List all the pods sorted by name
+kubectl  get pods --sort-by=.metadata.name
+
+# List all the pods created by timestamp
+kubectl get pods--sort-by=.metadata.creationTimestamp
 ```
