@@ -273,8 +273,16 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
   - Use of grep:
     - kubectl describe pods | grep --context=10 annotations:
     - kubectl describe pods | grep --context=10 Events:                                                                          
-     
+    
 
+## Tips for VIM
+* Use h -> move to left, l - > move to right, j -> move down , k -> move  up
+* Esc + DD -> delete a line
+* Esc + o -> add a new line
+* Esc + w -> move word to word, set cursosr at the beginning of the word
+* Esc + e -> move word to word, set cursor at the end of the word
+* Esc + :set num -> to add line numbers
+*  
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
 The courses that I took were:
