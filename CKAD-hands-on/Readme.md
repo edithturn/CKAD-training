@@ -146,5 +146,48 @@ kubectl get pods -l env=prod --show-labels
 kubectl get pod -L env
 
 # Get  the pods with labels env=dev and env=prod
-kubectl get pods -l 'env in (dev, prod)'
+kubectl get pods -l 'env in (dev, prod)'\
+
+# Get the pods with labelsenv=dev and env=prod and output the labels as well
+kubectl get pods -l 'env in (dev, prod)' --show-labels
+
+# Change the label of one of the pod to env=uat and list all the pods to verify
+kubectl label pod/nginx-dev3 env=uat --overwrite
+
+# Remove the labels for the pods that we created now and verify all the labels are removed
+kubectl label pod nginx-dev{1..3} env-
+
+# Label the node nodename=nginxnode
+kubectl label node monikube 
+
+# Label thenode (minikube) nodeName=nginxnode
+kubectl label node minikube nodeName=nginxnode
+
+# Create a pod that will be deployed on this node with the label nodeName=nginx
+kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > pod.yaml
+
+# Edit the pod an add the nodeSelectos, then create it
+kubectl create -f pod.yaml
+
+# Verify the pod that it is scheduled with the node selectos
+kubectl describe po nginx | grep Node-Selectors
+
+# Verify the pod nginx that we just created has this label
+kubectl describe po nginx | grep Labels
+
+# Annotate the pods with name=webapp
+kubectl annotate pod nginx{1..2} name=webapp
+kubectl annotate pod nginx-prod{1..2} name=webapp
+
+# Verify the pods that have been annotated 
+kubectl describe po nginx-dev{1..3} | grep -i annotations
+kubectl describe po nginx-pro{1..2} | grep -i annotations
+
+# Remove the annotations of the pod and verify
+kubectl annotate pod nginx-dev{1..3} name-
+kubectl annotate pod nginx-prod{1..2} name-
+
+# checking if they have annotations
+kubectl describe po nginx-dev{1..3} | grep -i annotations
+kubectl describe po nginx-prod{1..2} | grep -i annotations
 ```
