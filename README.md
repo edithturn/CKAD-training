@@ -276,13 +276,20 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
     
 
 ## Tips for VIM
-* Use h -> move to left, l - > move to right, j -> move down , k -> move  up
-* Esc + DD -> delete a line
-* Esc + o -> add a new line
-* Esc + w -> move word to word, set cursosr at the beginning of the word
-* Esc + e -> move word to word, set cursor at the end of the word
-* Esc + :set num -> to add line numbers
-*  
+* Use h | move to left, l - > move to right, j -> move down , k -> move  up
+* Esc + DD | delete a line
+* Esc + o | add a new line
+* Esc + w | move word to word, set cursosr at the beginning of the word
+* Esc + e | move word to word, set cursor at the end of the word
+* Esc + :set num | to add line numbers
+* Esc + y | copy a line
+* Esc + p | paste the line
+* Shift + >  | Indentation to the right
+* Shift + <  | Indentation to the left
+* Esc + u |  revert changes
+
+
+
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
 The courses that I took were:
