@@ -191,3 +191,8 @@ kubectl annotate pod nginx-prod{1..2} name-
 kubectl describe po nginx-dev{1..3} | grep -i annotations
 kubectl describe po nginx-prod{1..2} | grep -i annotations
 ```
+
+
+
+# Source:
+ https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
