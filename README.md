@@ -108,7 +108,7 @@ kubectl  describe pod basicpod
 * kubectl get pod -n default
 
 # View resources in all namespaces at once. 
-* kubbectl get pod --all-namespaces
+* kubectl get pod --all-namespaces
 * kubectl get deploy, rs, po, svc,ep
 
 # Delete the top-level controller
@@ -238,6 +238,43 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
 - Observability (18%)
 - Services and Networking (13%)
 
+## Suggestions [source - CKDA udemy course from Mumshad]
+* Attempt all questions
+* Don't get stuck on any question
+* Get good with YAML
+* Use shortcuts/aliases
+  - po for PODS
+  - rs for RepicaSets
+  - deploy for Deployments
+  - svc for Services
+  - ns for Namespaces
+  - netpol for Networking polices
+  - pv for Persistent Volumes
+  - pvc for PersistentVolumeClaims 
+  - sa for service accounts
+
+## Other suggestions [source Muralidaran shanmugham - Tips on preparing for Certified Kubernetes Application Developer (CKAD)
+]
+* Go through the k8s.io documentation
+* Understand all the concepts outlined in the exam curriculum
+* Register for courses like Kodekloud
+* Time management
+  - nano Editor
+  - Kubectl alias
+  - learn shortcuts
+  - alias k='kubectl'
+  - k config set-context <cluster name> --namespace=<namespace name>
+  - k explain cronjob.spec.jobTemplate --recursive
+  - know all the commands =>   https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-
+  - --restart (YAML generator)
+  - args: ["-c", "while true; do date >> /var/log/app.txt; sleep 5; done"]
+  - args: [/bin/sh, -c, 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
+  - args: ["-c", "mkdir -p collect; while true; do cat /var/data/*> /collect/data.txt; sleep 10; done"]
+  - Use of grep:
+    - kubectl describe pods | grep --context=10 annotations:
+    - kubectl describe pods | grep --context=10 Events:                                                                          
+     
+
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
 The courses that I took were:
@@ -259,6 +296,9 @@ ft_services
 * Curriculum for CKAD
 https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_V1.20.pdf
 
+
+# Game of Pods
+https://kodekloud.com/p/game-of-pods-game
 
 # Articles
 https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552

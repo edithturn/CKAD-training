@@ -123,6 +123,9 @@ kubectl delete deployment pod-name
 # Deliting all pods in a namespace
 kubectl delete --all pods --namespace=foo
 
+# Delete all the pods created
+kubectl delete pod --all
+
 # Delete the pod without any delay
 kubectl delete pods nginx --grace-period=0 --force
 

@@ -1,8 +1,10 @@
 ## Labels
 
-
-
 ```bash
+# Get the pod with label information
+kubectl get pods --show-labels
+
+# Get pods of a specific label
 kubectl get pods --selector app=App1
 ```
 
