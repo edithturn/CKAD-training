@@ -1,6 +1,7 @@
-## Columnes
-
 ## Persistent Volumns
+
+The data that is on the container lives with the container, It means that if the container died the data is destroyed.
+To persit the date, we have to attach a volumne in the container to retain permanently.
 
 
 
