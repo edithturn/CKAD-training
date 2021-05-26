@@ -1,0 +1,8 @@
+  - args:
+    - bin/sh
+    - -c
+   et liost- echo this is the third container; sleep 3600
+    image: busybox
+    name: busybox3
+  restartPolicy: Never
+  ```
