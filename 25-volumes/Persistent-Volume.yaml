@@ -4,7 +4,7 @@ metadata:
   name: foo-pvc
 spec:
   accessModes:
-    - ReadWriteOnce:
+    - ReadWriteOnce
   capacity:
     storage: 1Gi
   hostPath:
