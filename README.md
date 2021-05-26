@@ -284,12 +284,38 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
 * Esc + :set num  | to add line numbers
 * Esc + y         | copy a line
 * Esc + p         | paste the line
+* Shift + v       | to visual mode and  up and down arrows to move the cursor
 * Shift + >       | Indentation to the right
 * Shift + <       | Indentation to the left
 * Esc + u         |  revert changes
 * ALT + f         | move the cursor after the word
 * ALT + b         | move the cursos before the word
-* Esc + dw        | Delete a word  
+* Esc + dw        | Delete a word
+* Esc + /         | Find a word
+
+
+## TIPS
+
+Be fast Ingress
+```bash
+kubectl get all --all-namespaces
+
+kubectl get deploy --namespace app-space
+kubectl get deployments.app -n=app-space
+
+kubectl get ingress --all-namespaces
+kubectl describe ingress --namespaces app-space
+kubectl edit ingress --namespace app-space
+```
+Logs
+```bash
+kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
+
+
+```
+
+
+
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
 The courses that I took were:
@@ -317,3 +343,7 @@ https://kodekloud.com/p/game-of-pods-game
 
 # Articles
 https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
+
+## Videos
+How to CRUSH the CKAD Exam!
+https://www.youtube.com/watch?v=5cgpFWVD8ds
