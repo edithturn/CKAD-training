@@ -1,4 +1,0 @@
-
-## Network in Kubernentes
-* routing
-

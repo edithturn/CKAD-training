@@ -1,17 +1,33 @@
 ## Labels
 
-
 ```bash
 # Create a pod with label
 kubectl run nginx1 --image=nginx --restart=never --labels=app=v1
 
-```
-```bash
-# Get the pod with label information
+# Show all the labels of the pods
 kubectl get pods --show-labels
 
 # Get pods of a specific label
 kubectl get pods --selector app=App1
+
+# Change the label of a specific pod
+kubectl label nginx3 app=v2 --overwrite
+
+# Get the label 'app' for the pods (show a column with APP label)
+kubectl get pod -L app
+kubectl get pod --lagel-columns=app
+
+# Get pod for a specific label
+kubectl get pod -l app=v2
+kubectl get pod --selector=app=v2
+
+# Delete a specific label
+kubectl label pod nginx3 app-
+
+# Add a label a node 
+kubectl label nodes minikube accelerator=nvidia-tesla-p100
+
+# 
 ```
 
 ```bash

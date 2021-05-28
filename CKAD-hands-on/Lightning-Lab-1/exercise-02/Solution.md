@@ -6,8 +6,8 @@
 kubectl get pods
 kubectl exec -it webapp-color -- sh
 
-# Check Services
-kubectl get svc
+# Check Services, in which port is runnning the secure-service?
+kubectl get svc # secure-service
 
 # Check pod webapp-color
 kubectl exec -it webapp-color -- sh
@@ -15,8 +15,15 @@ kubectl exec -it webapp-color -- sh
 # Check connectivity port 80
 nc -z -v -w 1 secure-service 80
 
+# Example
+For example, to scan for open ports in the range 20-80 you would use the following command:
+
+nc -z -v 10.10.8.8 20-80
+
+The -z option will tell nc to only scan for open ports, without sending any data to them and the -v option to provide more verbose information and -w for connections which cannot be established or are idle timeout after timeout seconds
+
 # Check polices
 kubectl get netpol
-Lightning-Lab-1
+
 
 ```

@@ -1,3 +1,24 @@
+# Tips and Tricks to help you to pass certified Kubernetes Application Developer (CKAD)
+
+
+Use alias
+```bash
+alias k=kubectl
+alias krd kubectl run --dry-run=client -o yaml # then use it: krd --image=nginx > pod.yaml
+```
+
+We can find more abbreviates using: **kubectl api-resources**
+```bash
+k get ns        # for namespaces
+k get deploy    # for deployments
+k get pv        # for persistentvolumes
+k get pvc       # for persistentvolumeclaims
+k get svc       # for services
+k get no        # for nodes
+k get po        # for pods
+k get cj        # for cronjobs
+k get quota     # for resourcequotas
+```
 ```kubectl
 # Everytime to delete the pod 
 alias kdp='kubectl delete pod pod --farce --grace-period=0'

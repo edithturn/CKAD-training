@@ -344,6 +344,9 @@ https://kodekloud.com/p/game-of-pods-game
 # Articles
 https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
 
+# Exercises
+https://github.com/dgkanatsios/CKAD-exercises
+
 ## Videos
 How to CRUSH the CKAD Exam!
 https://www.youtube.com/watch?v=5cgpFWVD8ds
