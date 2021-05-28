@@ -1,5 +1,11 @@
 ## Labels
 
+
+```bash
+# Create a pod with label
+kubectl run nginx1 --image=nginx --restart=never --labels=app=v1
+
+```
 ```bash
 # Get the pod with label information
 kubectl get pods --show-labels
