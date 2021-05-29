@@ -27,7 +27,9 @@ kubectl label pod nginx3 app-
 # Add a label a node 
 kubectl label nodes minikube accelerator=nvidia-tesla-p100
 
-# 
+# Create a pod that will be deployed 
+
+
 ```
 
 ```bash

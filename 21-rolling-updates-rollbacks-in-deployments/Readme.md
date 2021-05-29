@@ -1,4 +1,8 @@
-## Rollout and Versioning
+## Rolling Updates
+
+When we create a deployment, it triggers a rollout, a new rollout created a new deployment revision.
+Rolling update is the default deployment strategi
+
 
 ```bash
 kubectl rollout status deployment/myapp-deployment
@@ -31,5 +35,5 @@ kubectl create -f deployment-definition.yml --record
 ```
 
 
-# TODO
+## Rollbacks in Deployments
  
