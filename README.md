@@ -201,27 +201,6 @@ sudo apt-get install kubetail
 ```
 
 
-### Exercises [Delete]
-```bash
-[1] Deploy a pod named nginx-pod using the nginx:alpine image.Use imperative commands only.
-
-kubectl run nginx-pod --image=nginx:alpine --dry-run=client -o yaml > my-pod-01.yaml
-
-[2] Deploy a redis pod using the redis:alpine image with the labels set to tier=db.
-
-
-Either use imperative commands to create the pod with the labels. Or else use imperative commands to generate the pod definition file, then add the labels before creating the pod using the file.
-
-kubectl run redis --image=redis:alpine --dry-run=client -o yaml
-
-kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
-
-# then add labels tier=db
-
-```
-
-
-
 ## Suggestions [source - CKDA udemy course from Mumshad]
 * Attempt all questions
 * Don't get stuck on any question
@@ -258,7 +237,6 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
     - kubectl describe pods | grep --context=10 annotations:
     - kubectl describe pods | grep --context=10 Events:                                                                          
     
-
 ## Tips for VIM
 * Use h -> move to left, l - > move to right, j -> move down , k -> move  up
 * Esc + DD        | delete a line
@@ -297,8 +275,6 @@ kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
 
 
 ```
-
-
 
 ## Note:
 This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
