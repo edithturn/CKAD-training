@@ -1,4 +1,4 @@
-# Kubernetes For Developers
+# Kubernetes For Developers - CKAD
 
 <p align="center">
   <img width="500" height="350" src="img/k8s.png">
@@ -7,7 +7,7 @@
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
-## Componentes
+## Componentes Of Kubernetes
 - API Server
 - etcd
 - kubelet
@@ -18,23 +18,15 @@
 ## Architecture
   A node is a machine physical or virtual, and node is a worker machine and that is where containers will be launched by Kubernetes.
 
-## Key Kubernetes Features
-* Service Discoverry/Load Balancing
-* Storage Orchestration
-* Automate Rollouts/Rollbacks
-* Self-healing
-* Secret and Configuration Management
-* Horizontal Scaling
+## About the CKAD  (Certified Kubernetes Application Developer)
 
-## Key Container Benefits
-* Accelerate Developer Onboarding
-* Eliminate App Conficts
-* Environment Consistency
-* Ship Software Faster
-
-[Add : Source]
-
-## Why we need kubernetes as a developers?
+- Core Concepts (13%)
+- Multi-Container Pods (10%)
+- Pod Design (20%)
+- State Persistence (8%)
+- Configuration (18%)
+- Observability (18%)
+- Services and Networking (13%)
 
 
 ## Kubectl
@@ -228,15 +220,7 @@ kubectl run redis --image=redis:alpine --dry-run=client -o yaml > my-pod-02.yaml
 
 ```
 
-## About the CKAD  (Certified Kubernetes Application Developer)
 
-- Core Concepts (13%)
-- Multi-Container Pods (10%)
-- Pod Design (20%)
-- State Persistence (8%)
-- Configuration (18%)
-- Observability (18%)
-- Services and Networking (13%)
 
 ## Suggestions [source - CKDA udemy course from Mumshad]
 * Attempt all questions
