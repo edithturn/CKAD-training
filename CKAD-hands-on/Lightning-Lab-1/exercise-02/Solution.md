@@ -24,6 +24,8 @@ The -z option will tell nc to only scan for open ports, without sending any data
 
 # Check polices
 kubectl get netpol
+kubectl get pod --show-labels
+# -> secure-pod  LABELS: run=secure-pod
 ```
 **Creating the police**
 
