@@ -4,7 +4,9 @@ When we create a deployment, it triggers a rollout, a new rollout created a new 
 Rolling update is the default deployment strategi
 
 
+
 ```bash
+# Shot the revisions and history of our deployment
 kubectl rollout status deployment/myapp-deployment
 kubectl rollout history deployment/myapp-deployment
 kubectl rollout undo deployment/myapp-deployment

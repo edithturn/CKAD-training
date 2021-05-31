@@ -254,6 +254,7 @@ sudo apt-get install kubetail
 * ALT + b         | move the cursos before the word
 * Esc + dw        | Delete a word
 * Esc + /         | Find a word
+* o               | Yo add a new empty line in a yaml
 
 
 ## TIPS
