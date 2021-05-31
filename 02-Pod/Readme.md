@@ -2,7 +2,7 @@
 
 **Pods** are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
 
-<img src="../img/pod/pod.png" width="50%" height="50%">
+<img src="../img/pod/pod.png" width="60%" height="60%">
 
 Single instance of an application.
 
@@ -132,7 +132,7 @@ kubectl delete pods nginx --grace-period=0 --force
 # Delete a Pod with minimal delay
 #k delete pod my-pod now
 ```
-### More examples
+### More Commands
 ```bash
 # Create the nginx pod with version 1.17.4 and expose it on port 80
 kubectl run nginx --image=nginx:1.17.4 --restart=Never --port=80

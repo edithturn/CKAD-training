@@ -27,7 +27,7 @@ echo -n 'passwrd' | base64
 
 **Decoding secrets**
 
-``bash
+```bash
 echo -n 'asdasdas=' | base64 --decode
 mysql
 
@@ -37,6 +37,3 @@ root
 echo -n 'Getafaf' | base64 --decode
 passwd
 ```
-
-
-

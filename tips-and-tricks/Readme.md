@@ -1,10 +1,12 @@
-# Tips and Tricks to help you to pass certified Kubernetes Application Developer (CKAD)
+# **Tips and Tricks for CKAD**
 
 ## Use Alias
 ```bash
 alias k='kubectl'
 alias krd='kubectl run --dry-run=client -o yaml' # then use it: krd --image=nginx > pod.yaml
 alias kdp='kubectl delete pod --force --grace-period=0'
+alias kap='kubectl apply -f'
+alias kns='config set-context --current --namespace='
 ```
 
 ## Use Completions <- My Favorite
