@@ -1,17 +1,17 @@
-### Solution
+## Solution
 
-#### Persistet Volume
+### Persistet Volume
 ```bash
 kubectl create -f pv.yaml
 ```
 
-#### Persistet Volume Claim
+### Persistet Volume Claim
 
 ```bahs
 kubectl create -f pvc.yaml
 ```
 
-#### Pod with Volume
+### Pod with Volume
 
 ```bash
 kubectl run --generator=run-pod/v1 logger --image=nginx:alpine --dry-run=client -o yaml > pod.yaml
