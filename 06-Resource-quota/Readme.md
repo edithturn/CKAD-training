@@ -5,7 +5,7 @@
 # Create a quota from a ResourceQuota  definition
 kubectl create -f mem-cpu-demo --namespace=dev
 
-# Create a resource quota iterative
+# Create a resource quota -> imperative
 kubectl create quota myrq --hard=cpu=1,memory=1G,pods=2 --dry-run=client -o yaml
 
 # View detailed information about the ResourceQuota:

@@ -38,7 +38,7 @@ spec:
   restartPolicy: Never
   ```
 
-Iterative way: 
+Imperative: 
 ```bash
 kubectl run busibox --image=busibox --restart=Never --dry-run -o yaml -- bin/sh -c "sleep 3600; ls" > pod.yml
 ```
