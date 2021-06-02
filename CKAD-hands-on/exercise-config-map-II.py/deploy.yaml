@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: my-dep
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-dep
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        resources: {}
+        env:
+        - name: MY_GREETING
+          valueFrom:
+            configMapKeyRef:
+             key: greeting
+             name: task-cm
+        command: ["/bin/sh", "-c"]
+        args:
+        - env; sleep 3600;
+status: {}
