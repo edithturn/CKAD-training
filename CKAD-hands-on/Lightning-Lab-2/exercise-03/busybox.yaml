@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-busybox
+  name: my-busybox
+spec:
+  containers:
+  - command:
+    - sleep
+    - "3600"
+    image: busybox
+    name: secret
+    volumeMounts:
+    - mountPath: /etc/secret-volume
+      name: secret-volume
+      readOnly: true
+  volumes:
+  - name: secret-volume
+    secret:
+      secretName: dotfile-secret

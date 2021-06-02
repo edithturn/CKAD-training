@@ -27,5 +27,10 @@ vim dice.yaml
 ```
 
 ```bash
+# Create the CronJob
 kubectl create  -f dice.yaml
+
+# Check if the jobs are running
+kubectl get jobs
+
 ```
