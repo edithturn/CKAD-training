@@ -56,7 +56,7 @@ Use Selectors to perform certain activities on resources with a particular label
 
 ## Annotations
 Are ose to record other details for informatory purpose.
-```bash
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:

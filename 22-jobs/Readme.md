@@ -60,7 +60,7 @@ kubectl logs
 kubectl delete job mth-aa-job
 ```
 
-## Crons
+## CronsJobs
 
 ```bash
 # Create a cron job with image busybox that runs on a schedule of "*/1 * * * *" and writes 'date; echo Hello from the Kubernetes cluster' to standard output
@@ -70,3 +70,9 @@ kubectl create cronjob busybox --image=busybox --schedule="*/1 * * * *" -- /bin/
 kubectl get cj
 kubectl get jobs --watch
 ```
+
+
+
+## Sources
+* The quick and simple editor for cron schedule expressions by Cronitor  https://crontab.guru/examples.html
+* https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example

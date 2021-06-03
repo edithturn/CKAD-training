@@ -7,7 +7,9 @@ alias krd='kubectl run --dry-run=client -o yaml' # then use it: krd --image=ngin
 alias kdp='kubectl delete pod --force --grace-period=0'
 alias kap='kubectl apply -f'
 alias kns='config set-context --current --namespace'
+alias kaf='kubectl apply -f'
 ```
+linq closes
 
 ## Use Completions <- My Favorite
 Documentation [here](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete)

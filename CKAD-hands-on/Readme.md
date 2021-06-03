@@ -1,4 +1,4 @@
-# Hands On
+# Hands On -- More Practice
 
 ### Exercise 01:
 
@@ -191,6 +191,20 @@ kubectl annotate pod nginx-prod{1..2} name-
 kubectl describe po nginx-dev{1..3} | grep -i annotations
 kubectl describe po nginx-prod{1..2} | grep -i annotations
 ```
+
+
+### Exercise 03:
+Create a service messaging-service to expose the redis deployment in the marketing namespace within on port 6379
+
+**Solution:**
+```bash
+# Set the context in the current namespace
+kubect config set-context --current --namespace=marketing
+# Create the service with expose and add the ports
+kubectl expose deploy redis messaging-service -n masrketing --port 6379 --targetPort 6379
+```
+
+
 
 
 
