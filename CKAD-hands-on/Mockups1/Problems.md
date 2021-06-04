@@ -47,5 +47,4 @@ spec:
     env:
     - name: NGINX_PORT
       value: "8080"
-
 ```

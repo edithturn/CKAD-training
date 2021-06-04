@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    tier: frontend
+  name: my-webappp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-webappp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-webappp
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}

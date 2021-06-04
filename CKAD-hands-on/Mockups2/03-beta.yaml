@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: beta-apps
+  name: beta-apps
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: beta-apps
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: beta-apps
+    spec:
+      containers:
+      - image: nginx
+        name: beta-app
+    affinity:
+      nodeAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+           nodeSelectorTerms:
+           - matchExpressions:
+             - key: app_type
+               operator: In
+               values:
+               - beta
