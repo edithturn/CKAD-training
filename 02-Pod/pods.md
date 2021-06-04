@@ -1,14 +1,8 @@
-# Pods
+# **Pods**
 
 **Pods** are a group of containers represented for deployable objects in Kubernetes. It could contain one or more containers.
 
-<img src="../img/pod/pod.png" width="60%" height="60%">
-
-Single instance of an application.
-
-
-### Example 01 - 01-basic-pod-definition
-
+## **Basic Commands**
 ```bash
 # List pods in the default namespace
 kubectl get pods
@@ -27,19 +21,16 @@ kubectl get po nginx -o wide
 # More details about a single Pod
 kubectl describe pod basicpod
 
-
-# List all pods showing name and namespace with a joson path expresion | TODO
-kubectl get pods -o=jsonpath="{.item[*]}['metadata.name', 'metadata.namespace']"
 ```
 
-```console
+```bash
 kubectl get pods
 NAME        READY   STATUS    RESTARTS   AGE
 myapp-pod   1/1     Running   1          33m
 ```
 
 ```bash
-# Creating a pod from the kuberentes repository 
+# Creating a pod
 kubectl run nginx --image nginx
 
 # Restart Never
@@ -47,7 +38,6 @@ kubectl run nginx --image nginx --restart=Never
 
 # Specify the version of the image
 kubectl run nginx --image=nginx:alpine
-
 kubectl run redis --image redis123
 
 # Creating pods based in yaml files
@@ -56,11 +46,11 @@ kubectl apply -f /var/examples/my-pod.yaml
 kubectl apply -f my-pod.yaml
 
 # Creating pods in a specific namespace
-kubectl create -f 01-pod-definition.yml --namespace=dev
-kubectl run redis --image=redis --namespace=finance
+kubectl create -f my-pod.yml --namespace=dev
+kubectl run redis --image=redis --namespace=prod
 ```
 
-**If we want to create a pod in diferent namespace defined in the yml file**
+If we want to create a pod in diferent namespace, using yaml
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -76,7 +66,6 @@ spec:
     image: nginx
 ```
 
-### Editing an existing Pod
 ```bash
 # Edit a pod yml
 vim 01-pod-definition.yml
@@ -89,28 +78,21 @@ kubectl get pod nginx -o yaml > other-pod.yml
 
 # Create a dry run of the Pod, It will not create the pod, but we can use the yaml to redirect the yamls definition into a file called pod.yaml
 kubectl run redis --image=redis123  --dry-run=client -o yaml > pod.yaml
-# Editing the file, and save the changes.
+
+# Edit the file, and save the changes.
 vim pod.yaml
+
 # Apply to create the pod
 kubectl apply -f pod.yaml
-kubectl get pod -n dev
-```
-**Example how to dry-run and edit the pod file**
 
-```bash
-kubectl run redis --image=redis --dry-run=client -o yaml > pod.yaml
-# Editing the file, and save the changes, add namespace=dev
+# Edit the file, and save the changes, add namespace=dev
 vi pod.yaml
 kubectl apply -f pod.yaml
-```
-```bash
+
 # Other ways to edit a file, edit will automatically apply the changes
 kubectl edit pod myapp-pod
 kubectl edit pod redis
-```
 
-### Deleting a Pod
-```bash
 # Delete a pod, it will be created again by the deployment
 kubectl delete pod pod-name
 
@@ -121,18 +103,16 @@ kubectl delete -f nginx-pod.yml
 kubectl delete deployment pod-name
 
 # Deliting all pods in a namespace
-kubectl delete --all pods --namespace=foo
+kubectl delete --all pods --namespace=dev
 
 # Delete all the pods created
 kubectl delete pod --all
 
 # Delete the pod without any delay
 kubectl delete pods nginx --grace-period=0 --force
-
-# Delete a Pod with minimal delay
-#k delete pod my-pod now
 ```
-### More Commands
+
+## **More Commands**
 ```bash
 # Create the nginx pod with version 1.17.4 and expose it on port 80
 kubectl run nginx --image=nginx:1.17.4 --restart=Never --port=80
@@ -146,7 +126,7 @@ kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
 
 # Create the nginx pod and execute the simple shell on the pod
 kubectl run nginx --image=nginx --restart=Never
-kubectl exer -it nginx /bin/sh
+kubectl exec -it nginx /bin/sh
 
 # Create a busybox pod and run commands ls while creating it and check the logs
 kubectl run busibox --image=busibox --restart=Never -- ls
