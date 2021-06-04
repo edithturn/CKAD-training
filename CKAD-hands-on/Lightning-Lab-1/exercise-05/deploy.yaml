@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: redis
-  name: rediss
+  name: redis
 spec:
   replicas: 1
   selector:
@@ -20,16 +20,16 @@ spec:
       containers:
       - image: redis:alpine
         name: redis
-        ports:
-          - containerPort: 6379
         resources:
-         requests:
-           cpu: "0.2"
+          requests:
+            cpu: "0.2"
         volumeMounts:
-          - mountPath: /redis-master-data
-            name: data
-          - mountPath: /redis-master
-            name: redis-config
+        - mountPath: /redis-master-data
+          name: data
+        - mountPath: /redis-master
+          name: redis-config
+        ports:
+          - containerPort:  6379
       volumes:
         - name: data
           emptyDir: {}

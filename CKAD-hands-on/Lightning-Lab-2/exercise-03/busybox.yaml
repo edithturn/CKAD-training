@@ -6,6 +6,7 @@ metadata:
     run: my-busybox
   name: my-busybox
 spec:
+  nodeName: master
   containers:
   - command:
     - sleep

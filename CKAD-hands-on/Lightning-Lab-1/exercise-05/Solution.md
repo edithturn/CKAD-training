@@ -14,4 +14,15 @@ c.The container should expose the port 6379.
 
 The configmap has already been created.
 
-## Solution
+## **Solution**
+
+```bash
+# Create the deployment
+kubectl create deploy redis --image=redis:alpine --dru-run=client -o yaml > deploy.yaml
+
+# Edit the file, to add .2 CPU and labels app=redis and, add the two volumes
+kubectl vim deploy.yaml
+
+# Crate the depoyment
+kubectl apply -f deplyo.yaml
+```
