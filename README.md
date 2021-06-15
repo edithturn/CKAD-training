@@ -1,4 +1,4 @@
-# Kubernetes For Developers - CKAD
+# CNCF’s CKAD certification - Cloud Native Computing Foundation
 
 <p align="center">
   <img width="500" height="350" src="img/k8s.png">
@@ -305,9 +305,14 @@ https://kodekloud.com/p/game-of-pods-game
 # Articles
 https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
 
-# Exercises
+# Exercises ' TODO
 https://github.com/dgkanatsios/CKAD-exercises
 
 ## Videos
 How to CRUSH the CKAD Exam!
 https://www.youtube.com/watch?v=5cgpFWVD8ds
+# Solve these more than 100 questions
+https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
+
+# Good article
+https://www.infracloud.io/blogs/prepare-cka-ckad-certification/

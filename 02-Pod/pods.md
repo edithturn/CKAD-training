@@ -151,7 +151,6 @@ kubectl get po nginx --v=7
 kubectl get po nginx --v=8
 kubectl get po nginx --v=9
 
-
 # List the pod with custom columns POD_NAME and POD_STATUS
 kubectl get po -o=custom-columns="POD_NAME:.metadata.name, POD_STATUS:.status.containerStatuses[].state"
 

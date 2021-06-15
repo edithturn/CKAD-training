@@ -4,10 +4,11 @@
 ```bash
 alias k='kubectl'
 alias krd='kubectl run --dry-run=client -o yaml' # then use it: krd --image=nginx > pod.yaml
+alias kcd='kubectl create --dry-run=client -o yaml' # then use it: krd --image=nginx > pod.yaml
 alias kdp='kubectl delete pod --force --grace-period=0'
-alias kap='kubectl apply -f'
-alias kns='config set-context --current --namespace'
 alias kaf='kubectl apply -f'
+alias kaf='kubectl create -f'
+alias kns='config set-context --current --namespace'
 ```
 linq closes
 
@@ -121,7 +122,18 @@ kubectl -n elastic-stack get pod app -o yaml > app.yaml
 kbuectl delete pod app -n elastic-stack
 vi app.yaml
 ```
-   
+
+
+## Extra commands
+```bash
+ps -aux
+ps -aux | grep -i 'string'
+ps -aux | grep -e 'exp-one' -e 'exp-two'
+ifconfig
+ip a
+ip r
+```
+
 ### Source:
 * https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 

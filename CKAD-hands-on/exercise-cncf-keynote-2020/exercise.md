@@ -13,6 +13,5 @@ kubectl describe node k8s-worker-1
 kubectl describe node k8s-worker-2
 
 # Print the names
-echo coredns-0001 | sudo tee -a /opt/KUTR00402/KUTR00402.txt
-echo coredns-0002 | sudo tee -a /opt/KUTR00402/KUTR00402.txt
+kubectl get nodesecho coredns-0002 | sudo tee -a /opt/KUTR00402/KUTR00402.txt
 ```
