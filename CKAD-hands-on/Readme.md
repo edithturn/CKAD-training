@@ -204,8 +204,28 @@ kubect config set-context --current --namespace=marketing
 kubectl expose deploy redis messaging-service -n masrketing --port 6379 --targetPort 6379
 ```
 
+### Exercise 04:
+Find the name of pod which is using most CPU across all namespaces. Enter the name of pod in /root/high-cpu.yaml
+
+```bash
+kbuectl top po -A --sort-by=cpu
+```
+
+### Exercise 05:
+
+Deployment naboo is created. Make sure the replicas autoscale with minimum 2 and maximum 5 when at 80% CPU. Use naboo as the name of HPA resource.
+
+```bash
+kubectl autoscale deploy naboo --name=naboo --min=2 --max=5 --cpu-percent=80
+```
 
 
+### Exercise 06:
+Create a Cron job bespin that runs every 5 minutes(*/5 * * * *) and runs command date. Use alpine image.
+
+```bash
+kubectl create cronjob bespin --image=alpine --schedule="*/5 * * * *" -- date
+```
 
 
 # Source:

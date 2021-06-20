@@ -132,6 +132,13 @@ ps -aux | grep -e 'exp-one' -e 'exp-two'
 ifconfig
 ip a
 ip r
+systemctl status kubelet
+systemctl restart kubelet
+systemctl daemon reload
+journalctl -u kubelet
+netstat -tunlp
+
+
 ```
 
 ### Source:

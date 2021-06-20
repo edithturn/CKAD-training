@@ -316,3 +316,7 @@ https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-question
 
 # Good article
 https://www.infracloud.io/blogs/prepare-cka-ckad-certification/
+
+
+# Practice practice and practice
+https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges
