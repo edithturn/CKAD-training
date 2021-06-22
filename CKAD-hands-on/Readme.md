@@ -228,5 +228,19 @@ kubectl create cronjob bespin --image=alpine --schedule="*/5 * * * *" -- date
 ```
 
 
+
+# Services & Networking
+
+## Quesion 01
+Create a service for pod ig-11 on using ClusterIP type service with service name greef. Map service port 8080 to container port 80.
+
+k expose pod ig-11 --name=greef --port=8080 --target-port=80
+
+
+## Quesion 02
+
+Deployment cara is created. Expose port 80 of the deployment using NodePort on port 31888. Use cara as service name.
+
+
 # Source:
  https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
