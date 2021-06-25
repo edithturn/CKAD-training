@@ -7,17 +7,6 @@
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
-## Componentes Of Kubernetes
-- API Server
-- etcd
-- kubelet
-- Container Runtine
-- Controller
-- Scheduler
-
-## Architecture
-  A node is a machine physical or virtual, and node is a worker machine and that is where containers will be launched by Kubernetes.
-
 ## About the CKAD  (Certified Kubernetes Application Developer)
 
 - Core Concepts (13%)
@@ -288,35 +277,40 @@ https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 
-* Pluranshit: Dan Wahlin
-https://app.pluralsight.com/library/courses/kubernetes-developers-core-concepts/table-of-contents
+## Practice
 
-
-* 42 Silicon Valley Bootcamp School
-ft_services
-
-* Curriculum for CKAD
-https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_V1.20.pdf
-
-
-# Game of Pods
-https://kodekloud.com/p/game-of-pods-game
-
-# Articles
-https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
-
-# Exercises ' TODO
-https://github.com/dgkanatsios/CKAD-exercises
-
-## Videos
-How to CRUSH the CKAD Exam!
-https://www.youtube.com/watch?v=5cgpFWVD8ds
-# Solve these more than 100 questions
-https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
-
-# Good article
+1. How to Prepare for CKAD and CKA Certification?
 https://www.infracloud.io/blogs/prepare-cka-ckad-certification/
 
+1. Game of Pods: A set of fun challenges to learn and practice your skills on Kubernetes
+https://kodekloud.com/p/game-of-pods-game
 
-# Practice practice and practice
+2. Kubernetes CKAD Example Exam Questions Practical Challenge Series
+
+https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681
+
+3. Practice Enough With These 150 Questions for the CKAD Exam 
+https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
+
+4. CKAD Exercises 
+https://github.com/dgkanatsios/CKAD-exercises
+
+5. Kubernetes Network Policy Recipes 
+https://github.com/ahmetb/kubernetes-network-policy-recipes
+
+6. katacoda - CKAD Practice Challenge
+
 https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges
+
+# TO DO
+https://www.study4exam.com/
+
+## Videos
+
+1. How to CRUSH the CKAD Exam!
+https://www.youtube.com/watch?v=5cgpFWVD8ds
+
+2. Vim Crash Course | How to edit files quickly in CKAD / CKA exam
+
+https://www.youtube.com/watch?v=knyJt8d6C_8
+
