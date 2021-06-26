@@ -97,7 +97,7 @@ sudo apt-get install kubetail
 ```
 
 
-## **Suggestions [source - CKDA udemy course from Mumshad**
+## **Suggestions - CKDA Udemy course with Mumshad**
 * Attempt all questions
 * Don't get stuck on any question
 * Get good with YAML
