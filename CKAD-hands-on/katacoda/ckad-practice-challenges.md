@@ -10,6 +10,8 @@ Link to practice [HERE](https://www.katacoda.com/liptanbiswas/courses/ckad-pract
 
 # Exercises
 
+# asdas
+
 ## Exercise 03:
 Create a service messaging-service to expose the redis deployment in the marketing namespace within on port 6379
 
@@ -88,3 +90,139 @@ spec:
     - podSelector:
         matchLabels:
           empire: "true"                               
+
+# State Persistence - 8%
+
+## Quesion 01
+
+Create a pod named "tato" with image nginx. Mount a volume named tato-vol at /var/www/html, which should live as long as pod lives.
+
+**Solution**
+alias kdr='kubectl run --dry-run -o yaml'
+kdr tato --image=nginx > pod.yaml
+
+vim pod.yaml
+```yaml
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: tato
+  name: tato
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    resources: {}
+    volumeMounts:
+    - mountPath: /var/www/html
+      name: tato-vol
+  volumes:
+  - name: tato-vol
+    emptyDir: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+```
+
+## Quesion 02
+
+Create a persistent volume "first-pv" with 100Mi at /data/mysql on host. Use manual storageClassName and ReadWriteMany access mode.
+
+Create a persistent volume claim "first-pvc" and consume the pv first-pv.
+
+Create a pod "magic" with image mysql and mount the PVC at /var/lib/mysql using volume name first-vol. Set an environment variable MYSQL_ROOT_PASSWORD=my-secret-pw as well.
+
+vim pv.yaml
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: first-pv
+spec:
+  capacity:
+    storage: 100Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: manual
+  hostPath:
+    path: /data/mysql
+```
+vim pvc.yaml
+```yaml
+kind: PersistentVolumeClaim
+metadata:
+  name: first-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: manual
+```
+kubectl run magic --image=mysql > pod.yaml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: magic
+  name: magic
+spec:
+  containers:
+  - image: mysql
+    name: mysql
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "my-secret-pw"
+    resources: {}
+    volumeMounts:
+      - mountPath: "/var/lib/mysql"
+        name: first-vol
+  volumes:
+    - name: first-vol
+      persistentVolumeClaim:
+        claimName: first-pvc
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+```
+
+
+## Quesion 02
+Create a pod "moodo" with two containers using image nginx and redis. Create a shared hostPath volume at /data/moodo named moodo-logs mounted at /var/log/moodo in both the containers.
+
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: moodo
+  name: moodo
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /var/log/moodo
+      name: moodo-logs
+  - image: redis
+    name: redis
+    volumeMounts:
+    - mountPath: /var/log/moodo
+      name: moodo-logs
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: moodo-logs
+    hostPath:
+      path: /data/moodo
+status: {}
+```
