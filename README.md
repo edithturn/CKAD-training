@@ -60,15 +60,6 @@ spec:
 ```bash
 kubectl create deployment nginx --image=nginx --dry-run=client -o ymal > nginx-deployment.yaml
 ```
-
-* [Pods](02-Pod/Readme.md)
-
-* [Replication Controller](04-Replication-controller/Readme.md)
-
-* [Deployments](03-Deployment/Readme.md)
-
-* [Services](11-Services/Readme.md)
-
 ## Basic Commands
 ```bash
 kubectl api-resources
