@@ -49,18 +49,20 @@ kubectl create cronjob bespin --image=alpine --schedule="*/5 * * * *" -- date
 
 
 # Services & Networking - 13%
+
 ## Question 01
 Create a pod named ig-11 with image nginx and expose its port 80.
 
-Solution:
+**Solution**
 
 ```bash
 k run ig-11  --restart=Never --image=nginx --port=80
 ```
+
 ## Quesion 02
 Create a service for pod ig-11 on using ClusterIP type service with service name greef. Map service port 8080 to container port 80.
 
-Solution:
+**Solution**
 
 ```bash
 k expose pod ig-11 --name=greef --port=8080 --target-port=80
@@ -70,7 +72,8 @@ k expose pod ig-11 --name=greef --port=8080 --target-port=80
 
 Deployment cara is created. Expose port 80 of the deployment using NodePort on port 31888. Use cara as service name.
 
-Solution:
+**Solution**
+
 ```bash
 k expose deployment cara --port=80 --type=NodePort
 
@@ -78,10 +81,10 @@ k expose deployment cara --port=80 --type=NodePort
 # then change nodePort to 31888
 ```
 
-## question 4
+## Question 4
 Pod and Service geonosis is created for you. Create a network policy geonosis-shield which allows only pods with label empire=true to access the service. Use appropriate labels.
 
-Solution:
+**Solution**
 
 ```bash
 vim np.yaml
