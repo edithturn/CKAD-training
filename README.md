@@ -78,73 +78,6 @@ kubectl  describe pod basicpod
 
 ```
 
-### Expose the port to the cluster
-```bash
-# Adding type NodePort in the service
-* kubectl delete basicpod ; kubectl create -f basic.yaml
-* kubectl create deployment firstpod --image=nginx
-* kubectl get deployment, pod
-* kubectl get namespaces
-* kubectl get pod -n kube-system
-* kubectl get pod -n default
-
-# View resources in all namespaces at once. 
-* kubectl get pod --all-namespaces
-* kubectl get deploy, rs, po, svc,ep
-
-# Delete the top-level controller
-kubectl delete deployment firstpod
-```
-
-# Logs
-* kubectl logs test1
-* kubectl -n kube-system logs etcd-ckad-1
-
-# Become root using sudo
-sudo -i
-```
-
-## Volumes
-```bash
-* kubectl create -f vol2.yaml
-* kubectl get pv
-```
-
-### Converting a docke-compose file into yaml
-sudo kompose convert -f docker-compose.yaml -o localregistry.yaml
-
-
-### Deleting | Stopping 
-```bash
-> kubectl delete --all pods --namespace=foo
-> kubectl delete --all deployments --namespace=foo
-> kubectl delete daemonsets,replicasets,services,deployments,pods,rc --all
-```
-
-
-## Secrets
-```bash
-* kubectl get secrets
-* kubectl describe secret my-secret
-* kubectl create secret generic db-secret --from-literal=DB_Host=sql1
---from-literal=DB_User=root
---from-literal=DB_Password=password123
-
-```
-
-
-## Liveness and Readiness Probes
-
-There are three ways to implement Liveness and Readiness:
-
-01. Running a command inside a container
-02. Making an HTTP request against a container
-03. pening a TCP socket against a container.
-
-```bash
-kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
-```
-
 ## --dry-run
 ```bash
 kubectl [command] [TYPE] [NAME] -o <output_format>
@@ -157,32 +90,6 @@ kubectl create namespace test-123 --dry-run -o yml
 * -o yaml
 ```
 
-```bash
-# Create a Pod | Generate Pod manifest Yaml. don't create it.
-* kubectl run nginx --image=nginx
-* kubectl run nginx --image=nginx --dry-run=client -o yaml
-
-# Create a Deployment | Generate Deployment manifest Yaml. don't create it.
-* kubectl create deployment --image=nginx nginx
-* kubectl create deployment --image=nginx --dry-run=client -o yaml
-```
-
-## Imperative mode
-```bash
-kubectl run nginx-pod --image:nginx:alpine
-kubectl run redis --image redis:alpine -l tier=db
-kubectl expose pod redis --port=6379 --name redis-service
-
-# Creating a deploymenty and scaling
-kubectl create deployment webapp --image=nginx:alpine 
-kubectl scale deployment/webapp --replicas=3
-
-# Exposing a pod
-kubect run custom-nginx --image=nginx port=8080
-
-# Create a pod and a service to expose the pod
-kubectl run http --image=httpd:alpine --port=80 --expose
-```
 
 ### Kubetail
 ```bash
@@ -190,7 +97,7 @@ sudo apt-get install kubetail
 ```
 
 
-## Suggestions [source - CKDA udemy course from Mumshad]
+## **Suggestions [source - CKDA udemy course from Mumshad**
 * Attempt all questions
 * Don't get stuck on any question
 * Get good with YAML
@@ -205,8 +112,7 @@ sudo apt-get install kubetail
   - pvc for PersistentVolumeClaims 
   - sa for service accounts
 
-## Other suggestions [source Muralidaran shanmugham - Tips on preparing for Certified Kubernetes Application Developer (CKAD)
-]
+## **Tips on preparing for CKAD - Muralidaran shanmugham**
 * Go through the k8s.io documentation
 * Understand all the concepts outlined in the exam curriculum
 * Register for courses like Kodekloud
@@ -217,7 +123,7 @@ sudo apt-get install kubetail
   - alias k='kubectl'
   - k config set-context <cluster name> --namespace=<namespace name>
   - k explain cronjob.spec.jobTemplate --recursive
-  - know all the commands =>   https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-
+  - know all the commands =>  [HERE](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-) 
   - --restart (YAML generator)
   - args: ["-c", "while true; do date >> /var/log/app.txt; sleep 5; done"]
   - args: [/bin/sh, -c, 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
@@ -225,8 +131,8 @@ sudo apt-get install kubetail
   - Use of grep:
     - kubectl describe pods | grep --context=10 annotations:
     - kubectl describe pods | grep --context=10 Events:                                                                          
-    
 ## Tips for VIM
+```bash
 * Use h -> move to left, l - > move to right, j -> move down , k -> move  up
 * Esc + DD        | delete a line
 * Esc + o         | add a new line
@@ -244,11 +150,10 @@ sudo apt-get install kubetail
 * Esc + dw        | Delete a word
 * Esc + /         | Find a word
 * o               | Yo add a new empty line in a yaml
+```
 
 
-## TIPS
-
-Be fast Ingress
+### Be fast Ingress
 ```bash
 kubectl get all --all-namespaces
 
@@ -259,14 +164,161 @@ kubectl get ingress --all-namespaces
 kubectl describe ingress --namespaces app-space
 kubectl edit ingress --namespace app-space
 ```
-Logs
-```bash
-kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
 
+## Use Alias
+```bash
+alias k='kubectl'
+alias krd='kubectl run --dry-run=client -o yaml' # then use it: krd --image=nginx > pod.yaml
+alias kcd='kubectl create --dry-run=client -o yaml' # then use it: krd --image=nginx > pod.yaml
+alias kdp='kubectl delete pod --force --grace-period=0'
+alias kaf='kubectl apply -f'
+alias kaf='kubectl create -f'
+alias kns='config set-context --current --namespace'
+```
+
+## Use Completions
+Documentation [here](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete)
+```bash
+alias k=kubectl
+complete -F __start_kubectl k
+```
+
+## Create bookmarks on Chrome
+- Go to the documentation
+- Select a topic
+- Go to specific section of the page 
+- Set a bookmark
+- If you need copy the code, use copy application to clipboard
+
+### Use the correct context to set us in a cluster
+
+```bash
+# Every time before to start the question
+kubectl config use-contex CONTEXTNAME
+```
+
+## Abbreviates using: 
+Find more with "kubectl api-resources"
+```bash
+k get ns        # for namespaces
+k get deploy    # for deployments
+k get pv        # for persistentvolumes
+k get pvc       # for persistentvolumeclaims
+k get svc       # for services
+k get no        # for nodes
+k get po        # for pods
+k get cj        # for cronjobs
+k get quota     # for resourcequotas
+```
+
+```bash
+kubectl get all
+```
+
+### Generate a preview without a file
+```bash
+kubectl create namespace test-123 --dry-run=client -o yaml
+```
+
+### Updating existing resources
+
+* **edit** will apply any change in the current resource after update the yaml
+```bash
+kubectl edit pod nginx
+kubectl edit deployment app
+```
+* **set** will update a version in a pod or deployment
+```bash
+kubectl set image pod/nginx nginx=nginx:latest
+kubectl set image pod/nginx nginx=nginx:1.9.1
+kubectl set image deployment/nginx nginx=nginx:latest
+kubectl set image deployment/nginx nginx=nginx:1.9.1
+```
+
+## Log and Debuggind
+```bash
+k run --image=busybox bbox -- sh -c 'while true; do date; sleep 3; done '
+# To keep watching the logs
+kubectl  logs bbox --follow
+
+# Use describe
+kubectl describe bbox
+kubectl describe mydeploy
+
+# Se the event for all the resources
+kubectl get events
+
+#Use grep
+k get events | grep Schedule
+
+# View control exec
+kubectl run --image=busybox bbox -- sh -c 'echo here; sleep 3600'
+# Access to the shell inside the pod
+kubectl exec -it bbox -- sh
+ls
+exit
+```
+
+## Be faster
+
+```bash
+# Check all the deployments in all the namespaces
+k get get deploy --all-namespaces
+
+# 
+k run yellow --image=busibox --restart=never --dry-run -o yaml  > pod.yml
+vi pod.yaml
+kubectl apply -f pod.yml
+kubectl describe pod yellow
+
+# check namespace just creates, take the one that was reciently created
+kubectl get ns
+kubectl -n elastic-stack get pod, svc
+```
+
+```bash
+kubectl -n elastic-stack get pod-svc
 
 ```
 
-## Note:
+```bash
+kubectl -n elastic-stack get pod app -o yaml > app.yaml
+kbuectl delete pod app -n elastic-stack
+vi app.yaml
+```
+## Extra commands
+```bash
+ps -aux
+ps -aux | grep -i 'string'
+ps -aux | grep -e 'exp-one' -e 'exp-two'
+ifconfig
+ip a
+ip r
+systemctl status kubelet
+systemctl restart kubelet
+systemctl daemon reload
+journalctl -u kubelet
+netstat -tunlp
+
+```
+### Logs
+
+```bash
+kubectl logs webapp-1 | grep USER5
+# to select the containers
+kubectl logs webapp-2 -c
+kubectl logs webapp-2 -c simple-webapp
+kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
+```
+
+### Monitoring
+```bash
+kubectl top node
+kubectl top pod
+```
+
+
+## Resources:
 * [Udemy CKAD preparation](https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview) -> Mumshad Mannambeth
 * [Kuberenetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) All my bookmarks.
 
