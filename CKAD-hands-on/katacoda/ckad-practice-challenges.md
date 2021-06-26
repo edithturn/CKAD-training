@@ -48,59 +48,75 @@ kubectl create cronjob bespin --image=alpine --schedule="*/5 * * * *" -- date
 
 
 
-# Services & Networking
+# Services & Networking - 13%
 ## Question 01
 Create a pod named ig-11 with image nginx and expose its port 80.
 
 Solution:
+
 ```bash
-k run ig-11 --image=nginx --port=80
+k run ig-11  --restart=Never --image=nginx --port=80
 ```
 ## Quesion 02
 Create a service for pod ig-11 on using ClusterIP type service with service name greef. Map service port 8080 to container port 80.
 
-k expose pod ig-11 --name=greef --port=8080 --target-port=80
+Solution:
 
+```bash
+k expose pod ig-11 --name=greef --port=8080 --target-port=80
+```
 
 ## Quesion 03
 
 Deployment cara is created. Expose port 80 of the deployment using NodePort on port 31888. Use cara as service name.
 
+Solution:
+```bash
 k expose deployment cara --port=80 --type=NodePort
 
-k edit service cara
-then change nodePort to 31888
+#  k edit service cara
+# then change nodePort to 31888
+```
 
 ## question 4
 Pod and Service geonosis is created for you. Create a network policy geonosis-shield which allows only pods with label empire=true to access the service. Use appropriate labels.
 
+Solution:
 
+```bash
+vim np.yaml
+```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: geonosis-shield
+  namespace: default
 spec:
   podSelector:
     matchLabels:
-      sector: arkanis
+      sector: arkanis # Take the labels of the service and of the pod
   policyTypes:
   - Ingress
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          empire: "true"                               
+          empire: "true"
+```
 
 # State Persistence - 8%
 
-## Quesion 01
+## Question 01
 
 Create a pod named "tato" with image nginx. Mount a volume named tato-vol at /var/www/html, which should live as long as pod lives.
 
 **Solution**
-alias kdr='kubectl run --dry-run -o yaml'
+```bash
+alias kdr='kubectl run --dry-run -o 
+yaml'
 kdr tato --image=nginx > pod.yaml
-
+```
 vim pod.yaml
 ```yaml
 kind: Pod
@@ -125,13 +141,15 @@ spec:
 status: {}
 ```
 
-## Quesion 02
+## Question 02
 
 Create a persistent volume "first-pv" with 100Mi at /data/mysql on host. Use manual storageClassName and ReadWriteMany access mode.
 
 Create a persistent volume claim "first-pvc" and consume the pv first-pv.
 
 Create a pod "magic" with image mysql and mount the PVC at /var/lib/mysql using volume name first-vol. Set an environment variable MYSQL_ROOT_PASSWORD=my-secret-pw as well.
+
+**Solution**
 
 vim pv.yaml
 ```yaml
@@ -194,10 +212,12 @@ status: {}
 ```
 
 
-## Quesion 02
+## Question 03
 Create a pod "moodo" with two containers using image nginx and redis. Create a shared hostPath volume at /data/moodo named moodo-logs mounted at /var/log/moodo in both the containers.
 
+**Solution**
 
+vim pod.yaml
 ```yaml
 apiVersion: v1
 kind: Pod
