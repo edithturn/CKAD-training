@@ -267,50 +267,25 @@ kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
 ```
 
 ## Note:
-This repository have the notes of the courses that I took before my Kubernetes for Developer Certification
-The courses that I took were:
+* [Udemy CKAD preparation](https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview) -> Mumshad Mannambeth
+* [Kuberenetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) All my bookmarks.
 
-* Udemy, Mumshad Mannambeth (highly recommended)
-https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview
+## Practice:
 
-* Kuberenetes documentation
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-
-
-## Practice
-
-1. How to Prepare for CKAD and CKA Certification?
-https://www.infracloud.io/blogs/prepare-cka-ckad-certification/
-
-1. Game of Pods: A set of fun challenges to learn and practice your skills on Kubernetes
-https://kodekloud.com/p/game-of-pods-game
-
-2. Kubernetes CKAD Example Exam Questions Practical Challenge Series
-
-https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681
-
-3. Practice Enough With These 150 Questions for the CKAD Exam 
-https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
-
-4. CKAD Exercises 
-https://github.com/dgkanatsios/CKAD-exercises
-
-5. Kubernetes Network Policy Recipes 
-https://github.com/ahmetb/kubernetes-network-policy-recipes
-
-6. katacoda - CKAD Practice Challenge
-
-https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges
-
-# TO DO
+1. [How to Prepare for CKAD and CKA Certification?](https://www.infracloud.io/blogs/prepare-cka-ckad-certification/) -> InfraCloud Team
+2. [Game of Pods](https://kodekloud.com/p/game-of-pods-game) A set of fun challenges to learn and practice your skills on Kubernetes
+3. [Kubernetes CKAD Example Exam Questions Practical Challenge Series](https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681) -> Kim Wuestkamp
+4. [Practice Enough With These 150 Questions for the CKAD Exam](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552)  -> Bhargav Bachina
+5. [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) Github -> dgkanatsios
+6. [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
+7. [katacoda - CKAD Practice Challenge](https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges)
+8. More Practice (Trial)
 https://www.study4exam.com/
 
-## Videos
+## Videos 
 
-1. How to CRUSH the CKAD Exam!
-https://www.youtube.com/watch?v=5cgpFWVD8ds
+1. [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE)    -> I AM DINUTH
+2. [How to CRUSH the CKAD Exam!](https://www.youtube.com/watch?v=5cgpFWVD8ds) -> Alta3 Research, Inc.
+3. [Vim Crash Course | How to edit files quickly in CKAD / CKA exam](https://www.youtube.com/watch?v=knyJt8d6C_8) -> The FrontOps Guy
 
-2. Vim Crash Course | How to edit files quickly in CKAD / CKA exam
-
-https://www.youtube.com/watch?v=knyJt8d6C_8
 
