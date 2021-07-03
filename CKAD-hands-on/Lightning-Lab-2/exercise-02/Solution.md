@@ -21,7 +21,7 @@ kubectl create cronjob dice --image=kodekloud/throw-dice --schedule "* * * * *" 
 vim dice.yaml
 ```
 ```yaml
-    backoffLimit: 4
+    backoffLimit: 25
     completions: 5
     activeDeadlineSeconds: 100
 ```

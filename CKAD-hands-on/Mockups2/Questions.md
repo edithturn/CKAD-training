@@ -112,3 +112,21 @@ kubectl describe svc my-video-service
 vim ingress.yaml
  
 ```
+## **Problem 05**
+## **Problem 06**
+## **Problem 07**
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: custon-volume
+spec:
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /opt/data
+```
+k create -f pv.yaml
+k get pv

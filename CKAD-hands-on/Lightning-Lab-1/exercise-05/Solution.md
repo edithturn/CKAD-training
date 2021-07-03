@@ -24,5 +24,5 @@ kubectl create deploy redis --image=redis:alpine --dru-run=client -o yaml > depl
 kubectl vim deploy.yaml
 
 # Crate the depoyment
-kubectl apply -f deplyo.yaml
+kubectl apply -f deploy.yaml
 ```
