@@ -290,16 +290,9 @@ systemctl restart kubelet
 systemctl daemon reload
 journalctl -u kubelet
 netstat -tunlp
-
-```
-### Logs
-
-```bash
-kubectl logs webapp-1 | grep USER5
-# to select the containers
-kubectl logs webapp-2 -c
-kubectl logs webapp-2 -c simple-webapp
-kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
+# To check for more options
+kubectl explain pods --recursive | less
+/volumeMounts
 ```
 
 ### Monitoring
@@ -308,6 +301,56 @@ kubectl top node
 kubectl top pod
 ```
 
+## Observability (18%)
+
+* Liveness and readiness probes
+* Logging
+* Debugging
+
+### Queries
+```bash
+# collect failed pods by namespace
+kubectl -n qa get events | grep -i 'Liveness probe failed'
+
+#  check pods in all namespaces with READY = 0
+k get pod --all-namespaces | grep -i 0
+
+#  Check Liveness and Readiness status
+kubectl describe pod nginx | grep -i liveness
+kubectl describe pod nginx | grep -i readiness
+
+# you'll see the error here as well
+kubectl get events | grep -i error
+```
+
+### Logs
+
+```bash
+kubectl logs busybox
+# Follow the logs
+kubectl logs busybox -f
+kubectl logs webapp-1 | grep USER5
+# to select the containers
+kubectl logs webapp-2 -c
+kubectl logs webapp-2 -c simple-webapp
+kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
+
+# See the error of a pod
+kubectl get events | grep -i error
+kubectl dev-pod -c log-x | grep WARN > /opt/logs.txt
+```
+### Metrics
+```bash
+kubectl top nodes
+```
+
+# State Persistence (8%)
+
+```bash
+# kubectl cp command
+kubectl cp busybox:etc/passwd ./passwd 
+
+```
 
 ## Resources:
 * [Udemy CKAD preparation](https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview) -> Mumshad Mannambeth
@@ -324,6 +367,7 @@ kubectl top pod
 7. [katacoda - CKAD Practice Challenge](https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges)
 8. More Practice (Trial)
 https://www.study4exam.com/
+9. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
 
 ## Videos 
 

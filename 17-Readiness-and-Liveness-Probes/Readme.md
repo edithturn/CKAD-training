@@ -23,6 +23,7 @@ spec:
           path: /api/ready
           port: 8080
 ```
+
 **httpGet**
 ```yaml
 radinessProbe:
@@ -93,7 +94,7 @@ livenessProbe:
             - /app/is_healthy
 ```
 
-**Imperative command**
+## Imperative command
 ```bash
 # Generate the yaml file
 kubectl create deploy livenessprobe --image busybox -o yaml --dry-run
