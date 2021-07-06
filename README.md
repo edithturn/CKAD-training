@@ -121,8 +121,9 @@ sudo apt-get install kubetail
   - args: ["-c", "mkdir -p collect; while true; do cat /var/data/*> /collect/data.txt; sleep 10; done"]
   - Use of grep:
     - kubectl describe pods | grep --context=10 annotations:
-    - kubectl describe pods | grep --context=10 Events:                                                                          
-## Tips for VIM
+    - kubectl describe pods | grep --context=10 Events:                                                                       
+# Be Fast   
+## VIM
 ```bash
 * Use h -> move to left, l - > move to right, j -> move down , k -> move  up
 * Esc + DD        | delete a line
@@ -141,6 +142,16 @@ sudo apt-get install kubetail
 * Esc + dw        | Delete a word
 * Esc + /         | Find a word
 * o               | Yo add a new empty line in a yaml
+
+* Esc :22 + Enter  | go a specific number  line in a file
+
+# copy and paste lines
+Esc + V             | Mark lines, then arrow keys
+Esc + y             | Copy marked lines
+Esc + d             | Cut marked lines
+Esc + p             | Past lines
+# Indent several lines  in a yaml
+* Esc :shiftwidth=2, SHIFT + v (to select several line with arrow keys) ,  SHIFT +  ">" or "<" for rigth indentation of left indentation.
 ```
 
 
@@ -157,6 +168,15 @@ kubectl edit ingress --namespace app-space
 ```
 
 ## Use Alias
+
+```bash
+# This way you can just run k run my-pod --image=nginx $do. 
+export do="--dry-run=client -o yaml"
+
+# To apply -f
+alias ka='kubectl apply -f'
+ka pod1.yaml
+```
 ```bash
 alias k='kubectl'
 alias krd='kubectl run --dry-run=client -o yaml' # then use it: krd --image=nginx > pod.yaml
@@ -350,6 +370,25 @@ kubectl top nodes
 # kubectl cp command
 kubectl cp busybox:etc/passwd ./passwd 
 
+```
+
+
+## Optional Setup
+
+```bash
+# Kubectl Autocomplete
+# Bash
+source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
+echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
+
+alias k=kubectl
+complete -F __start_kubectl k
+
+alias kn='kubectl config set-context --current --namespace '
+alias kd='kubectl delete pod --grace-period=0 --force'
+alias ka='kubectl apply -f'
+
+export do='--dry-run=client -o yaml'
 ```
 
 ## Resources:
