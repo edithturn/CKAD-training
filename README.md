@@ -42,11 +42,9 @@ The exam covers the following topics in a certain percentage:
 |               |               |
 
 
-
-# **Know or master the following before the exam**
 In this repository there are many tips, you may not be able to use all of them, use the ones you feel most comfortable with.
 
-## **Use the right context always**
+# **Use the right context always**
 ```bash
 # Every time before to start the question
 kubectl config use-contex <CONTEXTNAME>
