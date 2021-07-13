@@ -36,7 +36,7 @@ This is the structure of a Secret yaml but the data have to be encode (next yaml
 apiVersion: c1
 kind: Secret
 metadata:
-	name: app-secret
+    name: app-secret
 data:
     DB_Host: mariadb
     DB_User: root
@@ -47,7 +47,7 @@ data:
 apiVersion: c1
 kind: Secret
 metadata:
-	name: app-secret
+    name: app-secret
 data:
     DB_Host: bXlzcWw=
     DB_User: cm9vdA==
