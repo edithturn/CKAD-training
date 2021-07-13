@@ -6,7 +6,7 @@
 </p>
 
 
-This repository contains definitions, tips, sources, and many commands for practice and that I am using for my kubernetes certification exam.
+This repository contains definitions, tips, sources, and many commands for practice and that I am currently using to prepare for my kubernetes certification exam.
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
@@ -14,15 +14,15 @@ This repository contains definitions, tips, sources, and many commands for pract
 
 The exam covers the following topics in a certain percentage:
 
-- **Core Concepts (13%)**
-- **Multi-Container Pods (10%)**
-- **Pod Design (20%)**
-- **State Persistence (8%)**
-- **Configuration (18%)**
-- **Observability (18%)**
-- **Services and Networking (13%)**
+:paw_prints: **Core Concepts (13%)**
+:paw_prints: **Multi-Container Pods (10%)**
+:paw_prints: **Pod Design (20%)**
+:paw_prints: **State Persistence (8%)**
+:paw_prints: **Configuration (18%)**
+:paw_prints: **Observability (18%)**
+:paw_prints: **Services and Networking (13%)**
 
-# **Topics**
+# **Topics** :dart:
 
 |               |               |
 | ------------- | ------------- |
