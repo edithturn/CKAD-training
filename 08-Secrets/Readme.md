@@ -93,7 +93,7 @@ pass
 apiVersion: c1
 kind: Secret
 metadata:
-	name: app-secret
+    name: app-secret
 data:
     DB_Host: bXlzcWw=
     DB_User: cm9vdA==
@@ -104,18 +104,18 @@ data:
 apiVersion: v1
 kind: Pod
 metadata:
-	name: app-web
-	labels:
-		name: app-web
+    name: app-web
+    labels:
+      name: app-web
 spec:
-	containers:
-	- name: app-web
-	  image: app-web
-	  port:
-		 - containerPort: 8080
-	  envFrom:
-			- secretRef:
-					name: app-secret
+    containers:
+    - name: app-web
+      image: app-web
+      port:
+      - containerPort: 8080
+      envFrom:
+        - secretRef:
+            name: app-secret
 ```
 
 ###  TODO
