@@ -26,18 +26,18 @@ The exam covers the following topics in a certain percentage:
 
 |               |               |
 | ------------- | ------------- |
-| [Namespaces](01-Namespaces/namespaces.md) |  [Resorce Requirements](13-Resorce-Requirements/Readme.md)  |
-| [Pods](02-Pod/pods.md)  | [Service Account](14-Service-Account/Readme.md)  |
-| [Deployment](03-Deployment/Readme.md)  |  [Node Selector and Node Affinity](15-Node-Selector-and-Node-Affinity/Readme.md) |
-| [Replication Controller](04-Replication-controller/Readme.md) | [Readiness and Liveness Probes](16-Readiness-and-Liveness-Probes/Readme.md)  |
-| [Replicaset](05-Replicaset/Readme.md)  | [Labels Selectors Annotations](17-Labels-Selectors-Annotations/Readme.md)  |
-| [Resource Quota](06-Resource-quota/Readme.md)  | [Jobs](18-Jobs/Readme.md)  |
-| [ConfigMaps](07-ConfigMaps/Readme.md)  | [Rolling Updates Rollbacks in Deployments](19-Rolling-Updates-Rollbacks-in-Deployments/Readme.md)  |
-| [Secrets](08-Secrets/Readme.md)  | [Ingress Networking](20-Ingress-Networking/Readme.md)  |
-| [Kubernetes Security](09-Kubernetes-Security/Readme.md)  | [Volumes](21-Volumes/Readme.md)  |
-| [Resources Request](10-Resources-Request/Readme.md)  | [Taints and Tolerations](22-Taints-and-Tolerations/Readme.md)  |
-| [Services](11-Services/Readme.md)  | [Variables](23-Variables/Readme.md)  |
-| [Services and Networking](12-Services-and-Networking/Readme.md)  |  [Multicontainer](24-Multicontainer/Readme.md)  |
+| [Namespaces](Namespaces/namespaces.md) |  [Resorce Requirements](Resorce-Requirements/Readme.md)  |
+| [Pods](Pod/pods.md)  | [Service Account](Service-Account/Readme.md)  |
+| [Deployment](Deployment/Readme.md)  |  [Node Selector and Node Affinity](Node-Selector-and-Node-Affinity/Readme.md) |
+| [Replication Controller](Replication-controller/Readme.md) | [Readiness and Liveness Probes](Readiness-and-Liveness-Probes/Readme.md)  |
+| [Replicaset](Replicaset/Readme.md)  | [Labels Selectors Annotations](Labels-Selectors-Annotations/Readme.md)  |
+| [Resource Quota](Resource-quota/Readme.md)  | [Jobs](Jobs/Readme.md)  |
+| [ConfigMaps](ConfigMaps/Readme.md)  | [Rolling Updates Rollbacks in Deployments](Rolling-Updates-Rollbacks-in-Deployments/Readme.md)  |
+| [Secrets](Secrets/Readme.md)  | [Ingress Networking](Ingress-Networking/Readme.md)  |
+| [Kubernetes Security](Kubernetes-Security/Readme.md)  | [Volumes](Volumes/Readme.md)  |
+| [Resources Request](Resources-Request/Readme.md)  | [Taints and Tolerations](Taints-and-Tolerations/Readme.md)  |
+| [Services](11-Services/Readme.md)  | [Variables](Variables/Readme.md)  |
+| [Services and Networking](Services-and-Networking/Readme.md)  |  [Multicontainer](Multicontainer/Readme.md)  |
 | [KAD hands on](CKAD-hands-on/Readme.md) | 
 |               |               |
 
