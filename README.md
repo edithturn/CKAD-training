@@ -26,7 +26,7 @@ The exam covers the following topics in a certain percentage:
 
 |               |               |
 | ------------- | ------------- |
-| [Namespaces](Namespaces/namespaces.md) |  [Resorce Requirements](Resorce-Requirements/Readme.md)  |
+| [Namespaces](Namespaces/namespaces.md) |  [Multicontainer](Multicontainer/Readme.md)  |
 | [Pods](Pod/pods.md)  | [Service Account](Service-Account/Readme.md)  |
 | [Deployment](Deployment/Readme.md)  |  [Node Selector and Node Affinity](Node-Selector-and-Node-Affinity/Readme.md) |
 | [Replication Controller](Replication-controller/Readme.md) | [Readiness and Liveness Probes](Readiness-and-Liveness-Probes/Readme.md)  |
@@ -37,7 +37,7 @@ The exam covers the following topics in a certain percentage:
 | [Kubernetes Security](Kubernetes-Security/Readme.md)  | [Volumes](Volumes/Readme.md)  |
 | [Networking](Networking/Readme.md)   | [Taints and Tolerations](Taints-and-Tolerations/Readme.md)  |
 | [Services](Services/Readme.md)  | [Variables](Variables/Readme.md)  |
-| [Multicontainer](Multicontainer/Readme.md)  |  [KAD hands on](CKAD-hands-on/Readme.md) |
+| [KAD hands on](CKAD-hands-on/Readme.md) |
 
 
 In this repository there are many tips, you may not be able to use all of them, use the ones you feel most comfortable with.

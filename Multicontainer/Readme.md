@@ -1,4 +1,4 @@
-# **Pod multi continer**
+# **Pod multi container**
 
 ```bash
 # Create the pod with a contianer
