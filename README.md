@@ -1,5 +1,5 @@
 
-# **Certified Kubernetes Application Developer (CKAD)**  :ship:
+# **Certified Kubernetes Application Developer**  :ship:
 
 <p align="center">
   <img width="730" height="290" src="img/final.png">
@@ -24,6 +24,7 @@ The exam covers the following topics in a certain percentage:
 
 # **Topics**
 
+- [Namespaces](../01-Namespaces/namespaces.md)
 
 
 
