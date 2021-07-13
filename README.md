@@ -295,4 +295,11 @@ https://www.study4exam.com/
 2. [How to CRUSH the CKAD Exam!](https://www.youtube.com/watch?v=5cgpFWVD8ds) -> Alta3 Research, Inc.
 3. [Vim Crash Course | How to edit files quickly in CKAD / CKA exam](https://www.youtube.com/watch?v=knyJt8d6C_8) -> The FrontOps Guy
 
+4. Linux Foundation Kubernetes Certifications Now Include Exam Simulator -> killer.sh 
+[CKA, CKAD, or CKS simulator](
+https://training.linuxfoundation.org/announcements/linux-foundation-kubernetes-certifications-now-include-exam-simulator/?utm_source=lftraining&utm_medium=twitter&utm_campaign=k8simulator)
 
+
+<p align="center">
+  <img width="430" height="190" src="img/killer.png">
+</p>
