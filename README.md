@@ -5,9 +5,13 @@
 </p>
 
 
+This repository contains definitions, tips, sources, and many commands for practice and that I am using for my kubernetes certification exam.
+
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
 ## **About the CKAD  (Certified Kubernetes Application Developer)**
+
+The exam covers the following topics in a certain percentage:
 
 - Core Concepts (13%)
 - Multi-Container Pods (10%)
@@ -17,14 +21,20 @@
 - Observability (18%)
 - Services and Networking (13%)
 
+# **Topics**
 
 
-# **Use the right context always**
+
+
+
+# **Know or master the following before the exam**
+In this repository there are many tips, you may not be able to use all of them, use the ones you feel most comfortable with.
+
+## **Use the right context always**
 ```bash
 # Every time before to start the question
 kubectl config use-contex <CONTEXTNAME>
 ```
-
 # **Use Alias**
 
 ```bash
