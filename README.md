@@ -36,7 +36,7 @@ The exam covers the following topics in a certain percentage:
 | [Secrets](Secrets/Readme.md)  | [Ingress Networking](Ingress-Networking/Readme.md)  |
 | [Kubernetes Security](Kubernetes-Security/Readme.md)  | [Volumes](Volumes/Readme.md)  |
 | [Networking](Networking/Readme.md)   | [Taints and Tolerations](Taints-and-Tolerations/Readme.md)  |
-| [Services](11-Services/Readme.md)  | [Variables](Variables/Readme.md)  |
+| [Services](Services/Readme.md)  | [Variables](Variables/Readme.md)  |
 | [Multicontainer](Multicontainer/Readme.md)  |  [KAD hands on](CKAD-hands-on/Readme.md) |
 
 
