@@ -32,7 +32,7 @@ kubectl create secret generic app-secret --from-file-app_secret.properties
 kubectl create -f my-secret.yaml
 ```
 This is the structure of a Secret yaml but the data have to be encode (next yaml)
-```yml
+```yaml
 apiVersion: c1
 kind: Secret
 metadata:
@@ -43,7 +43,7 @@ data:
     DB_Password: pass
 ```
 
-```yml
+```yaml
 apiVersion: c1
 kind: Secret
 metadata:
