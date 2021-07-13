@@ -1,7 +1,7 @@
 # **Certified Kubernetes Application Developer (CKAD)**
 
 <p align="center">
-  <img width="550" height="200" src="img/final.png">
+  <img width="590" height="210" src="img/final.png">
 </p>
 
 
