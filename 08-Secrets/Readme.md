@@ -38,9 +38,9 @@ kind: Secret
 metadata:
 	name: app-secret
 data:
-	DB_Host: mariadb
-	DB_User: root
-	DB_Password: pass
+    DB_Host: mariadb
+    DB_User: root
+    DB_Password: pass
 ```
 
 ```yml
@@ -49,9 +49,9 @@ kind: Secret
 metadata:
 	name: app-secret
 data:
-	DB_Host: bXlzcWw=
-	DB_User: cm9vdA==
-	DB_Password: cGFzcw==
+    DB_Host: bXlzcWw=
+    DB_User: cm9vdA==
+    DB_Password: cGFzcw==
 ```
 
 **Creatign secrets | Encode**
@@ -95,9 +95,9 @@ kind: Secret
 metadata:
 	name: app-secret
 data:
-	DB_Host: bXlzcWw=
-	DB_User: cm9vdA==
-	DB_Password: cGFzcw==
+    DB_Host: bXlzcWw=
+    DB_User: cm9vdA==
+    DB_Password: cGFzcw==
 ```
 **Secret in Pod**
 ```yaml
