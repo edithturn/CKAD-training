@@ -301,5 +301,5 @@ https://training.linuxfoundation.org/announcements/linux-foundation-kubernetes-c
 
 
 <p align="center">
-  <img width="430" height="190" src="img/killer.png">
+  <img width="530" height="290" src="img/killer.png">
 </p>
