@@ -177,9 +177,6 @@ spec:
 status: {}
 ```
 
-
-
-
 # Multi Container Pods - 10%
 
 ## Question 01

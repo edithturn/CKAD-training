@@ -1,5 +1,5 @@
 
-#  :octopus: **Certified Kubernetes Application Developer**  :dolphin:
+#       :octopus: **Certified Kubernetes Application Developer**  :dolphin:
 
 <p align="center">
   <img width="730" height="290" src="img/final.png">
@@ -25,8 +25,30 @@ The exam covers the following topics in a certain percentage:
 # **Topics**
 
 - [Namespaces](01-Namespaces/namespaces.md)
-
-
+- [Pods](02-Pod/pods.md
+- [Deployment](03-Deployment/Readme.md)
+- [Replication Controller](04-Replication-controller/Readme.md)
+- [Replicaset](05-Replicaset/Readme.md)
+- [Resource Quota](06-Resource-quota/Readme.md)
+- [ConfigMaps](07-ConfigMaps/Readme.md)
+- [Secrets](08-Secrets/Readme.md)
+- [Kubernetes Security](09-Kubernetes-Security/Readme.md)
+- [Resources Request](10-Resources-Request/Readme.md)
+- [Services](11-Services/Readme.md)
+- [Services and Networking](12-Services-and-Networking/Readme.md)
+- [Resorce Requirements](13-Resorce-Requirements/Readme.md)
+- [Service Account](14-Service-Account/Readme.md)
+- [Node Selector and Node Affinity](15-Node-Selector-and-Node-Affinity/Readme.md)
+- [Readiness and Liveness Probes](16-Readiness-and-Liveness-Probes/Readme.md)
+- [Labels Selectors Annotations](17-Labels-Selectors-Annotations/Readme.md)
+- [Jobs](18-Jobs/Readme.md)
+- [Rolling Updates Rollbacks in Deployments](19-Rolling-Updates-Rollbacks-in-Deployments/Readme.md)
+- [Ingress Networking](20-Ingress-Networking/Readme.md)
+- [Volumes](21-Volumes/Readme.md)
+- [Taints and Tolerations](22-Taints-and-Tolerations/Readme.md)
+- [Variables](23-Variables/Readme.md)
+- [Multicontainer](24-Multicontainer/Readme.md)
+- [KAD hands on](CKAD-hands-on/Readme.md)
 
 
 # **Know or master the following before the exam**
