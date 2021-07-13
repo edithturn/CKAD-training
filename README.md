@@ -1,5 +1,5 @@
 
-# **Certified Kubernetes Application Developer**  :ship:
+#  :octopus: **Certified Kubernetes Application Developer**  :dolphin:
 
 <p align="center">
   <img width="730" height="290" src="img/final.png">
@@ -24,7 +24,7 @@ The exam covers the following topics in a certain percentage:
 
 # **Topics**
 
-- [Namespaces](../01-Namespaces/namespaces.md)
+- [Namespaces](01-Namespaces/namespaces.md)
 
 
 
