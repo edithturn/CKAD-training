@@ -1,24 +1,4 @@
-## Ingress Controller
-    - Deployment
-    - Service
-    - ConfigMap
-    - Auth
-        - Roles
-        - ClusterRoles
-        - RolesBindings
-
-Exampl, ingress-wear
-```yaml
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-    name: ingress-wear
-spec:
-    backend:
-        serviceName: wear-service
-        servicePort: 80
-
-```
+# Networking Policy 
 
 ## Ingress Sources Rules
 We have rules on the top for each host or domain name, and within each rule we have a different  path to raute traffic based on URL.
@@ -76,7 +56,8 @@ kubectl describe ingress ingress-wear-watch
 
 ## Ingress
 ```bash
-k get deployments.apps --all-namespaces
+kubectl get netpol
+kubectl create  -f policy-definition.yaml
 k get ingress --all-namespaces
 k describe ingress --namespace app-space
 
@@ -115,6 +96,78 @@ kubectl get netpol
 kubectl get pods -l name_payroll
 kubectl get pods -l name=internal
 kubectl describe netpol payroll-policy
+```
 
+```bash
+Create a temporaly pod to test connection to a pod in a cluster Ip
+
+k get pod -o wide # To get the cluster IP
+
+# To test the conectivity
+k run tmp --restart=Never --rm -i --image=nginx:alpine -- curl 10.0.0.67
+
+```
+
+## Network Polices
+
+To allow ingress just in a specific port
+
+```yaml
+policyTypes:
+- Ingress
+ingress:
+- from:
+    - podSelector:
+        matchLabels:
+            name: api-pod
+  ports:
+  - protocol: TCP
+    port: 3306  
+```
+Example of Network Policy
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: db-policy
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 3306
+```
+
+
+## Egress
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+    - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
+    ports:
+    - protocol: TCP
+      port: 5978
 
 ```

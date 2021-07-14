@@ -69,7 +69,7 @@ Persistent volumes and persisten volume claims are separate objects in Kubernete
 Kubernetes binds the Persisten Volumes to Claims based. Every persistent Volume Claim is bound to a single Persistent Volume.
 
 ```bash
-kubect create -f pvc-definition.yaml
+kubectl create -f pvc-definition.yaml
 kubectl get persistentvolumeclaim
 ```
 

@@ -1,6 +1,6 @@
 ## **Readiness Probe**
 
-The function of a Readiness is tie the ready condition of a Pod to the actual state of the application inside.
+The function of a Readiness is the ready condition of a Pod to the actual state of the application inside.
 
 There are several ways to check if the application on the pod is ready
 

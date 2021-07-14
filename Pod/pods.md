@@ -71,7 +71,7 @@ spec:
 vim 01-pod-definition.yml
 
 # Get the yml file of the pod we just created
-kubectl get pod nginx -o yml
+kubectl get pod nginx -o yaml
 
 # Extract the definition to a file from a created Pod:
 kubectl get pod nginx -o yaml > other-pod.yml

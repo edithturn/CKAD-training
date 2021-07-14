@@ -11,7 +11,7 @@ spec:
     spec:
       backoffLimit: 4
       completions: 5
-      activeDeadlineSeconds: 100
+      activeDeadlineSeconds: 25
       template:
         metadata:
           creationTimestamp: null

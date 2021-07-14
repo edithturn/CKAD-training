@@ -2,7 +2,7 @@
 #       :octopus: **Certified Kubernetes Application Developer**  :dolphin:
 
 <p align="center">
-  <img width="730" height="290" src="img/final.png">
+  <img width="730" height="270" src="img/final.png">
 </p>
 
 
@@ -33,12 +33,10 @@ The exam covers the following topics in a certain percentage:
 | [Replicaset](Replicaset/Readme.md)  | [Labels Selectors Annotations](Labels-Selectors-Annotations/Readme.md)  |
 | [Resource Quota](Resource-quota/Readme.md)  | [Jobs](Jobs/Readme.md)  |
 | [ConfigMaps](ConfigMaps/Readme.md)  | [Rolling Updates Rollbacks in Deployments](Rolling-Updates-Rollbacks-in-Deployments/Readme.md)  |
-| [Secrets](Secrets/Readme.md)  | [Ingress Networking](Ingress-Networking/Readme.md)  |
+| [Secrets](Secrets/Readme.md)  | [Networking Policy](Networking-Policy/Readme.md)  |
 | [Kubernetes Security](Kubernetes-Security/Readme.md)  | [Volumes](Volumes/Readme.md)  |
-| [Networking](Networking/Readme.md)   | [Taints and Tolerations](Taints-and-Tolerations/Readme.md)  |
-| [Services](Services/Readme.md)  | [Variables](Variables/Readme.md)  |
-| [KAD hands on](CKAD-hands-on/Readme.md) |
-
+| [Variables](Variables/Readme.md) | [Taints and Tolerations](Taints-and-Tolerations/Readme.md)  |
+| [Services](Services/Readme.md)  | [KAD hands on](CKAD-hands-on/Readme.md) |
 
 In this repository there are many tips, you may not be able to use all of them, use the ones you feel most comfortable with.
 
@@ -105,8 +103,9 @@ kubectl set image pod/nginx nginx=nginx:latest
 kubectl set image pod/nginx nginx=nginx:1.9.1
 kubectl set image deployment/nginx nginx=nginx:latest
 kubectl set image deployment/nginx nginx=nginx:1.9.1
-
-# Log and Debugging
+```
+**Log and Debugging**
+```bash
 k run --image=busybox bbox -- sh -c 'while true; do date; sleep 3; done '
 
 kubectl logs busybox
@@ -157,9 +156,9 @@ kubectl explain pods --recursive | less
 # Monitorins
 kubectl top node
 kubectl top pod
-
-# **Observability**
-
+```
+**Observability**
+```bash
 # Collect failed pods by namespace
 kubectl -n qa get events | grep -i 'Liveness probe failed'
 
@@ -175,8 +174,15 @@ kubectl get events | grep -i error
 
 # kubectl cp command
 kubectl cp busybox:etc/passwd ./passwd 
-
 ```
+# Cheat Sheet
+
+<p align="center">
+  <img width="730" height="370" src="img/sc.png">
+</p>
+[Download in PDF](https://docs.google.com/presentation/d/1kr8hwqbqQSUE8LVNGxYXF7cHShDIOEeyWRcXHFDYOgo/edit?usp=sharing) -> Made  by Edith Puclla
+
+
 # **Tips and Tricks**  :gift:
 
 **From Udemy course with Mumshad Mannambeth**

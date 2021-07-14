@@ -3,8 +3,6 @@
 * **Taints** are set on nodes
 * **Toleration** are set in pods
 
-
-
 ```bash
 kubectl taint nodes node-name keyt=value:taint-effect
 kubectl taint nodes node1 app=my_app: NoSchedule
