@@ -2,8 +2,8 @@
 
 ## Ingress Sources Rules
 We have rules on the top for each host or domain name, and within each rule we have a different  path to raute traffic based on URL.
-How to configure Ingress resources:
 
+How to configure Ingress resources:
 
 ### Split traffic by domain name ONE rules
 

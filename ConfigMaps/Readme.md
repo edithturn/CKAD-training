@@ -7,7 +7,7 @@ ConfigMaps are used to pass configuration data in the form of key value pairs in
 
 ```bash
 #  Create a config map with two  variables, key, value format
-kubectl create configmap app-config  app-config --from-literal=APP_VERSION=1.0 --from-literal=APP_MODE=dev
+kubectl create configmap app-config --from-literal=APP_VERSION=1.0 --from-literal=APP_MODE=dev
 
 # Create a configmap from a file
 kubectl create configmap my-config-map --from-file=<path-to-file>

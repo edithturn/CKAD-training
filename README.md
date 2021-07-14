@@ -2,7 +2,7 @@
 #       :octopus: **Certified Kubernetes Application Developer**  :dolphin:
 
 <p align="center">
-  <img width="730" height="270" src="img/final.png">
+  <img width="730" height="260" src="img/final.png">
 </p>
 
 
@@ -178,7 +178,7 @@ kubectl cp busybox:etc/passwd ./passwd
 # Cheat Sheet
 
 <p align="center">
-  <img width="730" height="370" src="img/sc.png">
+  <img width="830" height="470" src="img/cheat-sheet.png">
 </p>
 
 [Download in PDF](https://docs.google.com/presentation/d/1kr8hwqbqQSUE8LVNGxYXF7cHShDIOEeyWRcXHFDYOgo/edit?usp=sharing) -> Made  by Edith Puclla
@@ -186,7 +186,7 @@ kubectl cp busybox:etc/passwd ./passwd
 
 # **Tips and Tricks**  :gift:
 
-**From Udemy course with Mumshad Mannambeth**
+**From Udemy course with Mumshad Mannambeth** 
 - Attempt all questions
 - Don't get stuck on any question
 - Get good with YAML
