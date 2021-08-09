@@ -1,5 +1,5 @@
 
-#       :octopus: **Certified Kubernetes Application Developer**  :dolphin:
+#       :octopus: **Certified Kubernetes Application Developer (preparation)**  :dolphin:
 
 <p align="center">
   <img width="780" height="320" src="img/final.png">
