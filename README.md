@@ -2,7 +2,7 @@
 #       :octopus: **Certified Kubernetes Application Developer**  :dolphin:
 
 <p align="center">
-  <img width="730" height="220" src="img/final.png">
+  <img width="730" height="200" src="img/final.png">
 </p>
 
 
