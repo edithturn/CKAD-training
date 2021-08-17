@@ -293,9 +293,7 @@ export do='--dry-run=client -o yaml'
 5. [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) Github -> dgkanatsios
 6. [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
 7. [katacoda - CKAD Practice Challenge](https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges)
-8. More Practice (Trial)
-https://www.study4exam.com/
-9. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
+8. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
 
 ## **Videos**  :movie_camera:
 1. [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE)    -> I AM DINUTH
