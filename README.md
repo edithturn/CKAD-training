@@ -12,10 +12,10 @@ CKAD 2021 Domain, Competencies $ Weight
 
 ```mermaid
 flowchart LR
-A[Application Design and Build - 20%]
-B[Application Deployment - 20%]
-C[Application Observability and Maintenance - 15%]
-D[Application Environment, Configuration and Security - 25%]
+A[Application Design and Build - 20%] B
+B[Application Deployment - 20%] C
+C[Application Observability and Maintenance - 15%] D
+D[Application Environment, Configuration and Security - 25%] E
 E[Services and Networking - 20%]
 ```
 
