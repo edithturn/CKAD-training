@@ -1,16 +1,38 @@
 
-#       :octopus: **Certified Kubernetes Application Developer (preparation)**  :dolphin:
+# Certified Kubernetes Administrator (Updated Sep 2021)
+
+#       :octopus: **Certified Kubernetes Administrator (preparation)**  :dolphin:
 
 <p align="center">
   <img width="780" height="320" src="img/final.png">
 </p>
 
 
-This repository contains definitions, tips, sources, and many commands for practice and that I am currently using to prepare for my kubernetes certification exam.
+CKAD 2021 Domain, Competencies $ Weight
+
+```mermaid
+flowchart LR
+A[Application Design and Build - 20%]
+B[Application Deployment - 20%]
+C[Application Observability and Maintenance - 15%]
+D[Application Environment, Configuration and Security - 25%]
+E[Services and Networking - 20%]
+```
+
+
+Application Design and Build  20%
+Define, build and modify container images
+Understand Jobs and CronJobs
+Understand multi-container Pod design patterns (e.g. sidecar, init and others)
+Utilize persistent and ephemeral volumes
+
+Source (Training Linux Fundation)[https://training.linuxfoundation.org/ckad-program-change-2021/] Updated September 28, 2021
+
+This repository contains definitions, tips, sources, and many commands for practice and that I am currently using to prepare for my Certified Kubernetes Administrator  exam.
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
-## **About the CKAD  (Certified Kubernetes Application Developer)**
+## **About the CKA  (Certified Kubernetes Administrator)**
 
 The exam covers the following topics in a certain percentage:
 
@@ -293,6 +315,7 @@ export do='--dry-run=client -o yaml'
 5. [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) Github -> dgkanatsios
 6. [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
 7. [katacoda - CKAD Practice Challenge](https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges)
+
 8. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
 
 ## **Videos**  :movie_camera:
