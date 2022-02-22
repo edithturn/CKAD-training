@@ -12,6 +12,8 @@ CKAD 2021 Domain, Competencies $ Weight
 
 ```mermaid
 flowchart LR
+A[Application Design and Build - 20%<br />Define, build and modify container images Utilize persistent and ephemeral volumes] --> B
+
 B[Application Deployment - 20%] --> C
 C[Application Observability and Maintenance - 15%] --> D
 D[Application Environment, Configuration and Security - 25%]  --> E
