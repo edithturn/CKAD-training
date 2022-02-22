@@ -12,21 +12,17 @@ CKAD 2021 Domain, Competencies $ Weight
 
 ```mermaid
 flowchart LR
-A[Application Design and Build - 20%<br />Define, build and modify container images<br />Understand Jobs and CronJobs<br />Understand multi-container Pod design patterns e.g. sidecar, init and others<br />Utilize persistent and ephemeral volumes] --> B
+A[Application Design and Build - 20%<br />* Define, build and modify container images<br />* Understand Jobs and CronJobs<br />Understand multi-container Pod design patterns e.g. sidecar, init and others<br />* Utilize persistent and ephemeral volumes] --> B
 
-B[Application Deployment - 20%] --> C
-C[Application Observability and Maintenance - 15%] --> D
-D[Application Environment, Configuration and Security - 25%]  --> E
-E[Services and Networking - 20%]
+B[Application Deployment - 20%<br />Use Kubernetes primitives to implement common deployment strategies e.g. blue/green or canary<br /> * Understand Deployments and how to perform rolling updates<br />* Use the Helm package manager to deploy existing packages]
 ```
-
-
-Application Design and Build  20%
-Define, build and modify container images
-Understand Jobs and CronJobs
-Understand multi-container Pod design patterns (e.g. sidecar, init and others)
-Utilize persistent and ephemeral volumes
-
+```mermaid
+C[Application Observability and Maintenance - 15%<br />* Understand API deprecations
+Implement probes and health checks<br />* Use provided tools to monitor Kubernetes applications<br />* Utilize container logs Debugging in Kubernetes] --> D
+D[Application Environment, Configuration and Security - 25%<br />* Discover and use resources that extend Kubernetes (CRD)<br />* Understand authentication, authorization and admission control<br />* Understanding and defining resource requirements, limits and quotas<br />* Understand ConfigMaps
+Create & consume Secrets<br />* Understand ServiceAccounts<br />* Understand SecurityContexts]  --> E
+E[Services and Networking - 20%<br />* Demonstrate basic understanding of NetworkPolicies<br />* Provide and troubleshoot access to applications via services<br /> * Use Ingress rules to expose applications]
+```
 Source (Training Linux Fundation)[https://training.linuxfoundation.org/ckad-program-change-2021/] Updated September 28, 2021
 
 This repository contains definitions, tips, sources, and many commands for practice and that I am currently using to prepare for my Certified Kubernetes Administrator  exam.
