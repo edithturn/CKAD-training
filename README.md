@@ -12,7 +12,7 @@ CKAD 2021 Domain, Competencies $ Weight
 
 ```mermaid
 flowchart LR
-A[<strong>Application Design and Build - 20%</strong><br />* Define, build and modify container images<br />* Understand Jobs and CronJobs<br />* Understand multi-container Pod design patterns <br />e.g. sidecar, init and others<br />* Utilize persistent and ephemeral volumes] --> B
+A[<strong>Application Design and Build - 20%<br /></strong><br />* Define, build and modify container images<br />* Understand Jobs and CronJobs<br />* Understand multi-container Pod design patterns <br />e.g. sidecar, init and others<br />* Utilize persistent and ephemeral volumes] --> B
 style A text-align:left
 
 B[Application Deployment - 20%<br />* Use Kubernetes primitives to implement common deployment strategies <br />e.g. blue/green or canary<br /> * Understand Deployments and how to perform rolling updates<br />* Use the Helm package manager to deploy existing packages]
