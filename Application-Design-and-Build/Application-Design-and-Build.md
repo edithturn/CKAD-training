@@ -110,4 +110,38 @@ kubectl delete cronjobs reporting-cron-calculator
 # Understand multi-container Pod design patterns (e.g. sidecar, init and others)
 
 
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-multi-containers
+spec:
+  restartPolicy: Never
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  containers:
+  - name: nginx-container
+    image: nginx
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+  - name: debian-container
+    image: debian
+    volumeMounts:
+    - name: shared-data
+      mountPath: /pod-data
+    command: ["/bin/sh"]
+    args: ["-c", "echo Hello from the debian container > /pod-data/index.html"]
+```
+## SideCar
+Logging service. Deploy login agent.
+
+## Adapter
+Processes the logs before sent them to the central server.
+
+
+## Embassador
+Use outsource to separate container within the pod to assign a specific data base.
+
 # Utilize persistent and ephemeral volumes
