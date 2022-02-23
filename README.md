@@ -8,40 +8,24 @@
 </p>
 
 
-CKAD 2021 Domain, Competencies $ Weight
-
-```mermaid
-flowchart LR
-A[<strong>Application Design and Build - 20%<br /></strong><br />* Define, build and modify container images<br />* Understand Jobs and CronJobs<br />* Understand multi-container Pod design patterns <br />e.g. sidecar, init and others<br />* Utilize persistent and ephemeral volumes] --> B
-style A text-align:left
-
-B[<strong>Application Deployment - 20%<br /></strong><br />* Use Kubernetes primitives to implement common <br />deployment strategies <br />e.g. blue/green or canary<br /> * Understand Deployments and how to perform <br />rolling updates<br />* Use the Helm package manager to deploy <br />existing packages]
-style B text-align:left
-
-C[<strong>Application Observability and Maintenance - 15%<br /></strong><br />* Understand API deprecations<br /> * Implement probes and health checks<br />* Use provided tools to monitor Kubernetes applications<br />* Utilize container logs Debugging in Kubernetes] --> D
-style C text-align:left
-D[<strong>Application Environment, Configuration and Security - 25%<br /></strong><br />* Discover and use resources that extend Kubernetes -CRD<br />* Understand authentication, authorization and admission control<br />* Understanding and defining resource requirements, <br />limits and quotas<br />* Understand ConfigMaps<br />* Create & consume Secrets<br />* Understand ServiceAccounts<br />* Understand SecurityContexts]
-style D text-align:left
-E[<strong>Services and Networking - 20%<br /></strong><br />* Demonstrate basic understanding of NetworkPolicies<br />* Provide and troubleshoot access to applications via services<br /> * Use Ingress rules to expose applications]
-style E text-align:left
-```
-Source (Training Linux Fundation)[https://training.linuxfoundation.org/ckad-program-change-2021/] Updated September 28, 2021
-
 This repository contains definitions, tips, sources, and many commands for practice and that I am currently using to prepare for my Certified Kubernetes Administrator  exam.
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
 ## **About the CKA  (Certified Kubernetes Administrator)**
 
+CKAD 2021 Domain, Competencies & Weight
+
 The exam covers the following topics in a certain percentage:
 
-- :paw_prints: **Core Concepts (13%)**
-- :paw_prints: **Multi-Container Pods (10%)**
-- :paw_prints: **Pod Design (20%)**
-- :paw_prints: **State Persistence (8%)**
-- :paw_prints: **Configuration (18%)**
-- :paw_prints: **Observability (18%)**
-- :paw_prints: **Services and Networking (13%)**
+- :paw_prints: **Application Design and Build (20 %)**
+- :paw_prints: **Application Deployment  (20 %)**
+- :paw_prints: **Application Observability and Maintenance  (15 %)**
+- :paw_prints: **Application Environment, Configuration and Security (25 %)**
+- :paw_prints: **Services and Networking  (20 %)**
+
+Source (Training Linux Fundation)[https://training.linuxfoundation.org/ckad-program-change-2021/] Updated September 28, 2021
+
 
 # **Topics** :dart:
 
