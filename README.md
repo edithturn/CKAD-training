@@ -17,9 +17,7 @@ style A text-align:left
 
 B[Application Deployment - 20%<br />Use Kubernetes primitives to implement common deployment strategies e.g. blue/green or canary<br /> * Understand Deployments and how to perform rolling updates<br />* Use the Helm package manager to deploy existing packages]
 style B text-align:left
-```
-```mermaid
-flowchart LR
+
 C[Application Observability and Maintenance - 15%<br />* Understand API deprecations<br /> * Implement probes and health checks<br />* Use provided tools to monitor Kubernetes applications<br />* Utilize container logs Debugging in Kubernetes] --> D
 style C text-align:left
 D[Application Environment, Configuration and Security - 25%<br />* Discover and use resources that extend Kubernetes -CRD<br />* Understand authentication, authorization and admission control<br />* Understanding and defining resource requirements, limits and quotas<br />* Understand ConfigMaps<br />* Create & consume Secrets<br />* Understand ServiceAccounts<br />* Understand SecurityContexts]
