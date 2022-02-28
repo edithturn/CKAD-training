@@ -57,9 +57,11 @@ docker run my-app:v01 -p 8080:8484
 
 # Understand Jobs and CronJobs
 
-## Jobs
+## What is a Job?
 
-Basic Pod definition, is the templete used to create the Job. It executes an addition between two numbers.
+A job creates one or more pods and will continue to retry the pods until it successfully completes the number of pods defined in the Job. A Job needs a Pod definition for its creation.
+
+Let's see this Pod Defination, which purpose is add two numbers.
 
 ```yaml
 apiVersion: v1
@@ -73,7 +75,8 @@ spec:
     command: ['expr','4', '+', '5']
 ```
 
-This job basic-job-template.yaml takes the Pod definition. It will stop when the operation is finished "restartPolicy: Never"
+basic-job-template.yaml It is a Job that will take the previous Pod definition and, It will stop when the operation is finished "restartPolicy: Never"
+
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -90,6 +93,9 @@ spec:             # spec from Job
           command: ['expr','4', '+', '5']
       restartPolicy: Never
 ```
+
+Jobs
+
 ```bash
 kubectl create -f basic-job-template.yaml
 kubectl get jobs
@@ -99,7 +105,15 @@ kubectl delete job calculator
 ```
 ## CronJobs
 
-A CronJob creates Job periodically on a given schedule. It takes Job defination. 
+Cron is a time-based job scheduler in Linux and Unix systems. 
+
+<p align="center">
+  <img width="600" height="320" src="../img/cron.png">
+</p>
+
+Use [crontab.guru](https://crontab.guru/) to practice cron schedule expressions.
+
+A CronJob creates Job periodically on a given schedule. It takes a Job defination. For example:
 
 basic-cronjob-template.yaml
 
@@ -108,20 +122,24 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: reporting-cron-calculator
-spec:                       # spec from CronJob
+spec:                       # CronJob spec
   schedule: "* * * * *"
   jobTemplate:
-    spec:                   # spec from Job
+    spec:                   # Job spec
       completions: 3 
       parallelism: 3 
       template:
-        spec:               # spec from Pod
+        spec:               # Pod spec
           containers:
             - name: math-image
               image: ubuntu
               command: ['expr','4', '+', '5']
           restartPolicy: Never  
 ```
+
+## Basic Commands
+
+CronJobs
 
 ```bash
 kubectl create -f basic-cronjob-template.yaml
@@ -130,9 +148,10 @@ kubectl get cronjobs
 kubectl get pods
 kubectl delete cronjobs reporting-cron-calculator
 ```
-### TODO: Dwhat are jobs, cronjobs in kubernetes, template examples
 
-# Understand multi-container Pod design patterns (e.g. sidecar, init and others)
+# Multi-Containers
+
+## TODO: Understand multi-container Pod design patterns (e.g. sidecar, init and others)
 
 
 ```yaml
