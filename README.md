@@ -16,13 +16,13 @@ This repository contains definitions, tips, sources, and many commands for pract
 
 CKAD 2021 Domain, Competencies & Weight
 
-- :paw_prints: **Application Design and Build (20 %)**
+- :paw_prints: [**Application Design and Build (20 %)**](Application-Design-and-Build/Application-Design-and-Build.md)
 - :paw_prints: **Application Deployment  (20 %)**
 - :paw_prints: **Application Observability and Maintenance  (15 %)**
 - :paw_prints: **Application Environment, Configuration and Security (25 %)**
 - :paw_prints: **Services and Networking  (20 %)**
 
-Source [Training Linux Fundation}(https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
+Source [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
 
 
 # **Topics** :dart:
