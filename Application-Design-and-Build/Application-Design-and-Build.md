@@ -10,6 +10,31 @@
 # Define, build and modify container images
 Create and build images, create and run containers. Basic commands:
 
+## What is Docker?
+
+Docker is an open source technology for building, deploying, and managing containerized applications. Docker Architecture:
+
+<p align="center">
+  <img width="600" height="320" src="../img/docker-architecture.png">
+</p>
+
+[Source docs.docker.com](https://docs.docker.com/get-started/overview/)
+
+## Images and Containers
+
+Docker images are templates used to build containers. Containers are application in execution (alive), product of build docker images.  There are three main elements to create containers:
+
+
+
+<p align="center">
+  <img width="600" height="320" src="../img/dockerfile-image-container.png">
+</p>
+
+[Source Nilesh Jayanandana](https://medium.com/platformer-blog/practical-guide-on-writing-a-dockerfile-for-your-application-89376f88b3b5)
+
+## Basic Commands
+
+Images
 ```bash
 # Images
 docker images
@@ -18,7 +43,9 @@ docker build -t <image-name> .
 docker build -t my-app .
 docker build -t <image-name>:<image-tag> .
 docker build -t my-app:v01 .
-# Containers
+```
+Containers
+```bash
 docker run -p <host-port>:<container-port> <image-name>
 docker run -p 8080:8585 my-app
 docker ps
@@ -27,8 +54,6 @@ docker run my-app cat /etc/*release*
 docker run <image-name>:<image-tag> -p <host-port>:<container-port>
 docker run my-app:v01 -p 8080:8484
 ```
-
-### TODO: Docker Architecture, concepts docker and images, dockerflow
 
 # Understand Jobs and CronJobs
 
