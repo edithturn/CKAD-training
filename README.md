@@ -25,22 +25,6 @@ CKAD 2021 Domain, Competencies & Weight
 Source [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
 
 
-# **Topics** :dart:
-
-|               |               |
-| ------------- | ------------- |
-| [Namespaces](Namespaces/namespaces.md) |  [Multicontainer](Multicontainer/Readme.md)  |
-| [Pods](Pod/pods.md)  | [Service Account](Service-Account/Readme.md)  |
-| [Deployment](Deployment/Readme.md)  |  [Node Selector and Node Affinity](Node-Selector-and-Node-Affinity/Readme.md) |
-| [Replication Controller](Replication-controller/Readme.md) | [Readiness and Liveness Probes](Readiness-and-Liveness-Probes/Readme.md)  |
-| [Replicaset](Replicaset/Readme.md)  | [Labels Selectors Annotations](Labels-Selectors-Annotations/Readme.md)  |
-| [Resource Quota](Resource-quota/Readme.md)  | [Jobs](Jobs/Readme.md)  |
-| [ConfigMaps](ConfigMaps/Readme.md)  | [Rolling Updates Rollbacks in Deployments](Rolling-Updates-Rollbacks-in-Deployments/Readme.md)  |
-| [Secrets](Secrets/Readme.md)  | [Networking Policy](Networking-Policy/Readme.md)  |
-| [Kubernetes Security](Kubernetes-Security/Readme.md)  | [Volumes](Volumes/Readme.md)  |
-| [Variables](Variables/Readme.md) | [Taints and Tolerations](Taints-and-Tolerations/Readme.md)  |
-| [Services](Services/Readme.md)  | [KAD hands on](CKAD-hands-on/Readme.md) |
-
 In this repository there are many tips, you may not be able to use all of them, use the ones you feel most comfortable with.
 
 # **Use the right context always**
