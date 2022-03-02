@@ -108,7 +108,7 @@ Basic Commands CronJobs
 Cron is a time-based job scheduler in Linux and Unix systems. 
 
 <p align="center">
-  <img width="500" height="220" src="../img/cron.png">
+  <img width="400" height="220" src="../img/cron.png">
 </p>
 
 Use [crontab.guru](https://crontab.guru/) to practice cron schedule expressions.
@@ -192,18 +192,66 @@ A container works well without a sidecar, but with it, it can perform additional
 
 
 <p align="center">
-  <img width="600" height="320" src="../img/sidecar.png">
+  <img width="220" height="220" src="../img/sidecar.png">
 </p>
 
-[Source Matthew Palmer](https://matthewpalmer.net/kubernetes-app-developer/articles/multi-container-pod-design-patterns.html)
 
+
+
+SideCar Example: This application will write the current date to the app.txt file every five seconds
+
+sidecar.yaml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-sidecar
+spec:
+  volumes:
+  - name: shared-logs 
+    emptyDir: {}
+  containers:
+  - name: app-container
+    image: alpine
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do date >> /var/log/app.txt; sleep 5;done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+  - name: sidecar-container
+    image: nginx:1.21.6
+    ports:
+      - containerPort: 80
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /usr/share/nginx/html
+```
+
+```bash
+# Create the Pod
+kubectl apply -f sidecar.yaml
+# Connect to the sidecar Pod
+kubectl exec pod-with-sidecar -c sidecar-container -it bash
+# Install curl
+apt-get update && apt-get install curl
+# Access to the log of the application via sidecar
+curl 'http://localhost:80/app.txt'
+```
 ## Embassador
 Use outsource to separate container within the pod to assign a specific data base.
+
+<p align="center">
+  <img width="220" height="220" src="../img/ambasador.png">
+</p>
 
 
 ## Adapter
 Processes the logs before sent them to the central server.
 
+<p align="center">
+  <img width="220" height="220" src="../img/adapter.png">
+</p>
 
+[Sidecar, Adapter and Ambasador examples from Matthew Palmer](https://matthewpalmer.net/kubernetes-app-developer/articles/multi-container-pod-design-patterns.html)
 
 # Utilize persistent and ephemeral volumes
