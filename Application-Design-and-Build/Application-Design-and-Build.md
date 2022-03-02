@@ -190,7 +190,7 @@ A container works well without a sidecar, but with it, it can perform additional
 
 
 <p align="center">
-  <img width="300" height="300" src="../img/sidecar.png">
+  <img width="350" height="300" src="../img/sidecar.png">
 </p>
 
 
@@ -240,7 +240,7 @@ curl 'http://localhost:80/app.txt'
 Processes the logs before sent them to the central server. In this example the adapter container reads whay the application has written and reformats it into a structure that a hypothetical monitoring requires.
 
 <p align="center">
-  <img width="300" height="300" src="../img/adapter.png">
+  <img width="350" height="300" src="../img/adapter.png">
 </p>
 
 Adapter example: This application writes system usage information (`top`) to a status file every five seconds. Teh sidecar container takes this output and simplifies for the monitoring service.
@@ -288,12 +288,12 @@ cat /var/log/status.txt
 
 
 ## Embassador
-Use outsource to separate container within the pod to assign a specific data base.
+Use outsource to separate container within the pod to assign a specific data base. It is a kind of sidecar container which simplifies accessing services outside the Pod.
 
 <p align="center">
-  <img width="300" height="300" src="../img/ambassador.png">
+  <img width="350" height="300" src="../img/ambassador.png">
 </p>
 
-
+[Ambassador example Omri Cohen](https://dev.bitolog.com/ambassador-container/)
 
 # Utilize persistent and ephemeral volumes
