@@ -103,12 +103,12 @@ kubectl logs <name-of-pod>
 kubectl logs calculator-ggznd
 kubectl delete job calculator
 ```
-## CronJobs
+Basic Commands CronJobs
 
 Cron is a time-based job scheduler in Linux and Unix systems. 
 
 <p align="center">
-  <img width="600" height="320" src="../img/cron.png">
+  <img width="500" height="220" src="../img/cron.png">
 </p>
 
 Use [crontab.guru](https://crontab.guru/) to practice cron schedule expressions.
@@ -137,9 +137,7 @@ spec:                       # CronJob spec
           restartPolicy: Never  
 ```
 
-## Basic Commands
-
-CronJobs
+Basic Commands CronJobs
 
 ```bash
 kubectl create -f basic-cronjob-template.yaml
@@ -151,41 +149,61 @@ kubectl delete cronjobs reporting-cron-calculator
 
 # Multi-Containers
 
-## TODO: Understand multi-container Pod design patterns (e.g. sidecar, init and others)
+Pods require multiple container for a complete solution, Pods with the same life cicle (created together and distroy together) 
+In this Pod example, we have two containers, the first one will read data from the volume, and the second one will write data.
 
-
+mcp.yaml
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example-multi-containers
+  name: mcp # Multi-Container Pod
 spec:
   restartPolicy: Never
   volumes:
   - name: shared-data
     emptyDir: {}
   containers:
-  - name: nginx-container
+  - name: 1st
     image: nginx
     volumeMounts:
     - name: shared-data
       mountPath: /usr/share/nginx/html
-  - name: debian-container
+  - name: 2nd
     image: debian
     volumeMounts:
     - name: shared-data
       mountPath: /pod-data
     command: ["/bin/sh"]
-    args: ["-c", "echo Hello from the debian container > /pod-data/index.html"]
+    args: ["-c", "echo Hello from the 2nd container > /pod-data/index.html"]
+```
+
+```bash
+kubectl apply -f mcp.yaml
+# read data of the 1st container from 2nd container
+kubectl exec mcp -c 1st -- /bin/cat /usr/share/nginx/html/index.html
+Hello from the 2nd container
+# Logs
+kubectl logs mcp -c 1st
+kubectl logs mcp -c 2ndu
 ```
 ## SideCar
-Logging service. Deploy login agent.
+A container works well without a sidecar, but with it, it can perform additional extra functions.A good example is using a sidecar for logging and monitoring.
+
+
+<p align="center">
+  <img width="600" height="320" src="../img/sidecar.png">
+</p>
+
+[Source Matthew Palmer](https://matthewpalmer.net/kubernetes-app-developer/articles/multi-container-pod-design-patterns.html)
+
+## Embassador
+Use outsource to separate container within the pod to assign a specific data base.
+
 
 ## Adapter
 Processes the logs before sent them to the central server.
 
 
-## Embassador
-Use outsource to separate container within the pod to assign a specific data base.
 
 # Utilize persistent and ephemeral volumes
