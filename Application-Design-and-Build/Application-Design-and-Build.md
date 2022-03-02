@@ -103,15 +103,13 @@ kubectl logs <name-of-pod>
 kubectl logs calculator-ggznd
 kubectl delete job calculator
 ```
-Basic Commands CronJobs
+##  CronJobs
 
-Cron is a time-based job scheduler in Linux and Unix systems. 
+A Cron is a time-based job scheduler in Linux and Unix systems. Use [crontab.guru](https://crontab.guru/) to practice cron schedule expressions.
 
 <p align="center">
-  <img width="400" height="220" src="../img/cron.png">
+  <img width="400" height="260" src="../img/cron.png">
 </p>
-
-Use [crontab.guru](https://crontab.guru/) to practice cron schedule expressions.
 
 A CronJob creates Job periodically on a given schedule. It takes a Job defination. For example:
 
@@ -192,13 +190,13 @@ A container works well without a sidecar, but with it, it can perform additional
 
 
 <p align="center">
-  <img width="220" height="220" src="../img/sidecar.png">
+  <img width="300" height="300" src="../img/sidecar.png">
 </p>
 
 
 
 
-SideCar Example: This application will write the current date to the app.txt file every five seconds
+SideCar example: This application will write the current date to the app.txt file every five seconds
 
 sidecar.yaml
 ```yaml
@@ -237,21 +235,65 @@ apt-get update && apt-get install curl
 # Access to the log of the application via sidecar
 curl 'http://localhost:80/app.txt'
 ```
+
+## Adapter
+Processes the logs before sent them to the central server. In this example the adapter container reads whay the application has written and reformats it into a structure that a hypothetical monitoring requires.
+
+<p align="center">
+  <img width="300" height="300" src="../img/adapter.png">
+</p>
+
+Adapter example: This application writes system usage information (`top`) to a status file every five seconds. Teh sidecar container takes this output and simplifies for the monitoring service.
+
+adapter.yaml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-adapter
+spec:
+  volumes:
+  - name: shared-logs 
+    emptyDir: {}
+  containers:
+  - name: app-container
+    image: alpine
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do date > /var/log/top.txt && top -n 1 -b >> /var/log/top.txt; sleep 5;done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+  - name: adapter-container
+    image: alpine
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do (cat /var/log/top.txt | head -1 > /var/log/status.txt) && (cat /var/log/top.txt | head -2 | tail -1 | grep
+ -o -E '\\d+\\w' | head -1 >> /var/log/status.txt) && (cat /var/log/top.txt | head -3 | tail -1 | grep
+-o -E '\\d+%' | head -1 >> /var/log/status.txt); sleep 5; done"]
+    volumeMounts:
+    - name: shared-logs
+      mountPath: /var/log
+```
+
+```bash
+# Create Pod
+kubectl apply -f adapter.yaml
+# Connect to adapter container 
+kubectl exec pod-with-adapter -c app-container -it sh
+# Take a look on what the application is writing
+cat /var/log/top.txt
+# Take a look on what the adapter has reformateted on it.
+cat /var/log/status.txt
+```
+[Sidecar, Adapter and Ambasador examples from Matthew Palmer](https://matthewpalmer.net/kubernetes-app-developer/articles/multi-container-pod-design-patterns.html)
+
+
 ## Embassador
 Use outsource to separate container within the pod to assign a specific data base.
 
 <p align="center">
-  <img width="220" height="220" src="../img/ambasador.png">
+  <img width="300" height="300" src="../img/ambassador.png">
 </p>
 
 
-## Adapter
-Processes the logs before sent them to the central server.
-
-<p align="center">
-  <img width="220" height="220" src="../img/adapter.png">
-</p>
-
-[Sidecar, Adapter and Ambasador examples from Matthew Palmer](https://matthewpalmer.net/kubernetes-app-developer/articles/multi-container-pod-design-patterns.html)
 
 # Utilize persistent and ephemeral volumes
