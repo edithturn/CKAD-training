@@ -1,7 +1,5 @@
 
-# Certified Kubernetes Administrator (Updated Sep 2021)
-
-#       :octopus: **Certified Kubernetes Administrator (preparation)**  :dolphin:
+# :octopus: Certified Kubernetes Application Developer (CKAD) (Updated Sep 2021) :dolphin:
 
 <p align="center">
   <img width="780" height="320" src="img/final.png">
@@ -12,7 +10,7 @@ This repository contains definitions, tips, sources, and many commands for pract
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
-## **About the CKA  (Certified Kubernetes Administrator)**
+## **About the Certified Kubernetes Application Developer (CKAD)**
 
 CKAD 2021 Domain, Competencies & Weight
 
