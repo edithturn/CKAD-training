@@ -296,6 +296,108 @@ Use outsource to separate container within the pod to assign a specific data bas
 
 [Ambassador example Omri Cohen](https://dev.bitolog.com/ambassador-container/)
 
+## TODO: embassador Example
+
 # Utilize persistent and ephemeral volumes
 
-## TODO
+Kubernetes supports many types of volumes. A pod can use Ephemeral volume which have a lifetime of a pod, and persistent volumes that exist beyond the lifetime of a pod. When a pod finish, Kubernetes destroys the data of the ephemeral volumes; however, Kubernetes does not destroy persistent volumes. For any kind of volume in a given pod, data is preserved across container restarts.
+
+
+## Volumes
+
+To configure a volume in a Pod we need firts to define the volume in a host (host path), the mount this volume into the container.
+
+volume.yaml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  name: alpine
+spec:
+  containers:
+  - image: alpine
+    name: alpine
+    resources: {}
+    command: ["/bin/sh", "-c"]
+    args: ["shuf -i 0-10 -n 1 >> /tmp/number.out"]
+    volumeMounts:
+      - mountPath: /tmp
+        name: data-volume
+  volumes:
+  - name: data-volume
+    hostPath:
+      path: /tmp
+      type: Directory
+```
+```bash
+kubectl apply -f volume.yaml
+```
+
+## Persistent Volumes
+
+A PersistentVolume (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes
+
+host-path.pv
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-hostpath
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:  # Single node testing only — local storage is not supported in any way and WILL NOT WORK in a multi-node cluster
+    path: "/tmp/kube"
+```
+
+aws-elastic-block-store.pv
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-hostpath
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi 
+  awsElasticBlockStore:  #  WORKS in a multi-node cluster
+     volumeID: <volume-id>
+     fsType: ext4
+```
+
+```bash
+kubectl apply -f host-path.pv
+kubectl get pv
+```
+
+## Persistent Volumes Claim
+ Pods use PersistentVolumeClaims (PVC) to request physical storage. An administrator create Persistent Volume and a User create Persisten Volume Claim.
+
+pvc.yaml
+ ```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+ ```
+
+ ```bash
+kubectl apply -f pvc.yaml
+kubectl get pvc
+```
