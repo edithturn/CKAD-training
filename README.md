@@ -12,10 +12,6 @@ This repository contains my notes, definitions, tips, sources, and commands that
 
 ## **About the Certified Kubernetes Application Developer (CKAD)**
 
-CKAD 2021 Domain, Competencies & Weight
-
-- :paw_prints: [**Application Design and Build (20 %)**](Application-Design-and-Build/Application-Design-and-Build.md)
-
 
 ```mermaid
   pie showData
@@ -27,16 +23,23 @@ CKAD 2021 Domain, Competencies & Weight
       "Services and Networking" : 20
 ```
 
-
 Source [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
 
+## Explore each category
 
-## Tips
+- :paw_prints: [Application Design and Build](Categories/Application-Design-and-Build.md)
+- :paw_prints: [Application Deployment](Categories/Application-Deployment.md)
+- :paw_prints: [Application Observability and Maintenance](Categories/Application-Observability-and-Maintenance.md)
+- :paw_prints: [Application Environment, Configuration and Security](Categories/Application-Environment-Configuration-and-Security.md)
+- :paw_prints: [Services and Networking](Categories/Services-and-Networking.md)
+
+
+## Useful commands
 
 # **Use the right context always**
 ```bash
 # List current contexts
-kubectl config get-context
+kubectl config get-contexts
 
 # Every time before to start the question
 kubectl config use-contex <CONTEXTNAME>
