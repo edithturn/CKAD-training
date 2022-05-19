@@ -348,7 +348,6 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
   capacity:
     storage: 1Gi
   accessModes:
@@ -387,17 +386,36 @@ pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim
+  name: claim-log-1
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 50Mi
  ```
 
  ```bash
 kubectl apply -f pvc.yaml
 kubectl get pvc
+```
+
+## Using a PVC in a Pod
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/www/html"
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: claim-log-1
 ```

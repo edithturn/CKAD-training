@@ -51,10 +51,8 @@ metadata:
 
 ```bash
 # Set contex to the a namespace dev
-kubectl config set-contex $(kubectl config 
-current-context) --namespace=dev
+kubectl config set-context $(kubectl config current-context) --namespace=dev
 
 # Set contex to the a namespace default
-kubectl config set-contex $(kubectl config 
-current-context) --namespace=default
+kubectl config set-context $(kubectl config current-context) --namespace=default
 ```

@@ -160,3 +160,83 @@ kubectl  get pods --sort-by=.metadata.name
 # List all the pods created by timestamp
 kubectl get pods--sort-by=.metadata.creationTimestamp
 ```
+# FINAL
+
+Pods are a group of containers represented for deployable objects in Kubernetes. A Pod could contain one or more containers (applications), one for the main process and one or more containers to “help” the main process.
+
+
+# Get the documentation for Pod manifests
+kubectl explain pods
+
+# A basic Pod manifest basic-pod-manifest.yaml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+ name: static-web
+ labels:
+   role: myrole
+spec:
+ containers:
+   - name: web
+     image: nginx
+     ports:
+       - containerPort: 80
+         protocol: TCP
+```
+
+# Creating pods based in YAML file
+kubectl create -f basic-pod-manifest.yaml
+
+# Get the YAML file of the Pod just created
+kubectl get pod nginx -o yaml
+
+# List Pods and their state in the default Namespace
+kubectl get pods
+
+# Get the definition of the Pod into a file
+kubectl get pod static-web -o yaml > manifest.yml
+
+
+# List all the Pods in all Namespaces
+kubectl get pods --all-namespaces
+
+# List Pods in a particular Namespace
+kubectl get pods --namespace=dev
+
+# Show more details about a single Pod
+kubectl describe pod static-web
+
+
+
+
+
+# Create a Pod using imperative commands
+kubectl run nginx --image nginx
+
+# Preview the object that would be sent to your cluster.
+# Don't create the Pod
+kubectl run nginx --image=nginx  --dry-run=client  -o yaml
+
+# Edit a Pod
+kubectl edit pod static-web
+
+# Delete a pod
+kubectl delete pod nginx
+
+# Delete a pod force
+kubectl delete pod nginx --force
+
+# Pod logs 
+kubectl logs static-web -c web
+
+# Pod port forwarding
+kubectl port-forward static-web 8884:80
+
+# execute the simple shell on the pod
+kubectl exec -it static-web bash
+
+# Connecting to the pod through the port forwarder:
+curl localhost:8884
+
+

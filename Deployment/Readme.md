@@ -19,18 +19,22 @@ kubectl create deployment nginx --image=nginx --replicas=3
 kubectl create deployment httpd-frontend --image=httpd:2.4-alpine --replicas=1
 
 # Creating deployment and scaling from 01 to 03
-kubectl create deployment httpd-frontend --image=httpd:2.4-alpine
-kubectl scale deployment nginx --replicas=3
+kubectl create deployment alpine --image=httpd:2.4-alpine
+kubectl scale deployment alpine --replicas=3
 kubectl scale deployment redis-deploy --replicas=2 -n dev-ns
 ```
 
 ## 01 example | deployment-definition.yml
 ```bash
+# Create a deployment from YAML file.
 kubectl create -f deployment-definition.yml
+# List all deployments
 kubect get deployments
 
-# Looking deployments in a specific namespace
-kubectl get deployments --namespace=default
+# List deployments in a specific namespace
+kubectl get deployments --namespace=develop
+
+
 kubectl get replicaset
 kubectl get pods
 ```
@@ -43,13 +47,17 @@ kubectl create deployment http-frontend --image=httpd:2.4-alpine
 ```bash
 # Apply and set image command in deployments
 kubectl apply -f deployment-definition.yml
+
+# Update the Pod in the Deployment
 kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
 ```
 
 ## Rollback 
 ```bash
 kubectl rollout status deployment/myapp-deployment
+
 kubectl rollout history deployment/myapp-deployment
+
 # The deployment will destroy the pods and create the other ones
 kubectl rollout undo deployment/myapp-deployment
 

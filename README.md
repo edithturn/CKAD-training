@@ -1,12 +1,12 @@
 
-# :octopus: Certified Kubernetes Application Developer (CKAD) (Updated Sep 2021) :dolphin:
+# :octopus: Certified Kubernetes Application Developer (CKAD) :dolphin:
 
 <p align="center">
   <img width="780" height="320" src="img/final.png">
 </p>
 
 
-This repository contains definitions, tips, sources, and many commands for practice and that I am currently using to prepare for my Certified Kubernetes Administrator  exam.
+This repository contains my notes, definitions, tips, sources, and commands that I used to prepare for the Certified Kubernetes Application Developer exam.
 
 # `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
 
@@ -15,21 +15,35 @@ This repository contains definitions, tips, sources, and many commands for pract
 CKAD 2021 Domain, Competencies & Weight
 
 - :paw_prints: [**Application Design and Build (20 %)**](Application-Design-and-Build/Application-Design-and-Build.md)
-- :paw_prints: **Application Deployment  (20 %)**
-- :paw_prints: **Application Observability and Maintenance  (15 %)**
-- :paw_prints: **Application Environment, Configuration and Security (25 %)**
-- :paw_prints: **Services and Networking  (20 %)**
+
+
+```mermaid
+  pie showData
+      title CKAD Certification categories
+      "[Application Design and Build](Application-Design-and-Build/Application-Design-and-Build.md)" : 20
+      "Application Deployment" : 20
+      "Application Observability and Maintenance" : 15
+      "Application Environment, Configuration and Security" : 25
+      "Services and Networking" : 20
+```
+
 
 Source [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
 
 
-In this repository there are many tips, you may not be able to use all of them, use the ones you feel most comfortable with.
+## Tips
 
 # **Use the right context always**
 ```bash
+# List current contexts
+kubectl config get-context
+
 # Every time before to start the question
 kubectl config use-contex <CONTEXTNAME>
+
+# Note: The asterisk represents the current context
 ```
+
 # **Use Alias**
 
 ```bash
@@ -37,23 +51,14 @@ kubectl config use-contex <CONTEXTNAME>
 alias k='kubectl'
 
 # This way you can just run k run my-pod --image=nginx $do. 
-export do="--dry-run=client -o yaml"
+export do="--dry-run=client -o yaml" # Use it: k run ed --image=nginx $do >pod.yaml
 
 # To apply -f
 alias ka='kubectl apply -f'
 ka pod1.yaml
 
-# Dry run
-alias kdr='kubectl run --dry-run=client -o yaml' # Use it: krd --image=nginx > pod.yaml
-
 # Delete a pod with grace period
-alias kdp='kubectl delete pod --force --grace-period=0'
-
-# Kubectl apply with a file
-alias kaf='kubectl apply -f'
-
-# Kubectl create with a file
-alias kaf='kubectl create -f'
+alias kdp='kubectl delete pod --force'
 
 # kubectl set context
 alias kns='config set-context --current --namespace'
@@ -207,6 +212,21 @@ kubectl cp busybox:etc/passwd ./passwd
     - kubectl describe pods | grep --context=10 Events:                                                                       
 # **Be Fast with VIM**
 
+## Vim Setup
+
+```bash
+# Open vim
+vim ~/.vimrc
+
+# Add these lines
+set expandtab     # Use spaces for tab
+set tabstop=2     # Amount of spaces used for tab
+set shiftwidth=2  # Amount of spaces used during indentation
+
+```
+
+## Tips
+
 ```bash
 # Move the cursor
 - Use:
@@ -236,6 +256,16 @@ kubectl cp busybox:etc/passwd ./passwd
 - Esc + y           -> Copy marked lines
 - Esc + d           -> Cut marked lines
 - Esc + p           -> Past lines
+```
+
+# Kubectl Contexts
+
+```bash
+# List all kubectl context
+kubectl config get-context
+
+# Change to cluster
+kubectl config set current-context new-context
 ```
 
 # **Bookmarks on Chrome** :bookmark:
@@ -280,6 +310,7 @@ export do='--dry-run=client -o yaml'
 7. [katacoda - CKAD Practice Challenge](https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges)
 
 8. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
+9. https://editor.cilium.io/?id=7OubH15V2XjXYXHr
 
 ## **Videos**  :movie_camera:
 1. [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE)    -> I AM DINUTH

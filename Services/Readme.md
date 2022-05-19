@@ -6,6 +6,7 @@ The Service is like a server inside the node. It can expose a port for users or 
 * NodePort
 * ClusterIp
 * LoadBalancer
+* ExternalName
 
 
 
@@ -35,7 +36,7 @@ Notes:
 * To link the node port with the pod port we need labels and selectors. We can use the labels of the pod and put it in the selector section on the Service yml
 
 **What happen if the node has several pods?**
-Kubernetes use the random algorithm to bakance the load across the three  different pods.
+Kubernetes use the random algorithm to balance the load across the three  different pods.
 
 ### Basic Commands
 ```bash

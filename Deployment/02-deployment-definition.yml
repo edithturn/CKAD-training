@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: httpd-frontend
+  name: frontend
   labels: 
      app: http
 spec:
@@ -15,5 +15,5 @@ spec:
           app: http
     spec:
       containers:
-      - name: httpd-frontend
+      - name: frontend
         image: httpd:2.4-alpine
