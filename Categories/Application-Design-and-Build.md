@@ -8,7 +8,7 @@
 
 
 # Define, build and modify container images
-Create and build images, create and run containers. Basic commands:
+Create and build images, create and run containers.
 
 ## What is Docker?
 
@@ -18,13 +18,13 @@ Docker is an open source technology for building, deploying, and managing contai
   <img width="600" height="320" src="../img/docker-architecture.png">
 </p>
 
-[Source docs.docker.com](https://docs.docker.com/get-started/overview/)
+Learn more about Docker
+* [Source docs.docker.com](https://docs.docker.com/get-started/overview/)
+* [Docker in 05 minutes](https://www.youtube.com/watch?v=cxCG0cFgsd4&t=151s)
 
 ## Images and Containers
 
 Docker images are templates used to build containers. Containers are application in execution (alive), product of build docker images.  There are three main elements to create containers:
-
-
 
 <p align="center">
   <img width="600" height="320" src="../img/dockerfile-image-container.png">
@@ -61,7 +61,7 @@ docker run my-app:v01 -p 8080:8484
 
 A job creates one or more pods and will continue to retry the pods until it successfully completes the number of pods defined in the Job. A Job needs a Pod definition for its creation.
 
-Let's see this Pod Defination, which purpose is add two numbers.
+Let's see this Pod Definition, which purpose is to add two numbers.
 
 ```yaml
 apiVersion: v1
@@ -94,13 +94,12 @@ spec:             # spec from Job
       restartPolicy: Never
 ```
 
-Jobs
+Jobs Basic Commands
 
 ```bash
 kubectl create -f basic-job-template.yaml
 kubectl get jobs
 kubectl logs <name-of-pod>
-kubectl logs calculator-ggznd
 kubectl delete job calculator
 ```
 ##  CronJobs
@@ -111,7 +110,7 @@ A Cron is a time-based job scheduler in Linux and Unix systems. Use [crontab.gur
   <img width="400" height="260" src="../img/cron.png">
 </p>
 
-A CronJob creates Job periodically on a given schedule. It takes a Job defination. For example:
+A CronJob creates Jobs periodically on a given schedule. It takes a Job definition. For example:
 
 basic-cronjob-template.yaml
 
@@ -147,10 +146,11 @@ kubectl delete cronjobs reporting-cron-calculator
 
 # Multi-Containers
 
-Pods require multiple container for a complete solution, Pods with the same life cicle (created together and distroy together) 
+Pods require multiple containers for a complete solution, Pods with the same life cycle (created together and destroyed together) 
 In this Pod example, we have two containers, the first one will read data from the volume, and the second one will write data.
 
 mcp.yaml
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -181,20 +181,17 @@ kubectl apply -f mcp.yaml
 # read data of the 1st container from 2nd container
 kubectl exec mcp -c 1st -- /bin/cat /usr/share/nginx/html/index.html
 Hello from the 2nd container
-# Logs
+# Logs of each container
 kubectl logs mcp -c 1st
-kubectl logs mcp -c 2ndu
+kubectl logs mcp -c 2nd
 ```
 ## SideCar
-A container works well without a sidecar, but with it, it can perform additional extra functions.A good example is using a sidecar for logging and monitoring.
+A container works well without a sidecar, but with it, it can perform additional extra functions. A good example is using a sidecar for logging and monitoring.
 
 
 <p align="center">
   <img width="350" height="300" src="../img/sidecar.png">
 </p>
-
-
-
 
 SideCar example: This application will write the current date to the app.txt file every five seconds
 
@@ -294,20 +291,18 @@ Use outsource to separate container within the pod to assign a specific data bas
   <img width="350" height="300" src="../img/ambassador.png">
 </p>
 
-[Ambassador example Omri Cohen](https://dev.bitolog.com/ambassador-container/)
-
-## TODO: embassador Example
+[Kubernetes Patterns : The Ambassador Pattern](https://www.magalix.com/blog/kubernetes-patterns-the-ambassador-pattern) by Mohamed Ahmed
 
 # Utilize persistent and ephemeral volumes
 
-Kubernetes supports many types of volumes. A pod can use Ephemeral volume which have a lifetime of a pod, and persistent volumes that exist beyond the lifetime of a pod. When a pod finish, Kubernetes destroys the data of the ephemeral volumes; however, Kubernetes does not destroy persistent volumes. For any kind of volume in a given pod, data is preserved across container restarts.
+Kubernetes supports many types of volumes. A pod can use Ephemeral volumes which have a lifetime of a pod, and persistent volumes that exist beyond the lifetime of a pod. When a pod finishes, Kubernetes destroys the data of the ephemeral volumes; however, Kubernetes does not destroy persistent volumes. For any kind of volume in a given pod, data is preserved across container restarts.
 
 
 ## Volumes
 
-To configure a volume in a Pod we need firts to define the volume in a host (host path), the mount this volume into the container.
+On-disk files in a container are ephemeral, which presents some problems for non-trivial applications when running in containers. 
 
-volume.yaml
+pod-with-ephemeral-volume.yaml
 
 ```yaml
 apiVersion: v1
@@ -331,8 +326,9 @@ spec:
       path: /tmp
       type: Directory
 ```
+
 ```bash
-kubectl apply -f volume.yaml
+kubectl apply -f pod-with-ephemeral-volume.yaml
 ```
 
 ## Persistent Volumes

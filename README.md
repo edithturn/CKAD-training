@@ -1,5 +1,5 @@
 
-# :octopus: Certified Kubernetes Application Developer (CKAD) :dolphin:
+# Certified Kubernetes Application Developer (CKAD) :dolphin:
 
 <p align="center">
   <img width="780" height="320" src="img/final.png">
@@ -15,15 +15,15 @@ This repository contains my notes, definitions, tips, sources, and commands that
 
 ```mermaid
   pie showData
-      title CKAD Certification categories
-      "[Application Design and Build](Application-Design-and-Build/Application-Design-and-Build.md)" : 20
+      title CKAD categories
+      "Application Design and Build" : 20
       "Application Deployment" : 20
       "Application Observability and Maintenance" : 15
       "Application Environment, Configuration and Security" : 25
       "Services and Networking" : 20
 ```
 
-Source [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
+More information [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
 
 ## Explore each category
 
@@ -212,7 +212,9 @@ kubectl cp busybox:etc/passwd ./passwd
   - args: ["-c", "mkdir -p collect; while true; do cat /var/data/*> /collect/data.txt; sleep 10; done"]
   - Use of grep:
     - kubectl describe pods | grep --context=10 annotations:
-    - kubectl describe pods | grep --context=10 Events:                                                                       
+    - kubectl describe pods | grep --context=10 Events:                   
+
+                                                    
 # **Be Fast with VIM**
 
 ## Vim Setup
