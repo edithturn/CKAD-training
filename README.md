@@ -312,7 +312,7 @@ export do='--dry-run=client -o yaml'
 4. [Practice Enough With These 150 Questions for the CKAD Exam](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552)  -> Bhargav Bachina
 5. [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) Github -> dgkanatsios
 6. [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
-7. [katacoda - CKAD Practice Challenge](https://www.katacoda.com/liptanbiswas/courses/ckad-practice-challenges)
+7. [KillerCoda - Killer Shell CKAD](https://killercoda.com/killer-shell-ckad)
 
 8. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
 9. https://editor.cilium.io/?id=7OubH15V2XjXYXHr
