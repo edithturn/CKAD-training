@@ -95,6 +95,12 @@ kubectl apply -f pod.yaml
 # Other ways to edit a file, edit will automatically apply the changes
 kubectl edit pod myapp-pod
 kubectl edit pod redis
+Nota: Only the properties listed below are editable
+- spec.container[*].image
+- spec.initContainer[*].image
+- spec.activeDeadlineSeconds
+- spec.tolerations
+- spec.terminationGracePeriodSeconds
 
 # Delete a pod, it will be created again by the deployment
 kubectl delete pod pod-name

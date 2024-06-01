@@ -1,4 +1,5 @@
 # Secrets
+
 Secrets to store sensitive information. They are similar to config-maps except that encode the date or hashed format.
 
 There are two steps to implement Secrets:
@@ -25,33 +26,39 @@ kubectl create secret generic my-secret --from-literal=DB_Host=mysql
 kubectl create secret generic <secret-name> --from-file=<path-to-file>
 
 kubectl create secret generic app-secret --from-file-app_secret.properties
+
+
+k create secret generic db-secret --from-literal=DB_Host=sql01 --from-literal=DB_User=root --from-literal=DB_Password=password123
+secret/db-secret created
 ```
 
 ```bash
 # Declarative
 kubectl create -f my-secret.yaml
 ```
+
 This is the structure of a Secret yaml but the data have to be encode (next yaml)
+
 ```yaml
 apiVersion: c1
 kind: Secret
 metadata:
-    name: app-secret
+  name: app-secret
 data:
-    DB_Host: mariadb
-    DB_User: root
-    DB_Password: pass
+  DB_Host: mariadb
+  DB_User: root
+  DB_Password: pass
 ```
 
 ```yaml
 apiVersion: c1
 kind: Secret
 metadata:
-    name: app-secret
+  name: app-secret
 data:
-    DB_Host: bXlzcWw=
-    DB_User: cm9vdA==
-    DB_Password: cGFzcw==
+  DB_Host: bXlzcWw=
+  DB_User: cm9vdA==
+  DB_Password: cGFzcw==
 ```
 
 **Creatign secrets | Encode**
@@ -60,15 +67,19 @@ data:
 echo -n 'mysql' | base64
 bXlzcWw=
 ```
+
 ```bash
 echo -n 'root' | base64
 cm9vdA==
 ```
+
 ```bash
 echo -n 'pass' | base64
 cGFzcw==
 ```
+
 Checking secrets
+
 ```bash
 kubectl get secrets
 kubectl describe secrets
@@ -89,36 +100,41 @@ pass
 ## Inject into the Pod
 
 **Secret**
+
 ```yaml
 apiVersion: c1
 kind: Secret
 metadata:
-    name: app-secret
+  name: app-secret
 data:
-    DB_Host: bXlzcWw=
-    DB_User: cm9vdA==
-    DB_Password: cGFzcw==
+  DB_Host: bXlzcWw=
+  DB_User: cm9vdA==
+  DB_Password: cGFzcw==
 ```
+
 **Secret in Pod**
+
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
+  name: app-web
+  labels:
     name: app-web
-    labels:
-      name: app-web
 spec:
-    containers:
+  containers:
     - name: app-web
       image: app-web
       port:
-      - containerPort: 8080
+        - containerPort: 8080
       envFrom:
         - secretRef:
             name: app-secret
 ```
 
-###  TODO
-* Secrets kubernetes
-- Helm Secrets
-- HashiCorp Vault
+### TODO
+
+- Secrets kubernetes
+
+* Helm Secrets
+* HashiCorp Vault

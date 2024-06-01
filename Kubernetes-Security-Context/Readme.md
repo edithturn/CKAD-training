@@ -1,6 +1,6 @@
 # Kuberentes Security
 
-It is possible configure the security settings at a container level or at a pod level.
+The securityContext field in a Kubernetes Pod configuration is used to define privilege and access control settings for a Pod or Container.
 
 ## Pod Level
 
@@ -19,6 +19,7 @@ spec:
 ```
 
 ## Container Level
+
 ```yaml
 apiVerson: v1
 kind: Pod
@@ -33,10 +34,8 @@ spec:
         runAsUser: 1000
 ```
 
-
-* Here: The User ID defined in the securityContext of the container overrrides the User ID in ther POD
-the user which the pod is created is the 1002
-
+- Here: The User ID defined in the securityContext of the container overrrides the User ID in ther POD
+  the user which the pod is created is the 1002
 
 ```yaml
 controlplane $ cat multi-pod.yaml
@@ -59,6 +58,26 @@ spec:
      command: ["sleep", "5000"]
 ```
 
+## Example with Security Context as SYS_TIME capability
 
-* Note:
-Capabilities are only supported at the container level and not at the POD level
+```yaml
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    runAsUser: 0
+  containers:
+    - command:
+        - sleep
+        - "4800"
+      image: ubuntu
+      imagePullPolicy: Always
+      name: ubuntu
+      resources: {}
+      securityContext:
+        capabilities:
+          add: ["SYS_TIME"]
+```
+
+- Note:
+  Capabilities are only supported at the container level and not at the POD level

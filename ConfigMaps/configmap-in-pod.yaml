@@ -7,15 +7,13 @@ metadata:
   namespace: default
 spec:
   containers:
-  - envFrom:
-    - configMapRef:
-         name: webapp-config-map
-    image: kodekloud/webapp-color
-    name: webapp-color
-
+    - envFrom:
+        - configMapRef:
+            name: webapp-config-map
+      image: kodekloud/webapp-color
+      name: webapp-color
 
 ---
-
 apiVersion: v1
 kind: Pod
 metadata:
@@ -23,8 +21,8 @@ metadata:
   labels:
     name: simple-webapp-color
 spec:
-  containers:
-  - name : simple-webbapp-color
+containers:
+  - name: simple-webbapp-color
     image: simple-webbapp-color
     ports:
       - containerPort: 8080

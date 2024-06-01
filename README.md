@@ -1,17 +1,14 @@
-
 # Certified Kubernetes Application Developer (CKAD) :dolphin:
 
 <p align="center">
   <img width="780" height="320" src="img/final.png">
 </p>
 
-
 This repository contains my notes, definitions, tips, sources, and commands that I used to prepare for the Certified Kubernetes Application Developer exam.
 
-# `` REPOSITORY IN PROGRESS ... `` :carousel_horse: :raising_hand:  :tractor:
+# `REPOSITORY IN PROGRESS ...` :carousel_horse: :raising_hand: :tractor:
 
 ## **About the Certified Kubernetes Application Developer (CKAD)**
-
 
 ```mermaid
   pie showData
@@ -23,20 +20,22 @@ This repository contains my notes, definitions, tips, sources, and commands that
       "Services and Networking" : 20
 ```
 
-More information [Training Linux Fundation](https://training.linuxfoundation.org/ckad-program-change-2021/) Updated September 28, 2021
+More information [Training Linux Fundation](https://www.cncf.io/training/certification/ckad/) Updated September 28, 2021. You can also check the [curriculum](https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.29.pdf)
 
 ## Explore each category
 
-- :paw_prints: [Application Design and Build](Categories/Application-Design-and-Build.md)
+Here there is a summary of each category!
+
+- :paw_prints: [Application Design and Build](Categories/application-design-and-build.md)
 - :paw_prints: [Application Deployment](Categories/Application-Deployment.md)
 - :paw_prints: [Application Observability and Maintenance](Categories/Application-Observability-and-Maintenance.md)
 - :paw_prints: [Application Environment, Configuration and Security](Categories/Application-Environment-Configuration-and-Security.md)
 - :paw_prints: [Services and Networking](Categories/Services-and-Networking.md)
 
-
 ## Useful commands
 
 # **Use the right context always**
+
 ```bash
 # List current contexts
 kubectl config get-contexts
@@ -53,7 +52,7 @@ kubectl config use-contex <CONTEXTNAME>
 # Alias for kubectl
 alias k='kubectl'
 
-# This way you can just run k run my-pod --image=nginx $do. 
+# This way you can just run k run my-pod --image=nginx $do.
 export do="--dry-run=client -o yaml" # Use it: k run ed --image=nginx $do >pod.yaml
 
 # To apply -f
@@ -68,6 +67,7 @@ alias kns='config set-context --current --namespace'
 ```
 
 # **Use Completions**
+
 ```bash
 source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
 echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
@@ -77,6 +77,7 @@ complete -F __start_kubectl k
 ```
 
 # **Basic commands**
+
 ```bash
 # To get all the resorces in a namespaces
 kubectl get all
@@ -97,7 +98,9 @@ kubectl set image pod/nginx nginx=nginx:1.9.1
 kubectl set image deployment/nginx nginx=nginx:latest
 kubectl set image deployment/nginx nginx=nginx:1.9.1
 ```
+
 **Log and Debugging**
+
 ```bash
 k run --image=busybox bbox -- sh -c 'while true; do date; sleep 3; done '
 
@@ -150,7 +153,9 @@ kubectl explain pods --recursive | less
 kubectl top node
 kubectl top pod
 ```
+
 **Observability**
+
 ```bash
 # Collect failed pods by namespace
 kubectl -n qa get events | grep -i 'Liveness probe failed'
@@ -166,20 +171,21 @@ kubectl describe pod nginx | grep -i readiness
 kubectl get events | grep -i error
 
 # kubectl cp command
-kubectl cp busybox:etc/passwd ./passwd 
+kubectl cp busybox:etc/passwd ./passwd
 ```
+
 # Cheat Sheet
 
 <p align="center">
   <img width="830" height="470" src="img/cheat-sheet.png">
 </p>
 
-[Download in PDF](https://docs.google.com/presentation/d/1kr8hwqbqQSUE8LVNGxYXF7cHShDIOEeyWRcXHFDYOgo/edit?usp=sharing) -> Made  by Edith Puclla
+[Download in PDF](https://docs.google.com/presentation/d/1kr8hwqbqQSUE8LVNGxYXF7cHShDIOEeyWRcXHFDYOgo/edit?usp=sharing) -> Made by Edith Puclla
 
+# **Tips and Tricks** :gift:
 
-# **Tips and Tricks**  :gift:
+**From Udemy course with Mumshad Mannambeth**
 
-**From Udemy course with Mumshad Mannambeth** 
 - Attempt all questions
 - Don't get stuck on any question
 - Get good with YAML
@@ -191,10 +197,11 @@ kubectl cp busybox:etc/passwd ./passwd
   - ns for Namespaces
   - netpol for Networking polices
   - pv for Persistent Volumes
-  - pvc for PersistentVolumeClaims 
+  - pvc for PersistentVolumeClaims
   - sa for service accounts
 
 **From - Muralidaran shanmugham**
+
 - Go through the k8s.io documentation
 - Understand all the concepts outlined in the exam curriculum
 - Register for courses like Kodekloud
@@ -205,16 +212,15 @@ kubectl cp busybox:etc/passwd ./passwd
   - alias k='kubectl'
   - k config set-context <cluster name> --namespace=<namespace name>
   - k explain cronjob.spec.jobTemplate --recursive
-  - know all the commands =>  [HERE](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-) 
+  - know all the commands => [HERE](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
   - --restart (YAML generator)
   - args: ["-c", "while true; do date >> /var/log/app.txt; sleep 5; done"]
   - args: [/bin/sh, -c, 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
   - args: ["-c", "mkdir -p collect; while true; do cat /var/data/*> /collect/data.txt; sleep 10; done"]
   - Use of grep:
     - kubectl describe pods | grep --context=10 annotations:
-    - kubectl describe pods | grep --context=10 Events:                   
+    - kubectl describe pods | grep --context=10 Events:
 
-                                                    
 # **Be Fast with VIM**
 
 ## Vim Setup
@@ -274,9 +280,10 @@ kubectl config set current-context new-context
 ```
 
 # **Bookmarks on Chrome** :bookmark:
+
 - Go to the documentation: https://kubernetes.io/docs/home/
 - Select a topic
-- Go to specific section of the page 
+- Go to specific section of the page
 - Set a bookmark
 - If you need copy the code, use copy application to clipboard
 
@@ -298,18 +305,21 @@ export do='--dry-run=client -o yaml'
 ```
 
 # **Resources:** :bell: :bell:
+
 ## **Course** :radio:
-* [Udemy CKAD preparation](https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview) -> Mumshad Mannambeth
+
+- [Udemy CKAD preparation](https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview) -> Mumshad Mannambeth
 
 ## **Kubernetes Documentation** :blue_book:
-* [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) - bookmarks have to be based in the oficial documentation
+
+- [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) - bookmarks have to be based in the oficial documentation
 
 ## **Practice** :pencil2:
 
 1. [How to Prepare for CKAD and CKA Certification?](https://www.infracloud.io/blogs/prepare-cka-ckad-certification/) -> InfraCloud Team
 2. [Game of Pods](https://kodekloud.com/p/game-of-pods-game) A set of fun challenges to learn and practice your skills on Kubernetes
 3. [Kubernetes CKAD Example Exam Questions Practical Challenge Series](https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681) -> Kim Wuestkamp
-4. [Practice Enough With These 150 Questions for the CKAD Exam](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552)  -> Bhargav Bachina
+4. [Practice Enough With These 150 Questions for the CKAD Exam](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552) -> Bhargav Bachina
 5. [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) Github -> dgkanatsios
 6. [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
 7. [KillerCoda - Killer Shell CKAD](https://killercoda.com/killer-shell-ckad)
@@ -317,15 +327,14 @@ export do='--dry-run=client -o yaml'
 8. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
 9. https://editor.cilium.io/?id=7OubH15V2XjXYXHr
 
-## **Videos**  :movie_camera:
-1. [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE)    -> I AM DINUTH
+## **Videos** :movie_camera:
+
+1. [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE) -> I AM DINUTH
 2. [How to CRUSH the CKAD Exam!](https://www.youtube.com/watch?v=5cgpFWVD8ds) -> Alta3 Research, Inc.
 3. [Vim Crash Course | How to edit files quickly in CKAD / CKA exam](https://www.youtube.com/watch?v=knyJt8d6C_8) -> The FrontOps Guy
 
-4. Linux Foundation Kubernetes Certifications Now Include Exam Simulator -> killer.sh 
-[CKA, CKAD, or CKS simulator](
-https://training.linuxfoundation.org/announcements/linux-foundation-kubernetes-certifications-now-include-exam-simulator/?utm_source=lftraining&utm_medium=twitter&utm_campaign=k8simulator)
-
+4. Linux Foundation Kubernetes Certifications Now Include Exam Simulator -> killer.sh
+   [CKA, CKAD, or CKS simulator](https://training.linuxfoundation.org/announcements/linux-foundation-kubernetes-certifications-now-include-exam-simulator/?utm_source=lftraining&utm_medium=twitter&utm_campaign=k8simulator)
 
 <p align="center">
   <img width="530" height="290" src="img/killer.png">

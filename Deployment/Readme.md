@@ -25,6 +25,7 @@ kubectl scale deployment redis-deploy --replicas=2 -n dev-ns
 ```
 
 ## 01 example | deployment-definition.yml
+
 ```bash
 # Create a deployment from YAML file.
 kubectl create -f deployment-definition.yml
@@ -43,7 +44,9 @@ kubectl get pods
 # Create a deployment with commands
 kubectl create deployment http-frontend --image=httpd:2.4-alpine
 ```
+
 ## kubectl apply
+
 ```bash
 # Apply and set image command in deployments
 kubectl apply -f deployment-definition.yml
@@ -52,7 +55,8 @@ kubectl apply -f deployment-definition.yml
 kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
 ```
 
-## Rollback 
+## Rollback
+
 ```bash
 kubectl rollout status deployment/myapp-deployment
 
@@ -94,4 +98,3 @@ kubectl get hpa nginx
 # Delete hpa
 k delete hpa nginx
 ```
-

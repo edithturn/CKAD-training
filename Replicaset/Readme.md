@@ -1,10 +1,12 @@
 # ReplicaSet
 
 ## 01 example | 01-replicaset-definition.yml
+
 There are 03 sections more in the yml file:
-* templates
-* replicas
-* selector
+
+- templates
+- replicas
+- selector
 
 ```bash
 # Replica Set
@@ -18,20 +20,27 @@ kubectl describe replicaset
 ```
 
 ## 02 example | 02-replicaset-definition.yml
+
 Scaling the number of pods, updating the number of replicas from 03 to 06 pods
+
 ```yml
 # Before
 replicas: 3
 ```
+
 ```yml
 # After
 replicas: 6
 ```
+
 Then apply the changes:
+
 ```bash
 kubectl replace -f 02-replicaset-definition.yml
 ```
-* Other ways to scaling
+
+- Other ways to scaling
+
 ```bash
 kubectl scale --replicas=6 -f replicaset-definition.yml
 
@@ -39,7 +48,8 @@ kubectl scale --replicas=6 -f replicaset-definition.yml
 kubectl scale --replicas=6 replicaset myapp-replicaset
 ```
 
-## 03 Example deliting replicaset 
+## 03 Example deliting replicaset
+
 ```bash
 kubectl delete replicaset myapp-replicaset
 # or use delete for more than one replicasets
