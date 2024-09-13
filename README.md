@@ -34,7 +34,17 @@ Here there is a summary of each category!
 
 ## Useful commands
 
-# **Use the right context always**
+### **Use the **
+
+vim .vimrc
+
+```sh
+set expandtab # This tells Vim to convert tabs into spaces.
+set tabstop=2 # This sets the width of a tab character to 2 spaces.
+set shiftwidth=2 # This controls the number of spaces used for auto-indentation when using commands like >> (indent) or << (outdent) in Vim.
+```
+
+### **Use the right context always**
 
 ```bash
 # List current contexts
@@ -46,24 +56,28 @@ kubectl config use-contex <CONTEXTNAME>
 # Note: The asterisk represents the current context
 ```
 
-# **Use Alias**
+### **Use Alias and ShortCuts**
 
 ```bash
-# Alias for kubectl
+# Alias "kubectl"
 alias k='kubectl'
+k get pods
 
-# This way you can just run k run my-pod --image=nginx $do.
-export do="--dry-run=client -o yaml" # Use it: k run ed --image=nginx $do >pod.yaml
-
-# To apply -f
+# Alias "kubectl apply -f"
 alias ka='kubectl apply -f'
 ka pod1.yaml
 
 # Delete a pod with grace period
-alias kdp='kubectl delete pod --force'
+alias kdp='kubectl delete pod --force --grace-period 0'
+kdp mypod
 
-# kubectl set context
+# Alias "config set-context --current --namespace"
 alias kns='config set-context --current --namespace'
+
+#Export "--dry-run=client -o yaml"
+export do="--dry-run=client -o yaml"
+k run my-pod --image=nginx $do > pod.yaml
+
 ```
 
 # **Use Completions**
@@ -259,6 +273,10 @@ set shiftwidth=2  # Amount of spaces used during indentation
 - Shift + v         -> to visual mode and up and down arrows to move the cursor
 - Shift + >         -> indentation to the right
 - Shift + <         -> indentation to the left
+
+- Shift + 2>         -> indentation to the right, two times
+- Shift + 3<         -> indentation to the left, three times
+
 # Copy and paste single line
 - Esc + y           -> copy a line
 - Esc + p           -> paste the line
@@ -298,8 +316,9 @@ echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permane
 alias k=kubectl
 complete -F __start_kubectl k
 
-alias kn='kubectl config set-context --current --namespace '
+alias kn='kubectl config set-context --current --namespace  '
 alias kd='kubectl delete pod --grace-period=0 --force'
+alias dp='--grace-period=0 --force'
 alias ka='kubectl apply -f'
 export do='--dry-run=client -o yaml'
 ```

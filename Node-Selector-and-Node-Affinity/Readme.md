@@ -65,4 +65,10 @@ requieredDuringSchedulingRequireDuringExecution
 
 ```bash
 kubectl label nodes node01 color=blue
+
+k describe nodes
+```
+
+```bash
+k describe pods blue-8b4fdbcb5- | grep -i node
 ```
