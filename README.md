@@ -68,11 +68,11 @@ alias ka='kubectl apply -f'
 ka pod1.yaml
 
 # Delete a pod with grace period
-alias kdp='kubectl delete pod --force --grace-period 0'
-kdp mypod
+alias now='kubectl delete --force --grace-period 0'
+now mypod
 
 # Alias "config set-context --current --namespace"
-alias kns='config set-context --current --namespace'
+alias ksn='config set-context --current --namespace'
 
 #Export "--dry-run=client -o yaml"
 export do="--dry-run=client -o yaml"
@@ -252,10 +252,29 @@ set shiftwidth=2  # Amount of spaces used during indentation
 
 ## Tips
 
+Navigation
+
+```bash
+h, j, k, l: Move left, down, up, right respectively.
+w: Move to the start of the next word.
+b: Move to the start of the previous word.
+0: Move to the beginning of the line.
+$: Move to the end of the line.
+gg: Move to the beginning of the file.
+G: Move to the end of the file.
+Ctrl-u: Scroll up half a page.
+Ctrl-d: Scroll down half a page.
+f<char>: Jump to the next occurrence of <char> on the same line.
+```
+
+shif + e
+b
+o
+
 ```bash
 # Move the cursor
 - Use:
-    h -> move to left
+    h -> move to lef
     l -> move to right
     j -> move down
     k -> move  up
@@ -287,6 +306,17 @@ set shiftwidth=2  # Amount of spaces used during indentation
 - Esc + p           -> Past lines
 ```
 
+In a terminal, you can move word by word in a line using the following shortcuts:
+
+```bash
+Ctrl + Right Arrow # Move the cursor to the beginning of the next word.
+Ctrl + Left Arrow  # Move the cursor to the beginning of the previous word.
+
+# If you’re using a Mac terminal, the shortcuts are different:
+Option + Right Arrow
+Option + Left Arrow
+```
+
 # Kubectl Contexts
 
 ```bash
@@ -313,13 +343,13 @@ kubectl config set current-context new-context
 source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
 echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
 
-alias k=kubectl
+
 complete -F __start_kubectl k
 
-alias kn='kubectl config set-context --current --namespace  '
-alias kd='kubectl delete pod --grace-period=0 --force'
-alias dp='--grace-period=0 --force'
+alias k=kubectl
+alias kn='kubectl config set-context --current --namespace'
 alias ka='kubectl apply -f'
+alias now='kubectl delete pod --grace-period=0 --force'
 export do='--dry-run=client -o yaml'
 ```
 
