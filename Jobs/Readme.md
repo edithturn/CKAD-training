@@ -1,5 +1,8 @@
 ## **Jobs**
 
+- backoffLimit: This attribute specifies the maximum number of retries a Job will attempt before it’s marked as failed.
+- activeDeadlineSeconds: This attribute specifies the maximum duration (in seconds) for the Job to complete. If the Job doesn’t finish within this time, it will be terminated and marked as failed.
+
 ```bash
 # Job definition
 kubectl create -f jobs-definition.yaml
@@ -18,6 +21,7 @@ kubectl delete job pi
 ```
 
 **Completions**
+
 ```bash
 # Create a job, make it run 5 times, one after the other. Verify the status and delete it
 kubectl create job busybox --image=busybox --dry-run=client -o yaml -- /bin/sh -c 'echo hello;sleep 30;echo world' > job.yaml
@@ -34,7 +38,9 @@ kubectl get job busybox -w # will take two and a half minutes
 # Delete the job
 kubectl delete jobs busybox
 ```
+
 **Completions**
+
 ```bash
 kubectl create job busybox --image=busybox --dry-run=client -o yaml -- /bin/sh -c 'echo hello;sleep 30;echo world' > job.yaml
 
@@ -51,12 +57,11 @@ kubectl get jobs
 kubectl delete job busybox
 ```
 
-
 ```bash
 kubectl get jobs
 kubectl get pods
 kubectl logs mth-aa-job
-kubectl logs 
+kubectl logs
 kubectl delete job mth-aa-job
 ```
 
@@ -66,13 +71,14 @@ kubectl delete job mth-aa-job
 # Create a cron job with image busybox that runs on a schedule of "*/1 * * * *" and writes 'date; echo Hello from the Kubernetes cluster' to standard output
 kubectl create cronjob busybox --image=busybox --schedule="*/1 * * * *" -- /bin/sh -c 'date; echo Hello from the Kubernetes cluster'
 
+kubectl create cronjob busybox --image=busybox --schedule="*/1 * * * *" --dry-run=client -oyaml -- /bin/sh -c 'date; echo Hello from the Kubernetes cluster' > file.yaml
+
 # See logs and deleted
 kubectl get cj
 kubectl get jobs --watch
 ```
 
-
-
 ## Sources
-* The quick and simple editor for cron schedule expressions by Cronitor  https://crontab.guru/examples.html
-* https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example
+
+- The quick and simple editor for cron schedule expressions by Cronitor https://crontab.guru/examples.html
+- https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example

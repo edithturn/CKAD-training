@@ -98,3 +98,10 @@ kubectl get hpa nginx
 # Delete hpa
 k delete hpa nginx
 ```
+
+# Describe a deployment -A and -B to get lines before and after grep command
+
+```bash
+k describe deployments.apps -A | grep -A 20 webapp-color:v1
+k describe deployments.apps -A | grep -B 20 webapp-color:v1
+```

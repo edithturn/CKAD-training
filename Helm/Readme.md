@@ -47,15 +47,17 @@ helm repo remove
 
 # Update information of available chart locally from Charts repositories
 
+```bash
 helm repo update
 
-````
+```
 
 ## Helm Commands
 
 ```bash
 # List all existing releases
 helm list
+helm list -A
 
 # Remove all kubernetes objects
 helm uninstall my-release
@@ -78,7 +80,7 @@ helm search repo bitnami | grep apache
 helm history nginx-release
 
 helm rollback nginx-release 1
-````
+```
 
 helm lint
 helm template
@@ -92,4 +94,23 @@ Creating a basic Helm chart
 helm create mychart
 # Check
 ls -R
+```
+
+Download a Helm chart from a repository
+
+```bash
+helm pull [chart URL | repo/chartname] [...] [flags] ## this would download a helm, not install
+helm pull --untar [rep/chartname] # untar the chart after downloading it
+```
+
+- To list all of the releases in the test-apps-apd
+
+```bash
+helm ls -n test-apps-apd
+```
+
+- Uninstall a application running in namespace
+
+```bash
+helm uninstall -n testing-apd image-scanner
 ```

@@ -6,8 +6,6 @@
 
 This repository contains my notes, definitions, tips, sources, and commands that I used to prepare for the Certified Kubernetes Application Developer exam.
 
-# `REPOSITORY IN PROGRESS ...` :carousel_horse: :raising_hand: :tractor:
-
 ## **About the Certified Kubernetes Application Developer (CKAD)**
 
 ```mermaid
@@ -20,23 +18,150 @@ This repository contains my notes, definitions, tips, sources, and commands that
       "Services and Networking" : 20
 ```
 
-More information [Training Linux Fundation](https://www.cncf.io/training/certification/ckad/) Updated September 28, 2021. You can also check the [curriculum](https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.29.pdf)
+## More Details
 
-## Explore each category
+<details>
+  <summary>Application Design and Build (20%)</summary>
 
-Here there is a summary of each category!
+- Define, build, and modify container images
+- Choose and use the right workload resource (Deployment, DaemonSet, CronJob, etc.)
+- Understand multi-container Pod design patterns (e.g., sidecar, init, and others)
+- Utilize persistent and ephemeral volumes
 
-- :paw_prints: [Application Design and Build](Categories/application-design-and-build.md)
-- :paw_prints: [Application Deployment](Categories/Application-Deployment.md)
-- :paw_prints: [Application Observability and Maintenance](Categories/Application-Observability-and-Maintenance.md)
-- :paw_prints: [Application Environment, Configuration and Security](Categories/Application-Environment-Configuration-and-Security.md)
-- :paw_prints: [Services and Networking](Categories/Services-and-Networking.md)
+</details>
+
+<details>
+  <summary>Application Deployment (20%)</summary>
+
+- Use Kubernetes primitives to implement common deployment strategies (e.g., blue/green or canary)
+- Understand Deployments and how to perform rolling updates
+- Use the Helm package manager to deploy existing packages
+- Kustomize
+
+</details>
+
+<details>
+  <summary>Application Observability and Maintenance (15%)</summary>
+
+- Understand API deprecations
+- Implement probes and health checks
+- Use built-in CLI tools to monitor Kubernetes applications
+- Utilize container logs
+- Debugging in Kubernetes
+
+</details>
+
+<details>
+  <summary>Application Environment, Configuration, and Security (25%)</summary>
+
+- Discover and use resources that extend Kubernetes (CRD, Operators)
+- Understand authentication, authorization, and admission control
+- Understand requests, limits, quotas
+- Understand ConfigMaps
+- Define resource requirements
+- Create & consume Secrets
+- Understand ServiceAccounts
+- Understand Application Security (SecurityContexts, Capabilities, etc.)
+
+</details>
+
+<details>
+  <summary>Services and Networking (20%)</summary>
+
+- Demonstrate basic understanding of NetworkPolicies
+- Provide and troubleshoot access to applications via services
+- Use Ingress rules to expose applications
+
+</details>
+
+<br></br>
+Get more information [Training Linux Fundation](https://www.cncf.io/training/certification/ckad/) Updated September 28, 2021. You can also check the [curriculum](https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.31.pdf)
 
 ## Useful commands
 
-### **Use the **
+### Shortcuts for Kubernetes Objects
 
-vim .vimrc
+You can use the following shortcuts for common Kubernetes objects:
+
+| Shortcut | Object                 | Shortcut        | Object                     |
+| -------- | ---------------------- | --------------- | -------------------------- |
+| `po`     | Pods                   | `cm`            | ConfigMaps                 |
+| `rs`     | ReplicaSets            | `secret`        | Secrets                    |
+| `deploy` | Deployments            | `ing`           | Ingresses                  |
+| `svc`    | Services               | `hpa`           | Horizontal Pod Autoscalers |
+| `ns`     | Namespaces             | `ds`            | DaemonSets                 |
+| `netpol` | Network Policies       | `statefulset`   | StatefulSets               |
+| `pv`     | Persistent Volumes     | `endpoints`     | Endpoints                  |
+| `pvc`    | PersistentVolumeClaims | `limitrange`    | Limit Ranges               |
+| `sa`     | Service Accounts       | `resourcequota` | Resource Quotas            |
+
+### Use the right context always
+
+```bash
+# List all kubectl contexts configured in the kubeconfig file
+kubectl config get-context
+
+# Switch the current context to the specified cluster (replace 'new-context' with your desired context name)
+kubectl config set current-context new-context
+
+# Every time before to start the question
+kubectl config use-contex <CONTEXTNAME>
+```
+
+### **My Setup (Optional) - Use Alias and ShortCuts**
+
+```bash
+alias k=kubectl
+# Example: k get pods
+
+alias kn='kubectl config set-context --current --namespace'
+# Example: kn mynamespace
+
+alias ka='kubectl apply -f'
+# Example: ka pod.yaml
+
+alias kr='kubectl replace --force -f'
+# Example: kr pod.yaml
+
+alias kd='kubectl delete --force --grace-period=0'
+# Example: kd pod pod.yaml
+
+export do='--dry-run=client -o yaml'
+# Example: k run my-pod --image=nginx $do > pod.yaml
+```
+
+### Kubectl Contexts
+
+```bash
+# List all kubectl contexts configured in the kubeconfig file
+kubectl config get-context
+
+# Switch the current context to the specified cluster (replace 'new-context' with your desired context name)
+kubectl config set current-context new-context
+```
+
+[CheatSheet](https://www.canva.com/design/DAGZQwvtXgw/BHlmNbYFx9Tu0R7RQV6lGQ/edit) -> UPDATE Made by Edith Puclla
+
+# **Tips** :gift:
+
+- Attempt all questions
+- Don't get stuck on any question
+- Get good with YAML
+- Use shortcuts/aliases
+- Use k8s documentation for most of the thing you need
+- Use imperative commands the most you can [Kubectl Gettign Started](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
+- Use explain command
+- Use aliaces
+- Be good with time management
+- Be Fast with VIM
+- If you get boring study alone, get a study buddy who is also targeting the same exam
+- Use half of you time to learn concepts and the other half for practice, practice, practice
+- Use AI to help you to study and practice for the exam - You might disagree with this approach, but it was incredibly helpful for me to understand some very simple concepts that I couldn’t grasp without asking questions.
+
+## Vim Setup
+
+Understand what this commands doedos:
+Open `vim ~/.vimrc`
 
 ```sh
 set expandtab # This tells Vim to convert tabs into spaces.
@@ -44,347 +169,113 @@ set tabstop=2 # This sets the width of a tab character to 2 spaces.
 set shiftwidth=2 # This controls the number of spaces used for auto-indentation when using commands like >> (indent) or << (outdent) in Vim.
 ```
 
-### **Use the right context always**
+## YAML file navigation in Vim
+
+````sh
 
 ```bash
-# List current contexts
-kubectl config get-contexts
-
-# Every time before to start the question
-kubectl config use-contex <CONTEXTNAME>
-
-# Note: The asterisk represents the current context
-```
-
-### **Use Alias and ShortCuts**
-
-```bash
-# Alias "kubectl"
-alias k='kubectl'
-k get pods
-
-# Alias "kubectl apply -f"
-alias ka='kubectl apply -f'
-ka pod1.yaml
-
-# Delete a pod with grace period
-alias now='kubectl delete --force --grace-period 0'
-now mypod
-
-# Alias "config set-context --current --namespace"
-alias ksn='config set-context --current --namespace'
-
-#Export "--dry-run=client -o yaml"
-export do="--dry-run=client -o yaml"
-k run my-pod --image=nginx $do > pod.yaml
-
-```
-
-# **Use Completions**
-
-```bash
-source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
-echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
-
-alias k=kubectl
-complete -F __start_kubectl k
-```
-
-# **Basic commands**
-
-```bash
-# To get all the resorces in a namespaces
-kubectl get all
-
-# Describe a resource
-kubectl describe pod yellow
-
-# Generate a preview without a file
-kubectl create namespace test-123 --dry-run=client -o yaml
-
-# "edit" to edit existing resources
-kubectl edit pod nginx
-kubectl edit deployment app
-
-# "set" to update a version in a pod or deployment
-kubectl set image pod/nginx nginx=nginx:latest
-kubectl set image pod/nginx nginx=nginx:1.9.1
-kubectl set image deployment/nginx nginx=nginx:latest
-kubectl set image deployment/nginx nginx=nginx:1.9.1
-```
-
-**Log and Debugging**
-
-```bash
-k run --image=busybox bbox -- sh -c 'while true; do date; sleep 3; done '
-
-kubectl logs busybox
-# Follow the logs
-kubectl logs busybox -f
-kubectl logs webapp-1 | grep USER5
-
-# to select the containers
-kubectl logs webapp-2 -c
-kubectl logs webapp-2 -c simple-webapp
-kubectl logs alta3pod | sudo tee ~/opt/answers/mypod.log
-
-# See the error of a pod
-kubectl get events | grep -i error
-kubectl dev-pod -c log-x | grep WARN > /opt/logs.txt
-
-# To keep watching the logs
-kubectl  logs bbox --follow
-
-# Use describe
-kubectl describe bbox
-kubectl describe mydeploy
-
-# See the event for all the resources
-kubectl get events
-
-# Using grep
-kubectl get events | grep Schedule
-
-# View control exec
-kubectl run --image=busybox bbox -- sh -c 'echo here; sleep 3600'
-
-# Access to the shell inside the pod
-kubectl exec -it bbox -- sh
-ls
-exit
-
-# Check all the deployments in all the namespaces
-k get get deploy --all-namespaces
-
-# List pods and services in a single namespace
-kubectl -n elastic-stack get pod, svc
-
-# To check for more options
-kubectl explain pods --recursive | less
-/volumeMounts
-
-# Monitorins
-kubectl top node
-kubectl top pod
-```
-
-**Observability**
-
-```bash
-# Collect failed pods by namespace
-kubectl -n qa get events | grep -i 'Liveness probe failed'
-
-#  Check pods in all namespaces with READY = 0
-k get pod --all-namespaces | grep -i 0
-
-#  Check Liveness and Readiness status
-kubectl describe pod nginx | grep -i liveness
-kubectl describe pod nginx | grep -i readiness
-
-# You'll see the error here as well
-kubectl get events | grep -i error
-
-# kubectl cp command
-kubectl cp busybox:etc/passwd ./passwd
-```
-
-# Cheat Sheet
-
-<p align="center">
-  <img width="830" height="470" src="img/cheat-sheet.png">
-</p>
-
-[Download in PDF](https://docs.google.com/presentation/d/1kr8hwqbqQSUE8LVNGxYXF7cHShDIOEeyWRcXHFDYOgo/edit?usp=sharing) -> Made by Edith Puclla
-
-# **Tips and Tricks** :gift:
-
-**From Udemy course with Mumshad Mannambeth**
-
-- Attempt all questions
-- Don't get stuck on any question
-- Get good with YAML
-- Use shortcuts/aliases
-  - po for Pods
-  - rs for RepicaSets
-  - deploy for Deployments
-  - svc for Services
-  - ns for Namespaces
-  - netpol for Networking polices
-  - pv for Persistent Volumes
-  - pvc for PersistentVolumeClaims
-  - sa for service accounts
-
-**From - Muralidaran shanmugham**
-
-- Go through the k8s.io documentation
-- Understand all the concepts outlined in the exam curriculum
-- Register for courses like Kodekloud
-- Time management
-  - nano Editor
-  - Kubectl alias
-  - learn shortcuts
-  - alias k='kubectl'
-  - k config set-context <cluster name> --namespace=<namespace name>
-  - k explain cronjob.spec.jobTemplate --recursive
-  - know all the commands => [HERE](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
-  - --restart (YAML generator)
-  - args: ["-c", "while true; do date >> /var/log/app.txt; sleep 5; done"]
-  - args: [/bin/sh, -c, 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
-  - args: ["-c", "mkdir -p collect; while true; do cat /var/data/*> /collect/data.txt; sleep 10; done"]
-  - Use of grep:
-    - kubectl describe pods | grep --context=10 annotations:
-    - kubectl describe pods | grep --context=10 Events:
-
-# **Be Fast with VIM**
-
-## Vim Setup
-
-```bash
-# Open vim
-vim ~/.vimrc
-
-# Add these lines
-set expandtab     # Use spaces for tab
-set tabstop=2     # Amount of spaces used for tab
-set shiftwidth=2  # Amount of spaces used during indentation
-
-```
-
-## Tips
-
-Navigation
-
-```bash
-h, j, k, l: Move left, down, up, right respectively.
-w: Move to the start of the next word.
-b: Move to the start of the previous word.
-0: Move to the beginning of the line.
-$: Move to the end of the line.
-gg: Move to the beginning of the file.
-G: Move to the end of the file.
-Ctrl-u: Scroll up half a page.
-Ctrl-d: Scroll down half a page.
-f<char>: Jump to the next occurrence of <char> on the same line.
-```
-
-shif + e
-b
-o
-
-```bash
-# Move the cursor
+# Move the cursor left, down, up or right
 - Use:
     h -> move to lef
     l -> move to right
     j -> move down
     k -> move  up
-- Esc + w           -> move word to word, set cursor at the beginning of the word
-- Esc + e           -> move word to word, set cursor at the end of the word
 # Edit/view/find words or lines
+- Esc + w           -> move word to word, set cursor at the beginning of the word
+- Esc + b           -> move word to word, set cursor at the start of the previous word
+- Esc + $           -> move to the end of the line
+- Esc + 0           -> move to the beginning of the line
+
+- Esc + e           -> move word to word, set cursor at the end of the word
+- Esc + dw          -> Delete a word, set cursor at the beginning of the word, then a, to start typing
+- Esc + /           -> Find a word
+
+
+# Move cursos in the file
+- Esc + gg          -> move to the beginning of the file
+- Esc + G           -> move to the end of the file
+- Ctrl-u: Scroll up half a page.
+- Ctrl-d: Scroll down half a page.
+
+
+#  Edit/view/find lines
 - Esc + DD          -> delete a line
 - Esc + o           -> add a new line
 - Esc + :set nu     -> to add line numbers
-- Esc + dw          -> Delete a word
+- Esc :num + Enter  -> go a specific number  line in a file, example: Esc :22
 - Esc + u           -> revert changes
-- Esc + /           -> Find a word
-* Esc :num + Enter  -> go a specific number  line in a file, example: Esc :22
+
 # Indent several lines
 - Shift + v         -> to visual mode and up and down arrows to move the cursor
 - Shift + >         -> indentation to the right
 - Shift + <         -> indentation to the left
-
 - Shift + 2>         -> indentation to the right, two times
 - Shift + 3<         -> indentation to the left, three times
 
 # Copy and paste single line
 - Esc + y           -> copy a line
 - Esc + p           -> paste the line
-# copy and paste several lines
-- Esc + V           -> Mark lines, then arrow keys to select several lines
+- Esc + d           -> cut the line
+
+# Copy and paste several lines
+- Esc + v           -> Mark lines, then arrow keys to select several lines
 - Esc + y           -> Copy marked lines
-- Esc + d           -> Cut marked lines
 - Esc + p           -> Past lines
-```
+````
 
-In a terminal, you can move word by word in a line using the following shortcuts:
-
-```bash
-Ctrl + Right Arrow # Move the cursor to the beginning of the next word.
-Ctrl + Left Arrow  # Move the cursor to the beginning of the previous word.
-
-# If you’re using a Mac terminal, the shortcuts are different:
-Option + Right Arrow
-Option + Left Arrow
-```
-
-# Kubectl Contexts
+### [Terminal] Move the Cursor in the terminal
 
 ```bash
-# List all kubectl context
-kubectl config get-context
-
-# Change to cluster
-kubectl config set current-context new-context
+CTRL + A # Move to the beginning of the line
+CTRL + E # Move to the end of the line
+Press left or right arrow keys + keep pressing CTRL # Move one word to the left or right with speed (I use this a lot)
 ```
 
-# **Bookmarks on Chrome** :bookmark:
+## Resources :bell: :bell:
 
-- Go to the documentation: https://kubernetes.io/docs/home/
-- Select a topic
-- Go to specific section of the page
-- Set a bookmark
-- If you need copy the code, use copy application to clipboard
+### Kubernetes Documentation :blue_book:
 
-# **My Setup (Optional)**
+- [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) - bookmarks have to be based in the oficial documentation
+- [Kubectl Getting Started ](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
 
-```bash
-# Kubectl Autocomplete
-# Bash
-source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
-echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
-
-
-complete -F __start_kubectl k
-
-alias k=kubectl
-alias kn='kubectl config set-context --current --namespace'
-alias ka='kubectl apply -f'
-alias now='kubectl delete pod --grace-period=0 --force'
-export do='--dry-run=client -o yaml'
-```
-
-# **Resources:** :bell: :bell:
-
-## **Course** :radio:
+### Course :radio:
 
 - [Udemy CKAD preparation](https://www.udemy.com/course/certified-kubernetes-application-developer/?start=0#overview) -> Mumshad Mannambeth
 
-## **Kubernetes Documentation** :blue_book:
+### Practice :pencil2:
 
-- [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) - bookmarks have to be based in the oficial documentation
+- [Kodecloud Kubernetes Challenge](https://learn.kodekloud.com/courses/kubernetes-challenges) A set of fun challenges to learn and practice your skills on Kubernetes
+- [KillerCoda - Killer Shell CKAD](https://killercoda.com/killer-shell-ckad)
+- [Kubernetes CKAD Weekly Challenge](https://lnkd.in/eZ6-Jtst) by Kim Wuestkamp
+- [Kubernetes CKAD Example Exam Questions Practical Challenge Series 2019](https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681) by Kim Wuestkamp
+- [Certified Kubernetes Application Developer Simulator](https://killer.sh/ckad) , it is free to use if you are registered in the Linux Foundation CKAD exam
+- [Practice Enough With These 150 Questions for the CKAD Exam 2019](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552) by Bhargav Bachina
+- [Github CKAD Exercises dgkanatsios](https://github.com/dgkanatsios/CKAD-exercises)
+- [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes) by Ahmet Alp Balkan
+- [Tutorial helps you get started with Kubernetes NetworkPolicy](https://networkpolicy.io/) by Kubernetes and Cilium
+- [CKAD Resources by lucassha](https://github.com/lucassha/CKAD-resources)
+- [CKAD Exam Guide](https://blog.kubesimplify.com/ckad-exam-april-2022) by Navneet Nandan Jha
 
-## **Practice** :pencil2:
+### Videos :movie_camera:
 
-1. [How to Prepare for CKAD and CKA Certification?](https://www.infracloud.io/blogs/prepare-cka-ckad-certification/) -> InfraCloud Team
-2. [Game of Pods](https://kodekloud.com/p/game-of-pods-game) A set of fun challenges to learn and practice your skills on Kubernetes
-3. [Kubernetes CKAD Example Exam Questions Practical Challenge Series](https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681) -> Kim Wuestkamp
-4. [Practice Enough With These 150 Questions for the CKAD Exam](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552) -> Bhargav Bachina
-5. [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) Github -> dgkanatsios
-6. [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
-7. [KillerCoda - Killer Shell CKAD](https://killercoda.com/killer-shell-ckad)
+- [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE) by I AM DINUTH, 03 year ago but still very useful
+- [How to CRUSH the CKAD Exam!](https://www.youtube.com/watch?v=5cgpFWVD8ds) by Alta3 Research. Not updated but some useful tips and tricks that still valid for the exam
+- [Higher Level Editing with Vim Text Objects](https://www.youtube.com/watch?v=Tk_vqJA4gK4) by matt-savvy
 
-8. [Securing Kubernetes Cluster Networking](https://ahmet.im/blog/kubernetes-network-policy/)
-9. https://editor.cilium.io/?id=7OubH15V2XjXYXHr
+### Other Resources
 
-## **Videos** :movie_camera:
+Other resources that I did not use but are also recommended:
 
-1. [How to Pass CKA, CKAD with Flying Colors?](https://www.youtube.com/watch?v=TJSAcwUP0pE) -> I AM DINUTH
-2. [How to CRUSH the CKAD Exam!](https://www.youtube.com/watch?v=5cgpFWVD8ds) -> Alta3 Research, Inc.
-3. [Vim Crash Course | How to edit files quickly in CKAD / CKA exam](https://www.youtube.com/watch?v=knyJt8d6C_8) -> The FrontOps Guy
+- [Kubernetes Introduction - Docker, Kubernetes + Hands On Labs](https://www.udemy.com/user/james-spurin/?srsltid=AfmBOoor4vPLpvU2wKbBFVg0a6r3sGf-EImUsLKsry-hyhhGpf1Y6syB) by James Spurin
+- [Kubernetes for Developers: Core Concepts](https://www.pluralsight.com/courses/kubernetes-developers-core-concepts) by Nigel Poulton
+- [Containers Courses](https://labs.iximiuz.com/courses?category=containers) by labs.iximiuz.com
 
-4. Linux Foundation Kubernetes Certifications Now Include Exam Simulator -> killer.sh
-   [CKA, CKAD, or CKS simulator](https://training.linuxfoundation.org/announcements/linux-foundation-kubernetes-certifications-now-include-exam-simulator/?utm_source=lftraining&utm_medium=twitter&utm_campaign=k8simulator)
+### AI
 
-<p align="center">
-  <img width="530" height="290" src="img/killer.png">
-</p>
+Use AI to help you to study and practice for the exam
+
+- [ChatGPT](https://chatgpt.com/) by OpenAI
+- [Microsoft Copilot](https://copilot.microsoft.com/)
+- others of your preference
+
+> Note: Use it to understand to support your study and expand your knowledge taking as a main source the official documentation
