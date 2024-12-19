@@ -284,3 +284,7 @@ Use AI to help you to study and practice for the exam
 - others of your preference
 
 > Note: Use it to understand to support your study and expand your knowledge. Take as a main source the official documentation of Kuberentes!
+
+Get ready to get certified! You got this!! 🤗 🚀
+
+![Alt text](img/aww.gif)
