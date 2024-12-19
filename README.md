@@ -18,7 +18,7 @@ This repository contains my notes, definitions, tips, sources, and commands that
       "Services and Networking" : 20
 ```
 
-## More Details
+## More Details 🧚🏻
 
 <details>
   <summary>Application Design and Build (20%)</summary>
@@ -77,9 +77,9 @@ This repository contains my notes, definitions, tips, sources, and commands that
 <br></br>
 Get more information [Training Linux Fundation](https://www.cncf.io/training/certification/ckad/) Updated September 28, 2021. You can also check the [curriculum](https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.31.pdf)
 
-## Useful commands
+## Useful commands 👾
 
-### Shortcuts for Kubernetes Objects
+### Shortcuts for Kubernetes Objects ✂️
 
 You can use the following shortcuts for common Kubernetes objects:
 
@@ -138,9 +138,7 @@ kubectl config get-context
 kubectl config set current-context new-context
 ```
 
-[CheatSheet](https://www.canva.com/design/DAGZQwvtXgw/BHlmNbYFx9Tu0R7RQV6lGQ/edit) -> UPDATE Made by Edith Puclla
-
-# **Tips** :gift:
+# **Tips** :gift: 🩴
 
 - Attempt all questions - don’t get stuck on any single one.
 - Get comfortable with YAML.
@@ -165,7 +163,7 @@ set tabstop=2 # This sets the width of a tab character to 2 spaces.
 set shiftwidth=2 # This controls the number of spaces used for auto-indentation when using commands like >> (indent) or << (outdent) in Vim.
 ```
 
-## YAML file navigation in Vim
+## YAML file navigation in Vim 🫰
 
 ```bash
 # Move the cursor left, down, up or right
@@ -275,7 +273,7 @@ Other resources that I did not use but are also recommended:
 - [Kubernetes for Developers: Core Concepts](https://www.pluralsight.com/courses/kubernetes-developers-core-concepts) by Nigel Poulton
 - [Containers Courses](https://labs.iximiuz.com/courses?category=containers) by labs.iximiuz.com
 
-### AI
+### AI 🤖
 
 Use AI to help you to study and practice for the exam
 
