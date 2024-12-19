@@ -83,17 +83,15 @@ Get more information [Training Linux Fundation](https://www.cncf.io/training/cer
 
 You can use the following shortcuts for common Kubernetes objects:
 
-| Shortcut | Object                 | Shortcut        | Object                     |
-| -------- | ---------------------- | --------------- | -------------------------- |
-| `po`     | Pods                   | `cm`            | ConfigMaps                 |
-| `rs`     | ReplicaSets            | `secret`        | Secrets                    |
-| `deploy` | Deployments            | `ing`           | Ingresses                  |
-| `svc`    | Services               | `hpa`           | Horizontal Pod Autoscalers |
-| `ns`     | Namespaces             | `ds`            | DaemonSets                 |
-| `netpol` | Network Policies       | `statefulset`   | StatefulSets               |
-| `pv`     | Persistent Volumes     | `endpoints`     | Endpoints                  |
-| `pvc`    | PersistentVolumeClaims | `limitrange`    | Limit Ranges               |
-| `sa`     | Service Accounts       | `resourcequota` | Resource Quotas            |
+| Shortcut | Object             | Shortcut    | Object                 |
+| -------- | ------------------ | ----------- | ---------------------- |
+| `po`     | Pods               | `cm`        | ConfigMaps             |
+| `rs`     | ReplicaSets        | `secret`    | Secrets                |
+| `deploy` | Deployments        | `ing`       | Ingresses              |
+| `svc`    | Services           | `endpoints` | Endpoints              |
+| `ns`     | Namespaces         | `netpol`    | Network Policies       |
+| `pv`     | Persistent Volumes | `pvc`       | PersistentVolumeClaims |
+| `sa`     | Service Accounts   |             |
 
 ### Use the right context always
 
@@ -144,23 +142,21 @@ kubectl config set current-context new-context
 
 # **Tips** :gift:
 
-- Attempt all questions
-- Don't get stuck on any question
-- Get good with YAML
-- Use shortcuts/aliases
-- Use k8s documentation for most of the thing you need
-- Use imperative commands the most you can [Kubectl Gettign Started](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
-- Use explain command
-- Use aliaces
-- Be good with time management
-- Be Fast with VIM
-- If you get boring study alone, get a study buddy who is also targeting the same exam
-- Use half of you time to learn concepts and the other half for practice, practice, practice
-- Use AI to help you to study and practice for the exam - You might disagree with this approach, but it was incredibly helpful for me to understand some very simple concepts that I couldn’t grasp without asking questions.
+- Attempt all questions - don’t get stuck on any single one.
+- Get comfortable with YAML.
+- Use shortcuts and aliases to save time.
+- Refer to Kubernetes documentation for most of what you need (And practice using it).
+- Practice using imperative commands as much as possible [Kubectl Gettign Started](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-).
+- Use the `kubectl explain` command to understand resources better.
+- Manage your time effectively.
+- Improve your speed and proficiency with VIM.
+- If studying alone feels unmotivating, find a study buddy who is also preparing for the exam.
+- Divide your study time equally between learning concepts and hands-on practice.
+- Consider using AI to help study and practice for the exam. While some may disagree, I found it incredibly helpful for clarifying simple concepts.
 
 ## Vim Setup
 
-Understand what this commands doedos:
+Understand what these commands do and how to use it in Vim:
 Open `vim ~/.vimrc`
 
 ```sh
@@ -170,8 +166,6 @@ set shiftwidth=2 # This controls the number of spaces used for auto-indentation 
 ```
 
 ## YAML file navigation in Vim
-
-````sh
 
 ```bash
 # Move the cursor left, down, up or right
@@ -185,18 +179,15 @@ set shiftwidth=2 # This controls the number of spaces used for auto-indentation 
 - Esc + b           -> move word to word, set cursor at the start of the previous word
 - Esc + $           -> move to the end of the line
 - Esc + 0           -> move to the beginning of the line
-
 - Esc + e           -> move word to word, set cursor at the end of the word
 - Esc + dw          -> Delete a word, set cursor at the beginning of the word, then a, to start typing
 - Esc + /           -> Find a word
-
 
 # Move cursos in the file
 - Esc + gg          -> move to the beginning of the file
 - Esc + G           -> move to the end of the file
 - Ctrl-u: Scroll up half a page.
 - Ctrl-d: Scroll down half a page.
-
 
 #  Edit/view/find lines
 - Esc + DD          -> delete a line
@@ -221,7 +212,19 @@ set shiftwidth=2 # This controls the number of spaces used for auto-indentation 
 - Esc + v           -> Mark lines, then arrow keys to select several lines
 - Esc + y           -> Copy marked lines
 - Esc + p           -> Past lines
-````
+
+# Vim Shortcuts
+
+| Command | Action                                                | Scope                                             |
+| ------- | ----------------------------------------------------- | ------------------------------------------------- |
+| `cc`    | Delete the current line and enter insert mode         | Entire line                                       |
+| `dd`    | Delete the current line                               | Entire line                                       |
+| `diw`   | Delete the word under the cursor (no spaces)          | Word only                                         |
+| `viw`   | Visually select the word under the cursor (no spaces) | Word only                                         |
+| `dip`   | Delete the paragraph under the cursor                 | Paragraph (text + surrounding blank lines)        |
+| `vip`   | Visually select the inner paragraph                   | Paragraph (text only, no surrounding blank lines) |
+
+```
 
 ### [Terminal] Move the Cursor in the terminal
 
@@ -230,6 +233,8 @@ CTRL + A # Move to the beginning of the line
 CTRL + E # Move to the end of the line
 Press left or right arrow keys + keep pressing CTRL # Move one word to the left or right with speed (I use this a lot)
 ```
+
+🚦 get more commands here: [See more details in the other README](./more-commands.md)
 
 ## Resources :bell: :bell:
 
@@ -278,4 +283,4 @@ Use AI to help you to study and practice for the exam
 - [Microsoft Copilot](https://copilot.microsoft.com/)
 - others of your preference
 
-> Note: Use it to understand to support your study and expand your knowledge taking as a main source the official documentation
+> Note: Use it to understand to support your study and expand your knowledge. Take as a main source the official documentation of Kuberentes!

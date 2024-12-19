@@ -1,5 +1,11 @@
 # Tips and Tricks
 
+These are some extra commands you might find useful. They are more specific, so I added them to this new sheet of tips and tricks. I hope they help make your work easier. Don’t forget to practice them to get better at using these tools!
+
+Work In Progress 🚜 🛠️ 🚧
+
+> Note: I will keep updating this document with more tips and tricks.
+
 ## 📙️ Help
 
 Use the power of `help`.
@@ -22,7 +28,7 @@ Options:
   ...
 ```
 
-## 📙 Explain
+## 📗 Explain
 
 Use the power of `explain` which provides schema information about a specific Kubernetes resource, including its fields and structure. It also helps you understand the API definition for the resource and how to configure it in YAML or JSON.
 
@@ -44,7 +50,7 @@ FIELDS:
        Kind is a string value representing the REST resource this object represents.
 ```
 
-## When to Use `help` or `explain`?
+## When to use `help` or `explain`?
 
 Use `--help` to understand how to execute a command.
 Use `kubectl explain` to understand how a Kubernetes resource is defined and structured.
@@ -54,46 +60,50 @@ kubectl get pods --all-namespaces | grep <pod-name>
 kbuectl get ns | wc -l (answer: total - one)
 ```
 
-# Count Containers in a Pod
+## Counting containers in a pod
 
-kubectl get pod red -o jsonpath='{.spec.containers[*].name}' | wc -w
+```bash
+kubectl get pod mypod -o jsonpath='{.spec.containers[*].name}' | wc -w
+```
 
-# Look for ht ename
+## Print the name of the containers in the pod named 'mypod'
 
-kubectl get pod blue -o jsonpath='{.spec.containers[*].name}'
-
-#
-
-df
-
-k create ingress INGRESSPAY --rule=\*/pay=pay-service:8282
+```bash
+kubectl get pod mypod -o jsonpath='{.spec.containers[*].name}'
+```
 
 ## Roles
 
+```bash
+# Describe the role named 'kube-proxy' in the 'kube-system' namespace.
 k describe role kube-proxy -n kube-system
 
+# Create a role named 'developer' with the following permissions:
 kubectl create role developer --verb=create --verb=get --verb=delete --resource=pods
 
+# Create a rolebinding named 'dev-user-binding' that binds the role 'developer' to the user 'dev-user
 kubectl create rolebinding dev-user-binding --role=developer --user=dev-user
 
+# Checks if the kube-apiserver is running and whether it has admission plugins enabled
 ps -ef | grep kube-apiserver | grep admission-plugins
+```
 
-## Grep
-
-# Json
-
-# awk
-
-kubectl exec james -- printenv | grep FRONT_ROW
-kubectl get pods --selectors env=dev --no-headers | wc -l
-
-## GREP
+## Grep, awk and jsonpath
 
 ```bash
+# Print all environment variables in the pod named 'james'
+kubectl exec james -- printenv | grep FRONT_ROW
 
+# Counts the number of pods in the dev environment
+kubectl get pods --selectors env=dev --no-headers | wc -l
+```
+
+```bash
+# Shows pod details and highlights the annotations: section with 10 lines before and after it.
 kubectl describe pods | grep --context=10 annotations:
-kubectl describe pods | grep --context=10 Events:
 
+# Shows pod details and highlights the Events: section with 10 lines before and after it.
+kubectl describe pods | grep --context=10 Events:
 
 #  Total count of pods with the label env=dev, excluding the header.
 kubectl get pods --show-labels | grep -c 'env=dev'
@@ -104,19 +114,20 @@ k get all  --show-labels | grep '-c'  env=prod
 #  Total count of objects with diferent labels
 k get pod --show-labels | grep env=prod | grep bu=finance | grep tier=frontend
 
-# Look for an deployment with specific ord in all namespaces
+# lists all deployments in all namespaces (-A) in a detailed format (-o wide) and filters by image.
 k get deployments.apps -A -o wide | grep kodekloud/webapp-color:v1
 ```
-
-## Tips and Tricks for AWK and Grep
 
 ### Using grep and awk to Extract Pod Information
 
 ```bash
+# Lists all pods in the current namespace with additional details
 $ k get pod -owide
 NAME    READY   STATUS    RESTARTS   AGE     IP            NODE     NOMINATED NODE   READINESS GATES
 mypod   1/1     Running   0          2m56s   192.168.1.6   node01   <none>           <none>
 nginx   1/1     Running   0          5m23s   192.168.1.4   node01   <none>           <none>
+
+# Extract the Pod Name and IP Address
 $ k get pod -owide | awk '{ print $1, $6 }'
 NAME IP
 mypod 192.168.1.6
@@ -132,6 +143,7 @@ Filter Pods by Status
 $ k get pod | grep -v "Running"
 NAME       READY   STATUS         RESTARTS   AGE
 fail-pod   0/1     ErrImagePull   0          14s
+
 # To find all pods that are in the "Running" status:
 controlplane $ k get pod | grep "Running"
 mypod      1/1     Running            0          9m48s
@@ -141,22 +153,26 @@ nginx      1/1     Running            0          12m
 ### Extract Specific Values from Pod Descriptions
 
 ```bash
-$ k describe pod mypod | grep "Node:"
+# Retrieves details of the pod named and filters to show the line containing the Node: information
+k describe pod mypod | grep "Node:"
 Node:             node01/172.30.2.2
 
+# Extracts the Node name from the output
 $ k describe pod mypod | grep "Node:" | awk '{print $2}'
 node01/172.30.2.2
 ```
 
-Get the Container Image in a Pod
-
 ```bash
+# Get the container image in a pod using jsonpath
 k get pod nginx -ojsonpath='{.spec.containers[*].image}'
 nginx
 
-$ k describe pod nginx | grep "Image:"
+# Retrieves details of the nginx pod and filters by the line containing Image:
+k describe pod nginx | grep "Image:"
     Image:          nginx
-$ k describe pod nginx | grep "Image:" | awk '{print $2}'
+
+# Retrieves the image name used by the nginx pod. It filters the Image: line and uses awk to extract and print the second column
+k describe pod nginx | grep "Image:" | awk '{print $2}'
 nginx
 ```
 
@@ -240,7 +256,7 @@ nginx   Running
 cat /etc/passwd | awk -F ":" '{print $1}'
 ```
 
-### Decode a Base64 string
+## Decode a Base64 string
 
 To Encode:
 
@@ -295,11 +311,14 @@ kubectl run tmp --image=busybox --rm -i -- wget -O- -T 5 http://my-service:8080
 kubectl run tmp --image=busybox --rm -i -- wget -O myfile.txt http://example.com/file.txt
 ```
 
-### Test NetWork polices
+### Test network polices
+
+```bash
 
 k -n space1 exec app1-0 -- curl -m 1 microservice1.space2.svc.cluster.local
 
 k -n space1 exec app1-0 -- nslookup tester.default.svc.cluster.local
+```
 
 ## Test svc
 
@@ -308,46 +327,9 @@ k run test --image=nginx --rm -n ckad12-svcn -it -- sh
 k run test --image=nginx --rm -it -- sh
 ```
 
-helm
+## helm
 
+```bash
 helm install kubernetes-dashboard-server kubernetes-dashboard/kubernetes-dashboard -n cd-tool-apd
 
-## VIM
-
-Quick Summary Table:
-
-| Command | Action                                                | Scope                                             |
-| ------- | ----------------------------------------------------- | ------------------------------------------------- |
-| `cc`    | Delete the current line and enter insert mode         | Entire line                                       |
-| `dd`    | Delete the current line                               | Entire line                                       |
-| `diw`   | Delete the word under the cursor (no spaces)          | Word only                                         |
-| `viw`   | Visually select the word under the cursor (no spaces) | Word only                                         |
-| `dip`   | Delete the paragraph under the cursor                 | Paragraph (text + surrounding blank lines)        |
-| `vip`   | Visually select the inner paragraph                   | Paragraph (text only, no surrounding blank lines) |
-
-ciw
-
-vis
-
-### Managing Line Numbers and Navigation in Vim
-
-- Press Esc to enter Normal mode.
-- Type `:set number` to show line numbers or `:set nonumber` to hide them, then press Enter.
-- To jump to a specific line, type :<line number> (e.g., :22) and press Enter.
-- Use line numbers for navigation or debugging, but disable them if copying text with the mouse.
-
-### Quick Guide to Copying and Pasting Lines in Vim
-
-- Press Esc to enter Normal mode.
-- Highlight lines with `V` and use arrow keys or `j`/`k`.
-- Press `y` to copy or `d` to cut.
-- Move to the desired location and press `p` to paste.
-
-### Quick Guide to Indenting Multiple Lines in Vim
-
-- Press Esc to enter Normal mode.
-- Highlight lines with `V` and use arrow keys or `j`/`k`.
-- Press `>` to indent or `<` to unindent.
-- Press `.` to repeat the action.
-
-**Optional**: Set indentation width with :set shiftwidth=2.
+```
